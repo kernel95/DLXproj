@@ -38,5 +38,5 @@ begin
     xor_2: xor2 port map(s1, ci, s);
     and_1: and2 port map(a, b, s2);
     and_2: and2 port map(s1, ci, s3);
-     or_1:  or2 port map(s2, s2, co);
+     or_1:  or2 port map(s2, s3, co);
 end Structural;
