@@ -24,42 +24,42 @@ shifter_dut : t2_shifter generic map (nbit=> 32) port map (r1_s, r2_s, conf_s, s
 
 VectProc:process
 begin
-   --shift logical left test
-   r1_s <= x"0000000f"; r2_s <= x"00000000"; conf_s <= "00";
+   --sll
+   r1_s <= x"0000000f"; r2_s <= x"00000000"; conf_s <= "01";
    wait for 10 ns;
    
    for I in 0 to 31 loop
 		r2_s <= std_logic_vector(to_signed(I, 32));
 		wait for 10 ns;
-		assert (shifted_out_s = std_logic_vector(shift_left(unsigned(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:";      --SLL
+		assert (shifted_out_s = std_logic_vector(shift_left(unsigned(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:sll";      --SLL
 	end loop;
    
-   --shift logical right test
-   r1_s <= x"f0000000"; r2_s <= x"00000000"; conf_s <= "01";
+   --srl
+   r1_s <= x"f0000000"; r2_s <= x"00000000"; conf_s <= "00";
    wait for 10 ns;
    
    for I in 0 to 31 loop
 		r2_s <= std_logic_vector(to_signed(I, 32));
 		wait for 10 ns;
-		assert (shifted_out_s = std_logic_vector(shift_right(unsigned(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:";      
+		assert (shifted_out_s = std_logic_vector(shift_right(unsigned(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:srl";      
 	end loop;
 
-   -- shift right arithmetical test
-   r1_s <= x"8000000f"; r2_s <= x"00000000"; conf_s <= "10";
-   wait for 10 ns;
-   for I in 0 to 31 loop
-		r2_s <= std_logic_vector(to_signed(I, 32));
-		wait for 10 ns;
-		assert (shifted_out_s = std_logic_vector(shift_right(signed(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:";          
-    end loop;
-   
-   -- shift left arithmetical test
+   -- sla
    r1_s <= x"8000000f"; r2_s <= x"00000000"; conf_s <= "11";
    wait for 10 ns;
    for I in 0 to 31 loop
 		r2_s <= std_logic_vector(to_signed(I, 32));
 		wait for 10 ns;
-		assert (shifted_out_s = std_logic_vector(shift_left(signed(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:";          
+		assert (shifted_out_s = std_logic_vector(shift_left(signed(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:sla";          
+    end loop;
+   
+   -- sra
+   r1_s <= x"8000000f"; r2_s <= x"00000000"; conf_s <= "10";
+   wait for 10 ns;
+   for I in 0 to 31 loop
+		r2_s <= std_logic_vector(to_signed(I, 32));
+		wait for 10 ns;
+		assert (shifted_out_s = std_logic_vector(shift_right(signed(r1_s), to_integer(unsigned(r2_s(4 downto 0))))) ) report "error:sra";          
     end loop;
     
     wait;
