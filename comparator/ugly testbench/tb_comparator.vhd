@@ -2,7 +2,7 @@
 -- Create Date: 28.04.2021
 -- Module Name: tb_comparator
 -- Project Name: DLX
--- Version: 1.0
+-- Version: 2.0 - removed types
 -- Additional Comments: testbench for the comparator 
 ----------------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ constant NBIT : integer := 32;
 signal      A_S : std_logic_vector(NBIT-1 downto 0);
 signal      B_S : std_logic_vector(NBIT-1 downto 0);
 signal     en_S : std_logic;
-signal   cond_S : TYPE_COMP;
+signal   cond_S : std_logic_vector(2 downto 0);
 signal      O_S : std_logic;
 
 component zero_comparator 
@@ -27,7 +27,7 @@ component zero_comparator
     port    (A : IN  std_logic_vector(N-1 downto 0);
              B : IN  std_logic_vector(N-1 downto 0);
             en : IN  std_logic;
-          cond : IN  TYPE_COMP;
+          cond : IN  std_logic_vector(2 downto 0);
              O : OUT std_logic);
 end component;
 
@@ -41,12 +41,12 @@ B_S    <= "00000000000000000000000000000000", "00000000000000000000000000000001"
           "00000000000000000000000000000111" after 30 ns, "00000000000000000000000000000000" after 35 ns;
 
 en_S   <= '1';
-cond_S <= ZERO after 2  ns,
-            EQ after 7  ns,
-           NEQ after 12 ns,
-            GE after 17 ns,
-            GT after 22 ns,
-            LE after 27 ns,
-            LT after 32 ns;
+cond_S <= "000" after 2  ns, -- ZERO
+          "001" after 7  ns, -- EQ
+          "010" after 12 ns,  -- NEQ
+          "011" after 17 ns,  -- GE
+          "100" after 22 ns,  -- GT
+          "101" after 27 ns,  -- LE
+          "110" after 32 ns;  -- LT
 
 end Behavioral;
