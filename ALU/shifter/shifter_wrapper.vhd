@@ -21,19 +21,11 @@ component shifter is
             shifted_out : out std_logic_vector(nbit-1 downto 0));
 end component;
              
-signal shifted_out_i : std_logic_vector(nbit-1 downto 0));
+signal shifted_out_i : std_logic_vector(nbit-1 downto 0);
 
 begin
 
-    shifter : shifter_wrapper generic map (nbit) port map (r1, r2, conf, shifted_out_i);
-
-    process(r1, r2, conf, en_shifter, shifted_out)
-    begin
-        if(en_shifter = '1') then
-            shifted_out <= shifted_out_i;
-        else
-            shifted_out <= (others=>'0');
-        end if;
-    end process;
+    shifter_e : shifter generic map (nbit=> nbit) port map (r1=> r1, r2=>r2, conf=> conf, shifted_out=> shifted_out_i);
+    shifted_out <= shifted_out_i when (en_shifter='1') else (others=>'0') when (en_shifter='0');
 
 end behavioral;
