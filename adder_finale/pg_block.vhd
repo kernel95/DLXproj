@@ -9,5 +9,5 @@ end pg_block;
 architecture beh_arc of pg_block is
 begin
 	Pij <= Pik and Pk1j;
-	Gik <= Gik or (Pik and Gk1j);
+	Gij <= Gik or (Pik and Gk1j);
 end beh_arc;

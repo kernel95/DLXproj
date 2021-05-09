@@ -5,7 +5,7 @@ entity RCA is
     Generic(N : Integer := 16);
     Port (A,B:  IN std_logic_vector(N-1 downto 0);
           CarryIn:   IN std_logic;
-          S:   OUT std_logic_vector(N-1 downto 0)
+          S:   OUT std_logic_vector(N-1 downto 0);
           CarryOut, overflow:  OUT std_logic);
 end RCA;
 

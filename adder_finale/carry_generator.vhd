@@ -80,7 +80,7 @@ begin
 
 	--otehr levels
 	lines: for j in 2 to Nlines-1 generate
-		blocks: for k in - to nbit/4 -1 generate
+		blocks: for k in 0 to nbit/4-1 generate
 			propagate: if(to_integer(unsigned(std_logic_vector(to_unsigned(4*(k+1) - 1, nbit)) and std_logic_vector(to_unsigned(2**j, nbit)))) = 0) generate
 
 							g_matrix(j)(k) <= g_matrix(j-1)(k);
@@ -88,7 +88,7 @@ begin
 
 			end generate propagate;
 
-		prop_and_gen: if(to_integer(unsigned(std_logic_vector(to_unsigned(4 * (k + 1)  - 1, n_bit)) and std_logic_vector(to_unsigned(2**j, n_bit)))) > 0) generate
+		prop_and_gen: if(to_integer(unsigned(std_logic_vector(to_unsigned(4 * (k + 1)  - 1, nbit)) and std_logic_vector(to_unsigned(2**j, nbit)))) > 0) generate
 
 			gen: if (4 * (k + 1) > 2**j) and (4 * (k + 1) <= 2**(j + 1)) generate
 	               	olgblock: g_block port map (g_matrix(j - 1)(k),

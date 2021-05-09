@@ -8,5 +8,5 @@ end g_block;
 
 architecture Beh_arc of g_block is
 begin
-	Gij <= Gik or (Pik and Gi1k);
+	Gij <= Gik or (Pik and Gk1j);
 end Beh_arc;

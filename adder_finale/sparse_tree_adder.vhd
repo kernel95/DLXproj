@@ -1,15 +1,15 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity final_adder is
+entity sparse_tree_adder is
 	generic(nbit : integer := 32);
-	port(op1, op2: IN integer std_logic_vector(nbit-1 downto 0);
+	port(op1, op2: IN std_logic_vector(nbit-1 downto 0);
 		 CarryIn:  IN std_logic;
 		 sum: OUT std_logic_vector(nbit-1 downto 0);
 		 CarryOut, overflow: OUT std_logic);
-end final_adder;
+end sparse_tree_adder;
 
-architecture final_adder_arc of final_adder is
+architecture sparse_tree_adder_arc of sparse_tree_adder is
 
 component carry_generator
 	generic(nbit: integer := 32);
@@ -60,4 +60,4 @@ begin
 
 	CarryOut <= carries(nbit/4);
 
-end final_adder_arc;
+end sparse_tree_adder_arc;
