@@ -1,63 +1,60 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+
 entity sparse_tree_adder is
-	generic(nbit : integer := 32);
-	port(op1, op2: IN std_logic_vector(nbit-1 downto 0);
-		 CarryIn:  IN std_logic;
-		 sum: OUT std_logic_vector(nbit-1 downto 0);
-		 CarryOut, overflow: OUT std_logic);
+    generic(n_bit: integer := 32);
+    port(operand_1, operand_2: in std_logic_vector(n_bit - 1 downto 0);
+        carry_in: in std_logic;
+        sum: out std_logic_vector(n_bit - 1 downto 0);
+        carry_out, overflow: out std_logic);
 end sparse_tree_adder;
 
-architecture sparse_tree_adder_arc of sparse_tree_adder is
-
-component carry_generator
-	generic(nbit: integer := 32);
-	port(op1, op2: IN std_logic_vector(nbit-1 downto 0);
-		 CarryIn: IN std_logic;
-		 Carry_out: OUT std_logic_vector(nbit/4-1 downto 0));
-end component;
-
-component CSB
-	generic (NBIT : integer := 4);
-    port(op1, op2: IN std_logic_vector(NBIT-1 downto 0);
-       CarryIn: IN std_logic;
-       Sum: OUT std_logic_vector(NBIT-1 downto 0);
-       CarryOut, overflow: OUT std_logic);
-end component;
-
-signal carries: std_logic_vector(nbit/4 downto 0);
-
+architecture specification of sparse_tree_adder is
+    component carry_select_adder
+        generic(n_bit: natural := 8);
+        port(operand_1, operand_2: in std_logic_vector(n_bit - 1 downto 0);
+            carry_in: in std_logic;
+            sum: out std_logic_vector(n_bit - 1 downto 0);
+            carry_out, overflow: out std_logic);
+    end component;
+    
+    component sparse_tree_carry_generator
+	generic(n_bit: integer := 32);
+	port(operand_1, operand_2: in std_logic_vector(n_bit - 1 downto 0);
+	   carry_in: in std_logic;
+		carry_out: out std_logic_vector(n_bit / 4 - 1 downto 0));
+    end component;
+    
+    signal carries: std_logic_vector(n_bit / 4 downto 0);
 begin
-
-	carries(0) <= CarryIn;
-	-- on top we have the carry generation part with the sparse tree implemented
-	carry_gen: carry_generator generic map(nbit)
-							      port map(op1, 
-							      		   op2, 
-							      		   CarryIn, 
-							      		   carries(nbit/4 downto 1));
-
-	-- on the bottom part all the adders with really carries on the input
-	adders: for i in 0 to nbit/4-1 generate
-		last: if (i=nbit/4-1) generate --4
-			adder: CSB generic map (nbit => 4)
-						  port map (op1(i*4+3 downto i*4),
-						  			op2(I*4+3 downto I*4),
-						  			carries(i),
-						  			sum(i*4+3 downto i*4),
-						  			overflow);
-		end generate last;
-
-		other_adders: if(i < nbit/4-1) generate
-			adder: CSB generic map (nbit => 4)
-						  port map (op1(i*4+3 downto i*4),
-						  			op2(I*4+3 downto I*4),
-						  			carries(i),
-						  			sum(i*4+3 downto i*4));
-		end generate other_adders;
-	end generate adders;
-
-	CarryOut <= carries(nbit/4);
-
-end sparse_tree_adder_arc;
+    
+    carries(0) <= carry_in;
+    
+    carrygen: sparse_tree_carry_generator generic map(n_bit => n_bit)
+        port map(operand_1 => operand_1,
+            operand_2 => operand_2,
+            carry_in => carry_in,
+            carry_out => carries(n_bit / 4 downto 1));
+            
+    adders: for i in 0 to n_bit / 4 - 1 generate
+        last_adder: if i = n_bit / 4 - 1 generate
+            adder: carry_select_adder generic map(n_bit => 4)
+                port map(operand_1 => operand_1(4 * i + 3 downto 4 * i),
+                    operand_2 => operand_2(4 * i + 3 downto 4 * i),
+                    carry_in => carries(i),
+                    sum => sum(4 * i + 3 downto 4 * i),
+                    overflow => overflow);
+        end generate last_adder;
+		
+        other_adders: if i < n_bit / 4 - 1 generate
+            adder: carry_select_adder generic map(n_bit => 4)
+                port map(operand_1 => operand_1(4 * i + 3 downto 4 * i),
+                    operand_2 => operand_2(4 * i + 3 downto 4 * i),
+                    carry_in => carries(i),
+                    sum => sum(4 * i + 3 downto 4 * i));
+        end generate other_adders;
+    end generate adders;
+    
+    carry_out <= carries(n_bit / 4);
+end specification;

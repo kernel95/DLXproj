@@ -1,20 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity fa is
-  port (A, B: IN std_logic;
-        Ci:   IN std_logic;
-        Co:  OUT std_logic;
-        S:   OUT std_logic);
-end fa;
 
-architecture Beh of fa is
+entity full_adder is
+    port(operand_1, operand_2, carry_in: in std_logic;
+        sum, carry_out: out std_logic);
+end full_adder;
+
+architecture specification of full_adder is
 begin
-
-    process(A, B, Ci)
-    begin
-        S <= A xor B xor Ci;
-        Co <= (A and B) or (B and Ci) or (A and Ci);
-    end process;
-    
-end Beh;
+    sum <= carry_in xor (operand_1 xor operand_2);
+    carry_out <= (carry_in and (operand_1 xor operand_2)) or (operand_1 and operand_2);
+end specification;

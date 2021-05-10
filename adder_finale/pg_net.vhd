@@ -1,16 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity pg_net is
-	generic(nbit: integer := 32);
-	port(op1, op2: IN std_logic_vector(nbit-1 downto 0);
-		 p, g: OUT std_logic_vector(nbit-1 downto 0));
-end pg_net;
+entity pg_network is
+	generic(n_bit: integer := 32);
+	port(operand_1, operand_2: in std_logic_vector(n_bit downto 1);
+		p, g: out std_logic_vector(n_bit downto 1));
+end pg_network;
 
-architecture pg_net_arc of pg_net is
+architecture specification of pg_network is
 begin
-
-	p <= op1 xor op2;
-	g <= op1 and op2;
-
-end pg_net_arc;
+	p <= operand_1 xor operand_2;
+	g <= operand_1 and operand_2;
+end specification;

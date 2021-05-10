@@ -1,48 +1,42 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
 use ieee.math_real.all;
+use ieee.numeric_std.all;
 
-entity CSB is
-  generic (NBIT : integer := 16);
-  port(op1, op2: IN std_logic_vector(NBIT-1 downto 0);
-       CarryIn: IN std_logic;
-       Sum: OUT std_logic_vector(NBIT-1 downto 0);
-       CarryOut, overflow: OUT std_logic);
-end CSB;
+entity carry_select_adder is
+    generic(n_bit: natural := 8);
+    port(operand_1, operand_2: in std_logic_vector(n_bit - 1 downto 0);
+        carry_in: in std_logic;
+        sum: out std_logic_vector(n_bit - 1 downto 0);
+        carry_out, overflow: out std_logic);
+end carry_select_adder;
 
-architecture Structural of CSB is
-
-    component RCA
-    Generic(N : Integer := 16);
-    Port (A,B:  IN std_logic_vector(N-1 downto 0);
-          CarryIn:   IN std_logic;
-          S:   OUT std_logic_vector(N-1 downto 0);
-          CarryOut, overflow:  OUT std_logic);
+architecture specification of carry_select_adder is
+    component ripple_carry_adder
+        generic(n_bit: natural := 8);
+            port(operand_1, operand_2: in std_logic_vector(n_bit - 1 downto 0);
+                carry_in: in std_logic;
+                sum: out std_logic_vector(n_bit - 1 downto 0);
+                carry_out, overflow: out std_logic);
     end component;
-
+    
     signal ovf, cout: std_logic_vector(1 downto 0);
-    signal sumsig: std_logic_vector(2*NBIT-1 downto 0);
-
-    begin
-        adders: for i in 0 to 1 generate
-            RipplecCA: rca generic map (NBIT) 
-                        port map (A => op1,
-                                  B => op2,
-                                  CarryIn =>std_logic(to_unsigned(i, 1)(0)), 
-                                  S => sumsig((i+1) * NBIT-1 downto i * NBIT),
-                                  CarryOut => cout(i), 
-                                  overflow => ovf(i));
-        end generate adders;
-
-        --select the right sum with the guessed carry in
-        sum <= sumsig(NBIT-1 downto 0) when CarryIn = '0' else
-               sumsig(2*NBIT-1 downto NBIT) when CarryIn = '1';
-        -- set the right carry out
-        CarryOut <= cout(0) when carryIn = '0' else
-                    cout(1) when carryIn = '1';
-        -- set if overflow happened 
-        overflow <= ovf(0) when carryIn = '0' else
-                    ovf(1) when carryIn = '1';
-
-end Structural;
+    signal sumsig: std_logic_vector(2 * n_bit - 1 downto 0);
+begin
+    adders: for i in 0 to 1 generate
+        rca: ripple_carry_adder generic map(n_bit => n_bit)
+            port map(operand_1 => operand_1,
+                operand_2 => operand_2,
+                carry_in => std_logic(to_unsigned(i, 1)(0)),
+                sum => sumsig((i + 1) * n_bit - 1 downto i * n_bit),
+                carry_out => cout(i),
+                overflow => ovf(i));
+    end generate;
+    
+    sum <= sumsig(n_bit - 1 downto 0) when carry_in = '0' else
+        sumsig(2 * n_bit - 1 downto n_bit) when carry_in = '1';
+    carry_out <= cout(0) when carry_in = '0' else
+        cout(1) when carry_in = '1';
+    overflow <= ovf(0) when carry_in = '0' else
+        ovf(1) when carry_in = '1';
+end specification;
