@@ -9,12 +9,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity fa is
+entity full_adder_tina is
     port( a, b, ci:  IN std_logic;
              co, s: OUT std_logic);
-end fa;
+end full_adder_tina;
 
-architecture Structural of fa is
+architecture Structural of full_adder_tina is
 
 component and2 
     port(a, b:  IN std_logic;

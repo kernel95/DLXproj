@@ -34,7 +34,7 @@ signal carry_s : std_logic_vector(NBIT-1 downto 0);
 begin
     ha: half_adder port map(a(0), b(0), carry_s(0), s(0));
     fn: for i in 1 to NBIT-1 generate
-            fadd: fa port map(a(i), b(i), carry_s(i-1), carry_s(i), s(i));
+            fa_i: fa port map(a(i), b(i), carry_s(i-1), carry_s(i), s(i));
         end generate;
         c <= carry_s(NBIT-1);
 end Structural;
