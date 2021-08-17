@@ -17,7 +17,7 @@ entity Decode_wrapper is
   Port (instrD: IN std_logic_vector(31 downto 0);
         PcPlus4D: IN std_logic_vector(31 downto 0);
         select_ext: IN std_logic; --additional signal to control sign extend
-        select_mux1, select_mux2: IN std_logic; --forwardAD, forwardBD
+        ForwardAd, ForwardBD: IN std_logic; --forwardAD, forwardBD
         clk, en, rst: IN std_logic;
         ALUOutM: IN std_logic_vector (31 downto 0);
         WriteRegW: IN std_logic_vector(4 downto 0);
@@ -136,8 +136,8 @@ begin
     RF: window_rf generic map (N,M,F,nbit)
                      port map (clk, rst, en, en_RD1, en_RD2, en_WR, WriteRegW, A1, A2, FILL, SPILL, CALL, RET, Memory_in, Memory_out, ResultW, RD1_rf, RD2_rf);    
     
-    MUX1: MUX21 generic map (nbit) port map (RD1_rf, ALUOutM, select_mux1, out1_mux);
-    MUX2: MUX21 generic map (nbit) port map (RD2_rf, ALUOutM, select_mux2, out2_mux);
+    MUX1: MUX21 generic map (nbit) port map (RD1_rf, ALUOutM, ForwardAd, out1_mux);
+    MUX2: MUX21 generic map (nbit) port map (RD2_rf, ALUOutM, ForwardBD, out2_mux);
     
     Comparator: comparator_addr port map (out1_mux, out2_mux, EqualD);
     
