@@ -16,16 +16,24 @@ entity Decode_wrapper is
 
   Port (instrD: IN std_logic_vector(31 downto 0);
         PcPlus4D: IN std_logic_vector(31 downto 0);
-        select_ext: IN std_logic;
-        select_mux1, select_mux2: IN std_logic;
+        select_ext: IN std_logic; --additional signal to control sign extend
+        select_mux1, select_mux2: IN std_logic; --forwardAD, forwardBD
         clk, en, rst: IN std_logic;
         ALUOutM: IN std_logic_vector (31 downto 0);
+        WriteRegW: IN std_logic_vector(4 downto 0);
+        ResultW: IN std_logic_vector(31 downto 0);
+        CALL, RET: IN std_logic;
+        Memory_in: IN std_logic_vector(31 downto 0); 
+        Memory_out: OUT std_logic_vector(31 downto 0);
+        FILL, SPILL: OUT std_logic;
         RsD: OUT std_logic_vector(4 downto 0);
         RtD: OUT std_logic_vector(4 downto 0);
         RdE: OUT std_logic_vector(4 downto 0);
         SignImmD: OUT std_logic_vector(31 downto 0);
         PCBranchD: OUT std_logic_vector(31 downto 0);
         EqualD: OUT std_Logic;
+        OP: OUT std_logic_vector(5 downto 0);
+        FUNC: OUT std_logic_vector(10 downto 0);
         RD1, RD2: OUT std_logic_vector(31 downto 0));
         
 end Decode_wrapper;
@@ -94,9 +102,6 @@ component window_rf
            OUT2:   OUT std_logic_vector(NBIT-1 downto 0));
 end component;
 
-signal Op: std_logic_vector(5 downto 0);
-signal Func: std_logic_vector(6 downto 0);
-
 --additional signals for sign extended and shift for adder and branches    
 signal sign_ext_in: std_logic_vector(31 downto 0);
 signal signImmD_temp: std_logic_vector(31 downto 0);
@@ -104,14 +109,17 @@ signal shifted_out: std_logic_vector(31 downto 0);
 
 --signal for window register file
 signal en_RD1, en_RD2, en_WR: std_logic;
-signal A1, A2, A3: std_logic_vector(4 downto 0); --A1=RD1_addr,  A2=RD2_addr, A3=WR_addr
-signal WD3: std_logic_vector(31 downto 0); -- signal coming from memory
-signal FILL,SPILL,CALL,RET: std_logic;
-signal Memory_in, Memory_out: std_logic_vector(31 downto 0);
+signal A1, A2: std_logic_vector(4 downto 0); --A1=RD1_addr,  A2=RD2_addr
+--signal WD3: std_logic_vector(31 downto 0); -- ResultW
+--signal FILL,SPILL,CALL,RET: std_logic;
+--signal Memory_in, Memory_out: std_logic_vector(31 downto 0);
 signal RD1_rf, RD2_rf: std_logic_vector(31 downto 0);
 
 --signal for muxes and comparator
 signal out1_mux, out2_mux: std_logic_vector(31 downto 0);
+
+--internal signal for pipeline
+
 
 
 
@@ -126,7 +134,7 @@ begin
     adder: adder_generic generic map (nbit) port map (shifted_out, PCPlus4D, PCBranchD);
                             
     RF: window_rf generic map (N,M,F,nbit)
-                     port map (clk, rst, en, en_RD1, en_RD2, en_WR, A3, A1, A2, FILL, SPILL, CALL, RET, Memory_in, Memory_out, WD3, RD1_rf, RD2_rf);    
+                     port map (clk, rst, en, en_RD1, en_RD2, en_WR, WriteRegW, A1, A2, FILL, SPILL, CALL, RET, Memory_in, Memory_out, ResultW, RD1_rf, RD2_rf);    
     
     MUX1: MUX21 generic map (nbit) port map (RD1_rf, ALUOutM, select_mux1, out1_mux);
     MUX2: MUX21 generic map (nbit) port map (RD2_rf, ALUOutM, select_mux2, out2_mux);
@@ -138,7 +146,10 @@ begin
     
     RsD <= InstrD(25 downto 21);
     RtD <= instrD(20 downto 16);
-    RDe <= instrD(15 downto 11);   
+    RDe <= instrD(15 downto 11);
+    
+    Op <= instrD(31 downto 26);
+    FUNC <= instrD(10 downto 0);
 
 
 end Behavioral;
