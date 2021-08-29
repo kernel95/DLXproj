@@ -103,7 +103,6 @@ component window_rf
 end component;
 
 --additional signals for sign extended and shift for adder and branches    
-signal sign_ext_in: std_logic_vector(31 downto 0);
 signal signImmD_temp: std_logic_vector(31 downto 0);
 signal shifted_out: std_logic_vector(31 downto 0);
 
@@ -125,11 +124,11 @@ signal out1_mux, out2_mux: std_logic_vector(31 downto 0);
 
 
 begin
-    sign_ext_in <= "0000000000000000" & InstrD(15 downto 0);
+
     clk_rf <= not(clk);
     
     
-    Sign_extended: sign_ext port map (sign_ext_in, select_ext, signImmD_temp);
+    Sign_extended: sign_ext port map (InstrD, select_ext, signImmD_temp);
     
     shift: shift_by_two port map (signImmD_temp, shifted_out);
     
