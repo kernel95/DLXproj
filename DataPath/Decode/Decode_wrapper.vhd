@@ -23,6 +23,8 @@ entity Decode_wrapper is
         WriteRegW: IN std_logic_vector(4 downto 0);
         ResultW: IN std_logic_vector(31 downto 0);
         CALL, RET: IN std_logic;
+        IsJal: IN std_logic; -- signal to enable write when instr JAL
+        RegWriteW: IN std_logic; --enable write signal from CU when Write from WB
         Memory_in: IN std_logic_vector(31 downto 0); 
         Memory_out: OUT std_logic_vector(31 downto 0);
         FILL, SPILL: OUT std_logic;
@@ -44,6 +46,11 @@ constant nbit: integer := 32;
 constant N: integer := 4;
 constant M: integer := 4;
 constant F: integer := 4;
+
+component or_gate
+    port(x, y: IN std_logic;
+         z: OUT std_logic);
+end component;
 
 component sign_ext
     port( a: IN  std_logic_vector(31 downto 0);
@@ -117,8 +124,10 @@ signal clk_rf: std_logic;
 
 --signal for muxes and comparator
 signal out1_mux, out2_mux: std_logic_vector(31 downto 0);
+signal ResultOrJal: std_logic_vector(31 downto 0);
 
---internal signal for pipeline
+--signal from OR between RegWriteW and IsJal
+signal enable_for_W_RF: std_logic;
 
 
 
@@ -128,30 +137,23 @@ begin
     clk_rf <= not(clk);
     
     
+
     Sign_extended: sign_ext port map (InstrD, select_ext, signImmD_temp);
     
     shift: shift_by_two port map (signImmD_temp, shifted_out);
     
     adder: adder_generic generic map (nbit) port map (shifted_out, PCPlus4D, PCBranchD);
-                            
+
+    --new mux to drive write inside the Reg the result from WB
+    -- or write the address of a jump inside R31
+    MUX3: MUX21 generic map (nbit) port map (ResultW, PcPlus4D, IsJal, ResultOrJal); 
+
+    or_gate: Or1 port map (IsJal, RegWriteW, enable_for_W_RF);
+
     RF: window_rf generic map (N,M,F,nbit)
-                     port map (clk_rf, 
-                               rst, en, 
-                               en_RD1,
-                               en_RD2,
-                                en_WR,
-                                 WriteRegW,
-                                  A1,
-                                   A2,
-                                    FILL,
-                                     SPILL,
-                                      CALL,
-                                       RET,
-                                        Memory_in,
-                                         Memory_out,
-                                          ResultW,
-                                           RD1_rf,
-                                            RD2_rf);    
+                     port map (clk_rf, rst, en, en_RD1, en_RD2, enable_for_W_RF, WriteRegW, A1, A2, 
+                               FILL, SPILL, CALL, RET,
+                               Memory_in, Memory_out, ResultOrJal, RD1_rf, RD2_rf);    
     
     MUX1: MUX21 generic map (nbit) port map (RD1_rf, ALUOutM, ForwardAd, out1_mux);
     MUX2: MUX21 generic map (nbit) port map (RD2_rf, ALUOutM, ForwardBD, out2_mux);
