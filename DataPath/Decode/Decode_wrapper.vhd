@@ -24,6 +24,7 @@ entity Decode_wrapper is
         ResultW: IN std_logic_vector(31 downto 0);
         CALL, RET: IN std_logic;
         IsJal: IN std_logic; -- signal to enable write when instr JAL
+        Comp_control: IN std_logic_vector(1 downto 0); --control signal to make right comparison for jumps
         RegWriteW: IN std_logic; --enable write signal from CU when Write from WB
         Memory_in: IN std_logic_vector(31 downto 0); 
         Memory_out: OUT std_logic_vector(31 downto 0);
@@ -78,6 +79,7 @@ end component;
 
 component comparator_addr
     Port (y1, y2: IN std_logic_vector(31 downto 0);
+          comp_control: IN std_logic_vector(1 downto 0); --control signal to decide which jump has to be performed
           EqualD: OUT std_logic);
 end component;
 
@@ -158,7 +160,7 @@ begin
     MUX1: MUX21 generic map (nbit) port map (RD1_rf, ALUOutM, ForwardAd, out1_mux);
     MUX2: MUX21 generic map (nbit) port map (RD2_rf, ALUOutM, ForwardBD, out2_mux);
     
-    Comparator: comparator_addr port map (out1_mux, out2_mux, EqualD);
+    Comparator: comparator_addr port map (out1_mux, out2_mux, Comp_control, EqualD);
     
     RD1 <= out1_mux;
     RD2 <= out2_mux;
