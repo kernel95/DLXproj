@@ -127,6 +127,7 @@ signal clk_rf: std_logic;
 --signal for muxes and comparator
 signal out1_mux, out2_mux: std_logic_vector(31 downto 0);
 signal ResultOrJal: std_logic_vector(31 downto 0);
+signal Addr_or_R31: std_logic_vector(4 downto 0);
 
 --signal from OR between RegWriteW and IsJal
 signal enable_for_W_RF: std_logic;
@@ -152,8 +153,10 @@ begin
 
     or_gate: Or1 port map (IsJal, RegWriteW, enable_for_W_RF);
 
+    MUX4: MUX21 generic map (5) port map (WriteRegW, "11111", IsJal, Addr_or_R31);
+
     RF: window_rf generic map (N,M,F,nbit)
-                     port map (clk_rf, rst, en, en_RD1, en_RD2, enable_for_W_RF, WriteRegW, A1, A2, 
+                     port map (clk_rf, rst, en, en_RD1, en_RD2, enable_for_W_RF, Addr_or_R31, A1, A2, 
                                FILL, SPILL, CALL, RET,
                                Memory_in, Memory_out, ResultOrJal, RD1_rf, RD2_rf);    
     
