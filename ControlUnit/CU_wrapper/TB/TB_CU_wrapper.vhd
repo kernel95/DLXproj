@@ -94,9 +94,14 @@ DUT : CU_wrapper port map (clock_s, reset_s, OPCODE_s, FUNC_s, EqualD_s, FlushE_
                            MemToRegW_s, BranchD_H_s, MemToRegE_H_s, RegWriteE_H_s, MemToRegM_H_s,
                            RegWriteM_H_s, RegWriteW_H_s, CALL_s, RET_s, FILL_s, SPILL_s);
                            
-ClkProc:process(clock_s)
+ClkProc:process
 begin
-    clock_s <= not(clock_s) after 5 ns;
+
+    clock_s <= '1';
+    wait for 5 ns;
+    clock_s <= '0';
+    wait for 5 ns;
+    
 end process ClkProc;
 
 VectProc:process
