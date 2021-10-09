@@ -19,6 +19,7 @@ entity Decode_wrapper is
         select_ext: IN std_logic; --additional signal to control sign extend
         ForwardAd, ForwardBD: IN std_logic; --forwardAD, forwardBD
         clk, en, rst: IN std_logic;
+        RD1_EN, RD2_EN : IN std_logic;
         ALUOutM: IN std_logic_vector (31 downto 0);
         WriteRegW: IN std_logic_vector(4 downto 0);
         ResultW: IN std_logic_vector(31 downto 0);
@@ -116,7 +117,7 @@ signal signImmD_temp: std_logic_vector(31 downto 0);
 signal shifted_out: std_logic_vector(31 downto 0);
 
 --signal for window register file
-signal en_RD1, en_RD2, en_WR: std_logic;
+--signal en_RD1, en_RD2, en_WR: std_logic;
 signal A1, A2: std_logic_vector(4 downto 0); --A1=RD1_addr,  A2=RD2_addr
 --signal WD3: std_logic_vector(31 downto 0); -- ResultW
 --signal FILL,SPILL,CALL,RET: std_logic;
@@ -132,12 +133,10 @@ signal Addr_or_R31: std_logic_vector(4 downto 0);
 --signal from OR between RegWriteW and IsJal
 signal enable_for_W_RF: std_logic;
 
-
-
-
 begin
 
     clk_rf <= not(clk);
+    signImmD <= signImmD_temp;
     
     
 
@@ -151,12 +150,12 @@ begin
     -- or write the address of a jump inside R31
     MUX3: MUX21 generic map (nbit) port map (ResultW, PcPlus4D, IsJal, ResultOrJal); 
 
-    or_gate: Or1 port map (IsJal, RegWriteW, enable_for_W_RF);
+    OR1: or_gate port map (IsJal, RegWriteW, enable_for_W_RF);
 
     MUX4: MUX21 generic map (5) port map (WriteRegW, "11111", IsJal, Addr_or_R31);
 
     RF: window_rf generic map (N,M,F,nbit)
-                     port map (clk_rf, rst, en, en_RD1, en_RD2, enable_for_W_RF, Addr_or_R31, A1, A2, 
+                     port map (clk_rf, rst, en, RD1_EN, RD2_EN, enable_for_W_RF, Addr_or_R31, A1, A2, 
                                FILL, SPILL, CALL, RET,
                                Memory_in, Memory_out, ResultOrJal, RD1_rf, RD2_rf);    
     
@@ -167,6 +166,9 @@ begin
     
     RD1 <= out1_mux;
     RD2 <= out2_mux;
+    
+    A1 <= InstrD(25 downto 21);
+    A2 <= instrD(20 downto 16);
     
     RsD <= InstrD(25 downto 21);
     RtD <= instrD(20 downto 16);
