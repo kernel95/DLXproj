@@ -114,9 +114,10 @@ Control : CU port map (RST => reset,
                        Select_ext => select_ext_CU, 
                        isJal => IsJal_CU, 
                        RD1 => RD1_CU, 
-                       RD2 => RD2_CU, 
+                       RD2 => RD2_CU,
+                       RegWriteD => RegWriteD_regnext, 
                        Comp_control => comp_control_CU, 
-                       RegWriteD => RegWriteD_regnext,
+                       RegDestD => RegDestD_regnext,
                        AluSrcD => ALUSrcD_regnext, 
                        ALUControlD => ALUControlD_regnext, 
                        MemWriteD => MemWriteD_regnext,
@@ -177,18 +178,25 @@ end process;
     AluControlE  <= ALUcontrolD_regnext;
     AluSrcE      <= ALUSrcD_regnext;
     RegDestE     <= RegDestD_regnext;
-    --MEMORY SIGNALS ASSINMENT
-    MemWriteM    <= MemWriteE_regnext;
-    RegWriteW    <= RegWriteM_regnext;
-    MemToRegW    <= MemToRegM_regnext;
-    --WB SIGNALS ASSIGNMENT
+    MemWriteE_regnext <= MemWriteD_regnext;
+    RegWriteE_regnext <= RegWriteD_regnext;
+    MemToRegE_regnext <= MemToRegD_regnext;
     
+    --MEMORY SIGNALS ASSINMENT
+    MemWriteM           <= MemWriteE_regnext;
+    RegWriteM_CU        <= MemWriteE_regnext;
+    RegWriteM_regnext   <= RegWriteE_regnext;
+    MemToRegM_regnext   <= MemToRegE_regnext;
+    --WB SIGNALS ASSIGNMENT
+    RegWriteW    <= RegWriteM_regnext;
+    RegWriteW_CU <= RegWriteM_regnext;
+    MemToRegW    <= MemToRegM_regnext;
     --HAZARD UNIT
     BranchD_H    <= BranchD_cu; 
     MemToRegE_H  <= MemToRegE_regnext;
     RegWriteE_H  <= RegWriteE_regnext;
-    MemToRegM_H  <= MemWriteE_regnext;
+    MemToRegM_H  <= RegWriteM_CU;
     RegWriteM_H  <= RegWriteM_regnext;
-    RegWriteW_H  <= RegWriteM_regnext;
+    RegWriteW_H  <= RegWriteW_CU;
     
 end Behavioral;

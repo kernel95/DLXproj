@@ -105,8 +105,14 @@ begin
 reset_s <= '1';
 OPCODE_addr <= (others => '0');
 FUNC_addr   <= (others => '0');
-EqualD_s <= '0';
-FlushE_s <= '0';
+OPCODE_s    <= (others => '0');
+FUNC_s      <= (others => '0');
+EqualD_s    <= '0';
+FlushE_s    <= '0';
+
+wait for 5 ns;
+
+reset_s <= '0';
 
 wait for 5 ns;
 
