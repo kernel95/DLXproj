@@ -96,12 +96,9 @@ signal IsJal_CU:          std_logic;
 signal select_ext_CU:     std_logic;
 signal RD1_CU, RD2_CU:    std_logic;
 signal Comp_control_CU:   std_logic_vector(1 downto 0);
-signal CALL_CU, RET_CU: std_logic;
+--signal CALL_CU, RET_CU: std_logic;
 
 --signals for HazardUnit
-signal MemToRegE_CU : std_logic;
-signal RegWriteE_CU : std_logic; 
-signal MemToRegM_CU : std_logic;
 signal RegWriteM_CU : std_logic; 
 signal RegWriteW_CU : std_logic;
 
