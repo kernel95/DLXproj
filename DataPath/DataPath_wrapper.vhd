@@ -303,7 +303,7 @@ begin
         RtD_H <= RtD_wire;
                                          
  execute_stage: execute_stage_wrapper generic map (NBIT, NBIT)
-                                         port map (RD1, RD2, RsD, RtD, RdD, SignImmD, 
+                                         port map (RD1, RD2, RsD, RdD, RtD, SignImmD, 
                                                    ALUOutMOut_wire, ResultW_wire,
                                                    ALUOutE_wire, WriteRegE_H_wire, WriteDataE_wire,
                                                    ForwardAE, ForwardBE, RsE_H, RtE_H,

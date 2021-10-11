@@ -80,8 +80,8 @@ selSrcB: MUX21          generic map (NBIT)
                            port map (SB, SignImmE, AluSrcE, SrcBE);
                            
 regAddr: MUX21          generic map (5)
-                           port map (RtE,
-                            RdE,
+                           port map (RtE, --
+                            RdE, --
                              RegDstE,
                               WriteRegE);
                   

@@ -171,23 +171,24 @@ end process;
     Comp_control <= Comp_control_CU;
     CALL <= CALL_CU;
     RET <= RET_CU;
+    
     --EXECUTE SIGNALS ASSIGNMENT
-    AluControlE  <= ALUcontrolD_regnext;
-    AluSrcE      <= ALUSrcD_regnext;
-    RegDestE     <= RegDestD_regnext;
-    MemWriteE_regnext <= MemWriteD_regnext;
-    RegWriteE_regnext <= RegWriteD_regnext;
-    MemToRegE_regnext <= MemToRegD_regnext;
+    AluControlE  <= ALUcontrolD_reg;
+    AluSrcE      <= ALUSrcD_reg;
+    RegDestE     <= RegDestD_reg;
+    MemWriteE_regnext <= MemWriteD_reg;
+    RegWriteE_regnext <= RegWriteD_reg;
+    MemToRegE_regnext <= MemToRegD_reg;
     
     --MEMORY SIGNALS ASSINMENT
-    MemWriteM           <= MemWriteE_regnext;
-    RegWriteM_CU        <= MemWriteE_regnext;
-    RegWriteM_regnext   <= RegWriteE_regnext;
-    MemToRegM_regnext   <= MemToRegE_regnext;
+    MemWriteM           <= MemWriteE_reg;
+    RegWriteM_CU        <= MemWriteE_reg;
+    RegWriteM_regnext   <= RegWriteE_reg;
+    MemToRegM_regnext   <= MemToRegE_reg;
     --WB SIGNALS ASSIGNMENT
-    RegWriteW    <= RegWriteM_regnext;
-    RegWriteW_CU <= RegWriteM_regnext;
-    MemToRegW    <= MemToRegM_regnext;
+    RegWriteW    <= RegWriteM_reg;
+    RegWriteW_CU <= RegWriteM_reg;
+    MemToRegW    <= MemToRegM_reg;
     --HAZARD UNIT
     BranchD_H    <= BranchD_cu; 
     MemToRegE_H  <= MemToRegE_regnext;
