@@ -157,15 +157,15 @@ architecture dlx_cu of cu is
 
   process(OPCODE, FUNC, rst)
        begin
-        if (rst = '0') then
+        if (rst = '1') then
             cw <= (OTHERS => '0');
-        end if;
-        
-         case conv_integer(unsigned(OPCODE)) is
+        else 
+            case conv_integer(unsigned(OPCODE)) is
 	        -- case of R type requires analysis of FUNC
 		        when 0 => cw <= cw_mem(conv_integer(FUNC)); -- first 17 positions are dedicated for R-TYPE
                 when others => cw <= cw_mem(conv_integer(OPCODE) + 46); --AFTER 17 all I-TYPE last addr is 0x2A = 42 dec
          end case;
+         end if;
   end process;
   
   BranchD       <= CW(CW_SIZE - 1);

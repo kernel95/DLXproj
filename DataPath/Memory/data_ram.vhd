@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.std_logic_arith.all;
+--use ieee.std_logic_arith.all;
+use ieee.numeric_std.all;
 
 entity data_ram is
     generic (nwords : integer := 64;
@@ -16,7 +17,7 @@ architecture Behavioral of data_ram is
     signal dram_memory : ram_type;
 begin
     -- Runtime
-    dout <= dram_memory(conv_integer(unsigned(addr(isize-1 downto 2))));
+    dout <= dram_memory(to_integer(unsigned(addr(isize-1 downto 2)))) when (addr < std_logic_vector(to_unsigned(nwords, 32))) else x"00000000" ;
     
      -- At reset, load the memory from a file
     mem_p: process(rst,clk)
@@ -26,7 +27,7 @@ begin
             dram_memory <= (others=>(others=>'0'));
         elsif(clk='1' and clk'event) then
             if(we = '1') then
-                dram_memory(conv_integer(unsigned(addr(isize-3 downto 2)))) <= din;
+                dram_memory(to_integer(unsigned(addr(isize-3 downto 2)))) <= din;
             end if;
         end if;
     end process mem_p;

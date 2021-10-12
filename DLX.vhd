@@ -128,7 +128,32 @@ component CU_wrapper
 end component;
 
 --Hazard detection unit wrapper
-
+component hazard_detection_unit 
+    port(
+        -- Input from the DP
+        RsD, RtD :  IN std_logic_vector(4 downto 0);
+        RsE, RtE :  IN std_logic_vector(4 downto 0);
+        WriteRegM : IN std_logic_vector(4 downto 0);
+        WriteRegW : IN std_logic_vector(4 downto 0);
+        WriteRegE : IN std_logic_vector(4 downto 0);
+        -- Input from the CU
+        BranchD :   IN std_logic;
+        MemToRegE : IN std_logic;
+        MemToRegM : IN std_logic;
+        RegWriteM : IN std_logic;
+        RegWriteW : IN std_logic;
+        RegWriteE : IN std_logic;
+        -- Forwarding MUX selector
+        ForwardAD : OUT std_logic;
+        ForwardBD : OUT std_logic;
+        ForwardAE : OUT std_logic_vector(1 downto 0);
+        ForwardBE : OUT std_logic_vector(1 downto 0);
+        -- Pipeline register control signals
+        StallF :    OUT std_logic;
+        StallD :    OUT std_logic;
+        FlushE :    OUT std_logic
+    );
+end component;
 
 --IRAM <-> DLX signals
 signal address_to_iram : std_logic_vector(31 downto 0);
@@ -223,7 +248,7 @@ Control_unit: CU_wrapper port map (clock => clk,
                                    OPCODE => OP_DP,
                                    FUNC => FUNC_DP,
                                    EqualD => EqualD_DP,
-                                   FlushE => '0',
+                                   FlushE => FlushE_DP,
                                    
                                    Pc_SrcD => Pc_SrcD_CU,
                                    Select_ext => Select_ext_CU,
@@ -259,20 +284,20 @@ DataPath: DataPath_wrapper port map (clk => clk,
                                      DRAM_in => DRAM_in_DP,
                                      DRAM_out => DRAM_out_DP,
                                      
-                                     StallF => '0',
-                                     StallD => '0',
+                                     StallF => StallF_DP,
+                                     StallD => StallD_DP,
                                      
-                                     ForwardAD => '0',
-                                     ForwardBD => '0',
-                                     FlushE => '0',
+                                     ForwardAD => ForwardAD_DP,
+                                     ForwardBD => ForwardBD_DP,
+                                     FlushE => FlushE_DP,
                                      rst_RF => rst,
                                      en_RF => '1',
                                      
                                      RsD_H => RsD_H_DP,
                                      RtD_H => RtD_H_DP,
                                      
-                                     ForwardAE => "00",
-                                     ForwardBE => "00",
+                                     ForwardAE => ForwardAE_DP,
+                                     ForwardBE => ForwardBE_DP,
                                      WriteRegE_H => WriteRegE_H_DP,
                                      RsE_H => RsE_H_DP,
                                      RtE_H => RtE_H_DP,
@@ -304,8 +329,28 @@ DataPath: DataPath_wrapper port map (clk => clk,
                                      MemWriteM => MemWriteM_CU,
                                      MemToRegW => MemToRegW_CU);
                                      
-                                     
--- HAZARD_UNIT => HAZARD port map ();                                     
+HazardUnit: hazard_detection_unit port map ( 
+                        RsD => RsD_H_DP,
+                        RtD => RtD_H_DP,
+                        RsE => RsE_H_DP,
+                        RtE => RtE_H_DP,
+                        WriteRegM => WriteRegMOut_H_DP, 
+                        WriteRegW => WriteRegWBOut_H_DP,
+                        WriteRegE => WriteRegE_H_DP,
+                        BranchD => BranchD_H_CU,
+                        MemToRegE => MemToRegE_H_CU,
+                        MemToRegM => MemToRegM_H_CU,
+                        RegWriteM => RegWriteM_H_CU,
+                        RegWriteW => RegWriteW_H_CU,
+                        RegWriteE => RegWriteE_H_CU,
+                        ForwardAD => ForwardAD_DP,
+                        ForwardBD => ForwardBD_DP,
+                        ForwardAE => ForwardAE_DP,
+                        ForwardBE => ForwardBE_DP,
+                        StallF => StallF_DP,
+                        StallD => StallD_DP,
+                        FlushE => FlushE_DP
+                        );                                     
 
 
 

@@ -220,21 +220,6 @@ signal WriteRegWBOut_wire: std_logic_vector(4 downto 0);
 begin
     process( clk, rst, StallF, StallD, PCSrcD, FlushE)
     begin
-        -- CLR for FETCH -> DECODE REGS
-        if ( PCSrcD = '1') then
-            IR <= (OTHERS => '0'); -- NOP
-            PCPlus4 <= (OTHERS => '0'); --NO INCREMENT FOR PC
-        end if;
-        -- CLR for DECODE -> EXECUTE REGS
-        if (FlushE = '1') then
-            RD1 <= (OTHERS => '0');
-            RD2 <= (OTHERS => '0');
-            RsD <= (OTHERS => '0');
-            RtD <= (OTHERS => '0');
-            RdD <= (OTHERS => '0');
-            SignImmD <= (OTHERS => '0');
-        end if;
-        
         if(rst = '1') then
             -- FETCH -> DECODE
             IR <= (OTHERS => '0');
@@ -255,7 +240,21 @@ begin
             ALUOutM <= (OTHERS => '0');
             WriteRegM <= (OTHERS => '0');
         
-        elsif(rising_edge(CLK)) then
+        elsif(rising_edge(clk)) then
+            -- CLR for FETCH -> DECODE REGS
+            if ( PCSrcD = '1') then
+                IR <= (OTHERS => '0'); -- NOP
+                PCPlus4 <= (OTHERS => '0'); --NO INCREMENT FOR PC
+            end if;
+            -- CLR for DECODE -> EXECUTE REGS
+            if (FlushE = '1') then
+                RD1 <= (OTHERS => '0');
+                RD2 <= (OTHERS => '0');
+                RsD <= (OTHERS => '0');
+                RtD <= (OTHERS => '0');
+                RdD <= (OTHERS => '0');
+                SignImmD <= (OTHERS => '0');
+            end if;
             -- FETCH -> DECODE
             if(StallD = '0') then
                 IR <= IRnext;
@@ -282,7 +281,8 @@ begin
         
  fetch_stage: fetch_stage_wrapper generic map (NBIT, NWORDS_IRAM)
                                      port map (PCBranchD_wire, PCPlus4F_wire, InstrD_wire, address_to_iram, iram_to_dlx, PCSrcD, StallF, clk, rst);       
-    
+        
+        
         IRnext <= InstrD_wire;
         PCPlus4next <= PCPlus4F_wire;
         

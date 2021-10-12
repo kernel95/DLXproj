@@ -18,6 +18,6 @@ end shift_by_two;
 architecture df of shift_by_two is
 begin
 
-    shifted_out <= SignImmD(29 downto 0) & "00"; --just 2 bit shifted left
+    shifted_out <= SignImmD;--(29 downto 0) & "00"; --just 2 bit shifted left
 
 end df;

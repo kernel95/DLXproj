@@ -18,5 +18,6 @@ end adder_generic;
 
 architecture Behavioral of adder_generic is
 begin
-    y <= std_logic_vector(signed(a) + signed(b));
+    --y <= std_logic_vector(signed(a) + signed(b));
+    y <= std_logic_vector(unsigned(a) + unsigned(b));
 end Behavioral;

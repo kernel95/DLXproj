@@ -60,11 +60,6 @@ component sign_ext
           y: OUT std_logic_vector(31 downto 0));
 end component;
 
-component shift_by_two
-    Port (SignImmD: in std_logic_vector(31 downto 0);
-          shifted_out: out std_logic_vector(31 downto 0));
-end component;
-
 component adder_generic
     generic (nbit: integer := 32);
     port (a, b: in std_logic_vector(nbit-1 downto 0);
@@ -114,7 +109,6 @@ end component;
 
 --additional signals for sign extended and shift for adder and branches    
 signal signImmD_temp: std_logic_vector(31 downto 0);
-signal shifted_out: std_logic_vector(31 downto 0);
 
 --signal for window register file
 --signal en_RD1, en_RD2, en_WR: std_logic;
@@ -142,9 +136,7 @@ begin
 
     Sign_extended: sign_ext port map (InstrD, select_ext, signImmD_temp);
     
-    shift: shift_by_two port map (signImmD_temp, shifted_out);
-    
-    adder: adder_generic generic map (nbit) port map (shifted_out, PCPlus4D, PCBranchD);
+    adder: adder_generic generic map (nbit) port map (signImmD_temp, PCPlus4D, PCBranchD);
 
     --new mux to drive write inside the Reg the result from WB
     -- or write the address of a jump inside R31

@@ -1,8 +1,9 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.std_logic_arith.all;
+--use ieee.std_logic_arith.all;
 use std.textio.all;
 use ieee.std_logic_textio.all;
+use ieee.numeric_std.all;
 
 entity instruction_ram is
     generic (nwords : integer := 64;
@@ -19,7 +20,8 @@ architecture Behavioral of instruction_ram is
 begin
     
     -- Runtime
-    dout <= iram_memory(conv_integer(unsigned(addr(isize-3 downto 2))));
+    
+    dout <= iram_memory(to_integer(unsigned(addr(isize-3 downto 2)))) when addr(isize-3 downto 2)<std_logic_vector(to_unsigned(nwords, 32)) else x"00000000";
     
     -- At reset, load the memory from a file
     fill_mem_p: process(rst)
@@ -30,7 +32,7 @@ begin
     begin
         if(rst='1') then
             iram_memory <= (others=>(others=>'0'));
-            file_open(mem_fp, "C:\Users\kelme\Desktop\DLX\iram.txt", READ_MODE);
+            file_open(mem_fp, "C:\vivado_designs\dlx_datapath_test\iram.txt", READ_MODE);
             while(not endfile(mem_fp)) loop
                 readline(mem_fp, file_line);
                 hread(file_line, tmp_data_u);
