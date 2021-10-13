@@ -32,7 +32,7 @@ begin
     begin
         if(rst='1') then
             iram_memory <= (others=>(others=>'0'));
-            file_open(mem_fp, "C:\vivado_designs\dlx_datapath_test\iram.txt", READ_MODE);
+            file_open(mem_fp, "C:\Users\kelme\Desktop\DLX_test\beqz.txt", READ_MODE);
             while(not endfile(mem_fp)) loop
                 readline(mem_fp, file_line);
                 hread(file_line, tmp_data_u);
