@@ -86,7 +86,8 @@ begin
 
     StallF <= LWstall OR BranchStall;
     StallD <= LWstall OR BranchStall;
-    FlushE <= LWstall OR BranchStall;
+    --FlushE <= LWstall OR BranchStall;
+    FlushE <= '0';
     end process;
    
 
