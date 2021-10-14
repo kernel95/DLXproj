@@ -17,7 +17,7 @@ architecture Behavioral of data_ram is
     signal dram_memory : ram_type;
 begin
     -- Runtime
-    dout <= dram_memory(to_integer(unsigned(addr(isize-1 downto 2)))) when (addr < std_logic_vector(to_unsigned(nwords, 32))) else x"00000000" ;
+    dout <= dram_memory(to_integer(unsigned(addr(isize-1 downto 2)))) when (addr(isize-1 downto 2) < std_logic_vector(to_unsigned(nwords, 32))) else x"00000000" ;
     
      -- At reset, load the memory from a file
     mem_p: process(rst,clk)
