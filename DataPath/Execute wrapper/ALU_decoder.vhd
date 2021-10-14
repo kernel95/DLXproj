@@ -11,8 +11,8 @@ begin
 	
 	process(s5,s4,s3,s2,s1,s0)
 	begin
-		en_logic <= (s5 NAND s4);             --remember to include our LUT in the Report for this specification
-		en_adder <= (s4 AND (NOT s5));
+		en_logic <= (not(s5) AND not(s4));             --remember to include our LUT in the Report for this specification
+		en_adder <= ((NOT s5) AND s4);
 		en_shift <= (s5 AND (NOT s4));
 		en_comp  <= (s5 AND s4 AND (NOT s3));
 		en_mult  <= (s5 AND s4 AND s3);
