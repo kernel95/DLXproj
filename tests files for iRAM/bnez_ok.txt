@@ -1,0 +1,8 @@
+20010006 //addi r1, r0, 6
+20020007 //addi r2, r0, 7
+0022180E //mult r3, r1, r2
+20630002 //addi r3, r3, 2 shift:
+58630001 //srli r3, r3, 1
+1460FFF8 //bnez r3, shift
+00000000 //nop
+0BFFFFFC //fine: j fine

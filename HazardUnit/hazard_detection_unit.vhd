@@ -84,7 +84,8 @@ begin
     end if;
 
 
-    StallF <= LWstall OR BranchStall;
+    --StallF <= LWstall OR BranchStall;
+    StallF <= '0';
     StallD <= LWstall OR BranchStall;
     --FlushE <= LWstall OR BranchStall;
     FlushE <= '0';
