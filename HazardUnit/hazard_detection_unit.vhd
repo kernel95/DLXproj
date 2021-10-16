@@ -40,18 +40,18 @@ begin
     begin
     -- Forwarding Rs 
     if((RsE /= "00000") AND (RsE = WriteRegM) AND RegWriteM = '1') then
-        ForwardAE <= "10";
+        ForwardAE <= "10"; -- 10
     elsif((RsE /= "00000") AND (RsE = WriteRegW) AND RegWriteW = '1') then
-        ForwardAE <= "01";
+        ForwardAE <= "01"; --01
     else
         ForwardAE <= "00";
     end if;
     
     -- Forwarding Rt
     if((RtE /= "00000") AND (RtE = WriteRegM) AND RegWriteM = '1') then
-        ForwardBE <= "10";
+        ForwardBE <= "10"; -- 10
     elsif((RtE /= "00000") AND (RtE = WriteRegW) AND RegWriteW = '1') then
-        ForwardBE <= "01";
+        ForwardBE <= "01"; --01
     else
         ForwardBE <= "00";
     end if;

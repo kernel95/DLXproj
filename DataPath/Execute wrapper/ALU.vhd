@@ -99,6 +99,7 @@ begin
 			  out_comp  when en_comp =  '1' else
 			  out_shift when en_Shift = '1' else
 			  out_add   when en_Adder = '1' else
-			  out_logic when en_logic = '1';                
+			  out_logic when en_logic = '1' else
+			  x"00000000";                
 
 end Specification;
