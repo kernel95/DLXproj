@@ -78,6 +78,7 @@ component DataPath_wrapper
           RegDstE: IN std_Logic; -- select for mux on execute for writing destination reg
           ALUSrcE: IN std_logic; --select between immediate or operand 
           ALUControlE: in std_logic_vector (5 downto 0); --decode for ALU
+          en_ALU: IN std_logic;
           --Memory
           MemWriteM: in std_logic; --write enable for memory stage
           --Writeback
@@ -104,6 +105,7 @@ component CU_wrapper
         Comp_control: out std_logic_vector(1 downto 0); -- control which branch to compute
             
         --EXECUTE
+        en_ALU:      OUT std_logic;
         ALUcontrolE: OUT std_logic_vector(5 downto 0); -- DECODER SIGNAL ALU
         RegDestE:    OUT std_logic; --select first mux of execute stage
         ALUSrcE:     OUT std_logic; --select second mux of execute stage
@@ -176,6 +178,7 @@ signal Comp_control_CU: std_logic_vector(1 downto 0); -- control which branch to
 signal ALUcontrolE_CU:  std_logic_vector(5 downto 0); -- DECODER SIGNAL ALU
 signal RegDestE_CU:     std_logic; --select first mux of execute stage
 signal ALUSrcE_CU:      std_logic; --select second mux of execute stage
+signal en_ALU_CU:       std_logic;
  --MEMORY
 signal MemWriteM_CU:    std_logic;
 --WB
@@ -257,6 +260,7 @@ Control_unit: CU_wrapper port map (clock => clk,
                                    RD2 => RD2_CU,
                                    Comp_control => Comp_control_CU,
                                    
+                                   en_ALU      => en_ALU_CU,
                                    ALUControlE => ALUControlE_CU,
                                    RegDestE => RegDestE_CU,
                                    ALUSrcE => ALUSrcE_CU,
@@ -325,6 +329,7 @@ DataPath: DataPath_wrapper port map (clk => clk,
                                      RegDstE => RegDestE_CU,
                                      ALUSrcE => ALUSrcE_CU,
                                      ALUControlE => ALUControlE_CU,
+                                     en_ALU      => en_ALU_CU,
                                      
                                      MemWriteM => MemWriteM_CU,
                                      MemToRegW => MemToRegW_CU);
@@ -351,7 +356,5 @@ HazardUnit: hazard_detection_unit port map (
                         StallD => StallD_DP,
                         FlushE => FlushE_DP
                         );                                     
-
-
 
 end Behavioral;

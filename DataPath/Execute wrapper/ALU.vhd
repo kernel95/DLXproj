@@ -3,7 +3,8 @@ use ieee.std_logic_1164.all;
 
 entity ALU is
 	generic(NBIT : integer := 32);
-	port(op1, op2: IN std_logic_vector(NBIT-1 downto 0);
+	port(en_alu: IN std_logic;
+	     op1, op2: IN std_logic_vector(NBIT-1 downto 0);
 		 sel: IN std_logic_vector(5 downto 0);
 		 result: OUT std_logic_vector(NBIT-1 downto 0);
 		 --result_comp: OUT std_logic;
@@ -61,6 +62,7 @@ end component;
 
 component ALU_decoder
 	port(s5,s4,s3,s2,s1,s0: IN std_logic;
+	     en_ALU: IN std_logic;
 		 en_mult,en_comp,en_Shift,en_Adder,en_Logic: OUT std_logic);
 end component;
 
@@ -72,7 +74,7 @@ end component;
 begin
 
     --ALU DECODER
-    decoder: ALU_decoder port map (sel(5), sel(4), sel(3), sel(2), sel(1), sel(0), en_mult, en_comp, en_Shift, en_Adder, en_logic);
+    decoder: ALU_decoder port map (sel(5), sel(4), sel(3), sel(2), sel(1), sel(0), en_ALU, en_mult, en_comp, en_Shift, en_Adder, en_logic);
 
     --LOGIC UNIT
 	logic_op: logic_op_unit generic map (NBIT)
@@ -90,6 +92,8 @@ begin
     --SHIFTER
     shift: shifter_wrapper generic map (NBIT)
                               port map (op1, op2, sel(1 downto 0), en_Shift, out_shift);          
+    
+    
                               
     result <= out_mul   when en_mult =  '1' else
 			  out_comp  when en_comp =  '1' else

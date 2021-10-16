@@ -65,6 +65,7 @@ entity DataPath_wrapper is
           RegDstE: IN std_Logic; -- select for mux on execute for writing destination reg
           ALUSrcE: IN std_logic; --select between immediate or operand 
           ALUControlE: in std_logic_vector (5 downto 0); --decode for ALU
+          en_ALU:      in std_logic; --enable for the ALU
           --Memory
           MemWriteM: in std_logic; --write enable for memory stage
           --Writeback
@@ -121,7 +122,8 @@ component execute_stage_wrapper
     generic (NBIT : integer := 32; -- nbits operands
                 N : integer := 32);-- nbits PC
                 -- I/O signals
-    port    (RD1E :  IN std_logic_vector(NBIT-1 downto 0);    -- SrcA
+    port    (en_alu: IN std_logic;
+             RD1E :  IN std_logic_vector(NBIT-1 downto 0);    -- SrcA
              RD2E :  IN std_logic_vector(NBIT-1 downto 0);
               RsE :  IN std_logic_vector(     4 downto 0);
               RdE :  IN std_logic_vector(     4 downto 0);    -- destRegI
@@ -303,7 +305,7 @@ begin
         RtD_H <= RtD_wire;
                                          
  execute_stage: execute_stage_wrapper generic map (NBIT, NBIT)
-                                         port map (RD1, RD2, RsD, RdD, RtD, SignImmD, 
+                                         port map (en_ALU, RD1, RD2, RsD, RdD, RtD, SignImmD, 
                                                    ALUOutMOut_wire, ResultW_wire,
                                                    ALUOutE_wire, WriteRegE_H_wire, WriteDataE_wire,
                                                    ForwardAE, ForwardBE, RsE_H, RtE_H,

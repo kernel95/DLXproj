@@ -23,7 +23,7 @@ entity CU_wrapper is
         ALUcontrolE: OUT std_logic_vector(5 downto 0); -- DECODER SIGNAL ALU
         RegDestE:    OUT std_logic; --select first mux of execute stage
         ALUSrcE:     OUT std_logic; --select second mux of execute stage
-           
+        en_ALU:      OUT std_logic;   
         --MEMORY
         MemWriteM: out std_logic;
             
@@ -61,6 +61,7 @@ component CU
               RegWriteD:     out std_logic; --ENABLE WRITE PORT OF RF COMING FROM WRITEBACK ---- TO DO IN DATAPATH
               Comp_control: OUT std_logic_vector(1 downto 0); --control signal for comparator that gives to CU the EqualD signal
               --EXECUTE
+              en_ALU:   out std_logic;
               RegDestD: OUT std_logic; --select first mux of execute stage
               ALUSrcD: OUT std_logic; --select second mux of execute stage
               ALUcontrolD: OUT std_logic_vector(5 downto 0); -- DECODER SIGNAL ALU
@@ -80,7 +81,8 @@ signal RegDestD_reg,    RegDestD_regnext:    std_logic;
 signal ALUSrcD_reg,     ALUSrcD_regnext:     std_logic;
 signal ALUcontrolD_reg, ALUcontrolD_regnext: std_logic_vector(5 downto 0);
 signal MemWriteD_reg,   MemWriteD_regnext:   std_logic; 
-signal MemToRegD_reg,   MemToRegD_regnext:   std_logic; 
+signal MemToRegD_reg,   MemToRegD_regnext:   std_logic;
+signal en_ALUD_reg,      en_ALUD_regnext:    std_logic; 
 --EXECUTE
 signal RegWriteE_reg,   RegWriteE_regnext:   std_logic;
 signal MemWriteE_reg,   MemWriteE_regnext:   std_logic;
@@ -113,7 +115,8 @@ Control : CU port map (RST => reset,
                        RD1 => RD1_CU, 
                        RD2 => RD2_CU,
                        RegWriteD => RegWriteD_regnext, 
-                       Comp_control => comp_control_CU, 
+                       Comp_control => comp_control_CU,
+                       en_ALU => en_ALUD_regnext, 
                        RegDestD => RegDestD_regnext,
                        AluSrcD => ALUSrcD_regnext, 
                        ALUControlD => ALUControlD_regnext, 
@@ -131,6 +134,7 @@ begin
         ALUcontrolD_reg <= (others => '0');
         MemWriteD_reg   <= '0';
         MemToRegD_reg   <= '0';
+        en_ALUD_reg     <= '0';
         
         RegWriteE_reg <= '0';
         MemWriteE_reg <= '0';
@@ -154,6 +158,7 @@ begin
         ALUcontrolD_reg <= ALUcontrolD_regnext;
         MemWriteD_reg   <= MemWriteD_regnext;
         MemToRegD_reg   <= MemToRegD_regnext;
+        en_ALUD_reg     <= en_ALUD_regnext;
         RegWriteE_reg   <= RegWriteE_regnext;
         MemToRegE_reg   <= MemToRegE_regnext;
         MemWriteE_reg   <= MemWriteE_regnext;
@@ -176,6 +181,7 @@ end process;
     AluControlE  <= ALUcontrolD_reg;
     AluSrcE      <= ALUSrcD_reg;
     RegDestE     <= RegDestD_reg;
+    en_ALU       <= en_ALUD_reg;
     MemWriteE_regnext <= MemWriteD_reg;
     RegWriteE_regnext <= RegWriteD_reg;
     MemToRegE_regnext <= MemToRegD_reg;

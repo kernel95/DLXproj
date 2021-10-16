@@ -14,7 +14,8 @@ entity execute_stage_wrapper is
     generic (NBIT : integer := 32; -- nbits operands
                 N : integer := 32);-- nbits PC
                 -- I/O signals
-    port    (RD1E :  IN std_logic_vector(NBIT-1 downto 0);    -- SrcA
+    port    (en_alu: IN std_logic;
+             RD1E :  IN std_logic_vector(NBIT-1 downto 0);    -- SrcA
              RD2E :  IN std_logic_vector(NBIT-1 downto 0);
               RsE :  IN std_logic_vector(     4 downto 0);
               RdE :  IN std_logic_vector(     4 downto 0);    -- destRegI
@@ -44,7 +45,8 @@ architecture Behavioral of execute_stage_wrapper is
 
 component ALU 
 	generic(NBIT : integer := 32);
-	port(op1, op2:  IN std_logic_vector(NBIT-1 downto 0);
+	port(en_alu:    IN std_logic;
+	     op1, op2:  IN std_logic_vector(NBIT-1 downto 0);
 		      sel:  IN std_logic_vector(     5 downto 0);
 		   result: OUT std_logic_vector(NBIT-1 downto 0);
 		 CarryOut: OUT std_logic;
@@ -86,7 +88,7 @@ regAddr: MUX21          generic map (5)
                               WriteRegE);
                   
 ALUcomp: ALU            generic map (NBIT)
-                           port map (SrcAE, SrcBE, ALUcontrolE, ALUoutE, carryOut_s, overflow_s);
+                           port map (en_ALU, SrcAE, SrcBE, ALUcontrolE, ALUoutE, carryOut_s, overflow_s);
                            
 RsE_o <= RsE;
 RtE_o <= RtE;
