@@ -68,7 +68,7 @@ begin
         ForwardBD <= '0';
     end if;
 
-    if (((RsE = RtE) OR (RtD = RtE)) AND MemToRegE = '1') then
+    if (((RsD = RtE) OR (RtD = RtE)) AND MemToRegE = '1') then
         LWstall <= '1';
     else
         LWstall <= '0';
@@ -83,12 +83,10 @@ begin
         BranchStall <= '0';
     end if;
 
-
-    --StallF <= LWstall OR BranchStall;
-    StallF <= '0';
+    StallF <= LWstall;
     StallD <= LWstall OR BranchStall;
-    --FlushE <= LWstall OR BranchStall;
     FlushE <= '0';
+    
     end process;
    
 

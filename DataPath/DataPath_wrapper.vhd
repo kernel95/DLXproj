@@ -18,9 +18,10 @@ entity DataPath_wrapper is
           address_to_iram: out std_logic_vector(31 downto 0);
           iram_to_dlx: in std_logic_vector(31 downto 0);
         --DRAM Memory signals
-          DRAM_in: out std_logic_vector(31 downto 0);
-          DRAM_out: in  std_logic_vector(31 downto 0);
-        
+          address_to_dram: out std_logic_vector(31 downto 0);
+          data_to_dram : out std_logic_vector(31 downto 0);
+          dram_to_dlx: in  std_logic_vector(31 downto 0);
+          dram_we : out std_logic;
         --HAZARD UNIT SIGNALS
         --Fetch
           StallF, StallD: IN std_logic;
@@ -149,14 +150,18 @@ component execute_stage_wrapper
       ALUcontrolE :  IN std_logic_vector(     5 downto 0));   -- select alu 
 end component;
 
-component memory_unit
+component memory_unit is
     generic (nbit : integer := 32;
              nwords : integer := 64);
     port (ALUOutMIn, WriteDataM: in std_logic_vector(nbit-1 downto 0);
           ReadDataM, ALUOutMOut : out std_logic_vector(nbit-1 downto 0);
+          address_to_dram : out std_logic_vector(nbit-1 downto 0);
+          data_to_dram : out std_logic_vector(nbit-1 downto 0);
+          dram_to_dlx : in std_logic_vector(nbit-1 downto 0);
           WriteRegMIn : in std_logic_vector(4 downto 0);
           WriteRegMOut : out std_logic_vector(4 downto 0);
-          clk, rst, MemWriteM : in std_logic);
+          clk, rst, MemWriteM : in std_logic;
+          MemWriteM_out : out std_logic);
 end component;
 
 component writeback_unit
@@ -204,6 +209,7 @@ signal RdD_wire: std_logic_vector(4 downto 0);
 signal SignImmD_wire: std_logic_vector(31 downto 0);
 signal RD1_wire : std_logic_vector(31 downto 0);
 signal RD2_wire : std_logic_vector(31 downto 0);
+signal RF_OUT, RF_IN : std_logic_vector(31 downto 0);
 
 --EXECUTE WIRES
 signal ALUOutE_wire: std_logic_vector(31 downto 0);
@@ -289,7 +295,7 @@ begin
         PCPlus4next <= PCPlus4F_wire;
         
  decode_stage: decode_wrapper port map ( IR, PCPlus4, Select_ext, ForwardAD, ForwardBD, clk, en_RF ,rst_RF, RD1_EN, RD2_EN, ALUOutMOut_wire,
-                                         WriteRegW_wire, ResultW_wire, CALL, RET, isJal, Comp_control, RegWriteW, DRAM_out, DRAM_in, FILL, SPILL,
+                                         WriteRegW_wire, ResultW_wire, CALL, RET, isJal, Comp_control, RegWriteW, RF_OUT, RF_IN, FILL, SPILL,
                                          RsD_wire, RtD_wire, RdD_wire, SignImmD_wire, PCBranchD_wire, EqualD, OP, FUNC,
                                          RD1_wire, RD2_wire);
         
@@ -320,8 +326,10 @@ begin
   memory_stage: memory_unit generic map (NBIT, NWORDS_DRAM)
                                port map (ALUOutE, WriteDataE,
                                          ReadDataM_wire, ALUOutMOut_wire,
+                                         address_to_dram, data_to_dram,
+                                         dram_to_dlx,
                                          WriteRegE, WriteRegMOut_wire,
-                                         clk, rst_mem, MemWriteM);      
+                                         clk, rst_mem, MemWriteM, dram_we);      
         
         --Pipeline
         ReadDataMnext <= ReadDataM_wire;

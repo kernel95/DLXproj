@@ -22,8 +22,18 @@ component instruction_ram is
           rst : in std_logic);
 end component;
 
+--DRAM
+component data_ram is
+    generic (nwords : integer := 64;
+             isize  : integer := 32);
+    port( addr: in std_logic_vector(isize-1 downto 0);
+          din: in std_logic_vector(isize-1 downto 0);
+          dout: out std_logic_vector(isize-1 downto 0);
+          rst, clk, we : in std_logic);
+end component;
+
 --Datapath Wrapper
-component DataPath_wrapper 
+component DataPath_wrapper is
   Port (  clk: IN std_logic;
           rst: IN std_logic;
   
@@ -31,9 +41,10 @@ component DataPath_wrapper
           address_to_iram: out std_logic_vector(31 downto 0);
           iram_to_dlx: in std_logic_vector(31 downto 0);
         --DRAM Memory signals
-          DRAM_in: out std_logic_vector(31 downto 0);
-          DRAM_out: in  std_logic_vector(31 downto 0);
-        
+          address_to_dram: out std_logic_vector(31 downto 0);
+          data_to_dram : out std_logic_vector(31 downto 0);
+          dram_to_dlx: in  std_logic_vector(31 downto 0);
+          dram_we : out std_logic;
         --HAZARD UNIT SIGNALS
         --Fetch
           StallF, StallD: IN std_logic;
@@ -78,7 +89,7 @@ component DataPath_wrapper
           RegDstE: IN std_Logic; -- select for mux on execute for writing destination reg
           ALUSrcE: IN std_logic; --select between immediate or operand 
           ALUControlE: in std_logic_vector (5 downto 0); --decode for ALU
-          en_ALU: IN std_logic;
+          en_ALU:      in std_logic; --enable for the ALU
           --Memory
           MemWriteM: in std_logic; --write enable for memory stage
           --Writeback
@@ -200,8 +211,10 @@ signal FUNC_addr_CU  : std_logic_vector(FUNC_SIZE - 1 downto 0);
 
 --DP <-> DLX signals
 --IRAM Memory signals
---DRAM Memory signals
 signal DRAM_in_DP, DRAM_out_DP: std_logic_vector(31 downto 0);
+--DRAM Memory signals
+signal address_to_dram, data_to_dram, dram_to_dlx: std_logic_vector(31 downto 0);
+signal dram_we : std_logic;
 
 --HAZARD UNIT SIGNALS
 --Fetch
@@ -245,6 +258,7 @@ signal MemToRegW_DP:  std_logic; --select mux on WB
 begin
 
 iram : instruction_ram generic map (nwords, isize) port map (address_to_iram, iram_to_dlx, rst);
+dram : data_ram generic map (nwords, isize) port map (address_to_dram, data_to_dram, dram_to_dlx, rst, clk, dram_we);
 
 Control_unit: CU_wrapper port map (clock => clk,
                                    reset => rst,
@@ -285,8 +299,11 @@ DataPath: DataPath_wrapper port map (clk => clk,
                                      rst => rst,
                                      address_to_iram => address_to_iram,
                                      iram_to_dlx => iram_to_dlx,
-                                     DRAM_in => DRAM_in_DP,
-                                     DRAM_out => DRAM_out_DP,
+                                     
+                                     address_to_dram => address_to_dram,
+                                     data_to_dram => data_to_dram,
+                                     dram_to_dlx => dram_to_dlx,
+                                     dram_we => dram_we, 
                                      
                                      StallF => StallF_DP,
                                      StallD => StallD_DP,
