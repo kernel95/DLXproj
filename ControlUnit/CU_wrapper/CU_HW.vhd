@@ -3,7 +3,7 @@
 -- Module Name: CONTROL UNIT
 -- Project Name: DLX
 -- Version: 1.0
--- Additional Comments: HARD WIRED VERSION
+-- Additional Comments: uPROGRAMMED
 ----------------------------------------------------------------------------------
 
 library ieee;
