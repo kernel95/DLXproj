@@ -1,6 +1,6 @@
 #Analyze 
 exec mkdir -p reports
-exec mkdir -p WORK
+exec mkdir -p work
 
 #Fetch Stage
 analyze -library WORK -format vhdl {/home/ms21.27/Synthesis/DLXproj/DataPath/Fetch/register_generic.vhd}
@@ -50,31 +50,64 @@ analyze -library WORK -format vhdl {/home/ms21.27/Synthesis/DLXproj/DataPath/Mem
 #Writeback Stage
 analyze -library WORK -format vhdl {/home/ms21.27/Synthesis/DLXproj/DataPath/Writeback/writeback_unit.vhd}
 
+#Clock proc
+proc set_custom_clock {} {
+	#Clock 1.0=>1.0, 1.2=>0.833, 1.4=>0.714, 1.5=>0.666, 1.6=>0.625
+	set WCP 0.625
+	create_clock -name "CLOCK" -period $WCP clk
+	set_max_delay $WCP -from [all_inputs] -to [all_outputs]
+	set max_fanout 32
+	set minbit 1
+	set_clock_gating_style -minimum_bitwidth $minbit -max_fanout $max_fanout -control_point before -positive_edge_logic {latch and}
+}
+
 #Elaborate
 #Fetch Stage
 elaborate fetch_stage_wrapper -architecture structural -library WORK -parameters "nwords = 64, nbit = 32"
 set_wire_load_model -name 5K_hvratio_1_4
-compile -exact_map
+set_custom_clock
+compile_ultra -timing_high_effort_script -no_autoungroup -gate_clock
 report_timing > reports/fetch_stage_timing.txt
+report_area > reports/fetch_stage_area.txt
+report_power > reports/fetch_stage_power.txt
 
 #Decode Stage
 elaborate Decode_wrapper -architecture Behavioral -library WORK
-compile -exact_map
+set_wire_load_model -name 5K_hvratio_1_4
+set_custom_clock
+compile_ultra -timing_high_effort_script -no_autoungroup -gate_clock
 report_timing > reports/decode_stage_timing.txt
+report_area > reports/decode_stage_area.txt
+report_power > reports/decode_stage_power.txt
 
 #Execute Stage
 elaborate execute_stage_wrapper -architecture Behavioral -library WORK -parameters "NBIT = 32, N = 32"
-compile -exact_map
+set_wire_load_model -name 5K_hvratio_1_4
+set WCP 0.625
+set_max_delay $WCP -from [all_inputs] -to [all_outputs]
+compile_ultra -timing_high_effort_script -no_autoungroup -gate_clock
 report_timing > reports/execute_stage_timing.txt
+report_area > reports/execute_stage_area.txt
+report_power > reports/execute_stage_power.txt
 
 #Memory Stage
-elaborate memory_unit_wrapper -architecture Structural -library WORK -parameters "nwords = 64, isize = 32"
-compile -exact_map
+elaborate memory_unit -architecture Structural -library WORK -parameters "nbit = 32, nwords = 64"
+set_wire_load_model -name 5K_hvratio_1_4
+set WCP 0.625
+set_max_delay $WCP -from [all_inputs] -to [all_outputs]
+compile_ultra -timing_high_effort_script -no_autoungroup -gate_clock
 report_timing > reports/memory_stage_timing.txt
+report_area > reports/memory_stage_area.txt
+report_power > reports/memory_stage_power.txt
 
 #Writeback Stage
-elaborate writeback_unit -architecture Structural -library WORK -parameters "NBIT = 32"
-compile -exact_map
+elaborate writeback_unit -architecture Structural -library WORK -parameters "N = 32"
+set_wire_load_model -name 5K_hvratio_1_4
+set WCP 0.625
+set_max_delay $WCP -from [all_inputs] -to [all_outputs]
+compile_ultra -timing_high_effort_script -no_autoungroup -gate_clock
 report_timing > reports/writeback_stage_timing.txt
+report_area > reports/writeback_stage_area.txt
+report_power > reports/writeback_stage_power.txt
 
 
