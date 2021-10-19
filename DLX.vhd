@@ -257,6 +257,7 @@ signal MemToRegW_DP:  std_logic; --select mux on WB
 
 begin
 
+-- Comment this two instances when synthesizing the DLX
 iram : instruction_ram generic map (nwords, isize) port map (address_to_iram, iram_to_dlx, rst);
 dram : data_ram generic map (nwords, isize) port map (address_to_dram, data_to_dram, dram_to_dlx, rst, clk, dram_we);
 
