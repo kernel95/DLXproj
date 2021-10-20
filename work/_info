@@ -1,0 +1,2058 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ms21.27/DLXproj
+T_opt
+!s110 1634746876
+V@V`C`hAeN5z0S8Q;RCUd?3
+04 6 10 work tb_dlx behavioral 1
+=1-000ae431a4f1-617041fc-68d12-4912
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;10.7c;67
+Eadder_generic
+Z1 w1634746242
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+R0
+Z5 8./DataPath/Decode/adder_generic.vhd
+Z6 F./DataPath/Decode/adder_generic.vhd
+l0
+L13
+VMQEDm?IYASzRMeJH[<`F`2
+!s100 @H4J33R4c;eZaT3V@SIXU0
+Z7 OL;C;10.7c;67
+32
+Z8 !s110 1634746869
+!i10b 1
+Z9 !s108 1634746869.000000
+Z10 !s90 -reportprogress|300|-work|work|./DataPath/Decode/adder_generic.vhd|
+Z11 !s107 ./DataPath/Decode/adder_generic.vhd|
+!i113 0
+Z12 o-work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+DEx4 work 13 adder_generic 0 22 MQEDm?IYASzRMeJH[<`F`2
+l20
+L19
+VDgnUQ0Zg8C6kWbS05dJ?f1
+!s100 N17DV[oaEzmf04lbVWZ^[2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Eadder_genericu
+R1
+R2
+R3
+R4
+R0
+Z14 8./DataPath/Fetch/adder_genericu.vhd
+Z15 F./DataPath/Fetch/adder_genericu.vhd
+l0
+L5
+VmPTNI9RMa^7Zg:?9:oFlE3
+!s100 gT523f`MAWWVgd[Xeda0c3
+R7
+32
+Z16 !s110 1634746868
+!i10b 1
+Z17 !s108 1634746868.000000
+Z18 !s90 -reportprogress|300|-work|work|./DataPath/Fetch/adder_genericu.vhd|
+Z19 !s107 ./DataPath/Fetch/adder_genericu.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 14 adder_genericu 0 22 mPTNI9RMa^7Zg:?9:oFlE3
+l12
+L11
+VfPNcl[U[CXVKdIJ^oHIN61
+!s100 L`FdkTVMd:P=fdTV8BI=d2
+R7
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R12
+R13
+Eadder_wrapper
+R1
+R3
+R4
+R0
+Z20 8./DataPath/Execute_wrapper/adder_wrapper.vhd
+Z21 F./DataPath/Execute_wrapper/adder_wrapper.vhd
+l0
+L4
+V9mo][>1B9jiUH;X0Y;a1=0
+!s100 UNj:@zH0U9EJP6mZXd1@i0
+R7
+32
+Z22 !s110 1634746873
+!i10b 1
+Z23 !s108 1634746873.000000
+Z24 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/adder_wrapper.vhd|
+Z25 !s107 ./DataPath/Execute_wrapper/adder_wrapper.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 13 adder_wrapper 0 22 9mo][>1B9jiUH;X0Y;a1=0
+l34
+L13
+VnC;>c7>S8o4mOAHhSYTX[1
+!s100 @OYSjkJ4U=[1U3b=MU16h2
+R7
+32
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 0
+R12
+R13
+Ealu
+R1
+R3
+R4
+R0
+Z26 8./DataPath/Execute_wrapper/ALU.vhd
+Z27 F./DataPath/Execute_wrapper/ALU.vhd
+l0
+L4
+V?TGjhMU5bI7dCA2LY@D3j0
+!s100 D7EQiNaG@KAXW;bWGmKA12
+R7
+32
+R22
+!i10b 1
+R23
+Z28 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/ALU.vhd|
+Z29 !s107 ./DataPath/Execute_wrapper/ALU.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R3
+R4
+DEx4 work 3 alu 0 22 ?TGjhMU5bI7dCA2LY@D3j0
+l74
+L14
+V_`;>`l]Se[CnTnMkN1=YS3
+!s100 H;L_Sg5L@ih2DOj5;o8[b1
+R7
+32
+R22
+!i10b 1
+R23
+R28
+R29
+!i113 0
+R12
+R13
+Ealu_decoder
+R1
+R3
+R4
+R0
+Z30 8./DataPath/Execute_wrapper/ALU_decoder.vhd
+Z31 F./DataPath/Execute_wrapper/ALU_decoder.vhd
+l0
+L4
+ViID3Y^AH?l`AMad?E17kY0
+!s100 ?C[_Ci>999::Qk5hXRocU2
+R7
+32
+R22
+!i10b 1
+R23
+Z32 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/ALU_decoder.vhd|
+Z33 !s107 ./DataPath/Execute_wrapper/ALU_decoder.vhd|
+!i113 0
+R12
+R13
+Aalu_decoder_beh
+R3
+R4
+DEx4 work 11 alu_decoder 0 22 iID3Y^AH?l`AMad?E17kY0
+l11
+L10
+Vza8]OX]=Ah_eZUa>dT]EI0
+!s100 b@RSB9?M]ZJ3gR?6@Uj4f0
+R7
+32
+R22
+!i10b 1
+R23
+R32
+R33
+!i113 0
+R12
+R13
+Eand2
+R1
+R3
+R4
+R0
+Z34 8./DataPath/Execute_wrapper/and2.vhd
+Z35 F./DataPath/Execute_wrapper/and2.vhd
+l0
+L12
+V][@SCA=^9]Hfb;;HFD>7V2
+!s100 DV003eWEkTYLIZciOaX:?1
+R7
+32
+R8
+!i10b 1
+R9
+Z36 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/and2.vhd|
+Z37 !s107 ./DataPath/Execute_wrapper/and2.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 4 and2 0 22 ][@SCA=^9]Hfb;;HFD>7V2
+l18
+L17
+VWao9K?A[Hg2?db5e1A59S0
+!s100 mkBaXEUL0o@::B67zF[a93
+R7
+32
+R8
+!i10b 1
+R9
+R36
+R37
+!i113 0
+R12
+R13
+Eboothmul
+R1
+R2
+R3
+R4
+R0
+Z38 8./DataPath/Execute_wrapper/boothmul.vhd
+Z39 F./DataPath/Execute_wrapper/boothmul.vhd
+l0
+L14
+VD2cC<V@9>CRB:D<zU;gX30
+!s100 OdXQd`K1WR<8?WP^H@G[P3
+R7
+32
+R22
+!i10b 1
+R23
+Z40 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/boothmul.vhd|
+Z41 !s107 ./DataPath/Execute_wrapper/boothmul.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R3
+R4
+DEx4 work 8 boothmul 0 22 D2cC<V@9>CRB:D<zU;gX30
+l56
+L23
+VleaB<zd<7LHRjAWR@Wcba2
+!s100 cNAFAno=E2jPCa?N8>ofh0
+R7
+32
+R22
+!i10b 1
+R23
+R40
+R41
+!i113 0
+R12
+R13
+Ecarry_select_adder
+R1
+R2
+Z42 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R3
+R4
+R0
+Z43 8./DataPath/Execute_wrapper/carry_select_adder.vhd
+Z44 F./DataPath/Execute_wrapper/carry_select_adder.vhd
+l0
+L6
+VNDb7RJ9g31lP6dV7a7;4:0
+!s100 FH2<<0HjG^dBIfG>CR8N]2
+R7
+32
+Z45 !s110 1634746872
+!i10b 1
+Z46 !s108 1634746872.000000
+Z47 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/carry_select_adder.vhd|
+Z48 !s107 ./DataPath/Execute_wrapper/carry_select_adder.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R2
+R42
+R3
+R4
+DEx4 work 18 carry_select_adder 0 22 NDb7RJ9g31lP6dV7a7;4:0
+l25
+L14
+Vm3RFRQDA^^2;AlELJ0WiY1
+!s100 Vdeb6TXgCa;1^G:nEL][K3
+R7
+32
+R45
+!i10b 1
+R46
+R47
+R48
+!i113 0
+R12
+R13
+Ecomparator_addr
+R1
+R2
+R3
+R4
+R0
+Z49 8./DataPath/Decode/comparator_addr.vhd
+Z50 F./DataPath/Decode/comparator_addr.vhd
+l0
+L13
+V7<L_jNoI4PXOU`S@W<8`Q1
+!s100 NL@dNH@HHfz@IS503c^@=1
+R7
+32
+R8
+!i10b 1
+R9
+Z51 !s90 -reportprogress|300|-work|work|./DataPath/Decode/comparator_addr.vhd|
+Z52 !s107 ./DataPath/Decode/comparator_addr.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 15 comparator_addr 0 22 7<L_jNoI4PXOU`S@W<8`Q1
+l21
+L19
+V^ULG2Y1WJT;kPDM3nlWGZ2
+!s100 =m=?2oDfNl45bFiG4LEo42
+R7
+32
+R8
+!i10b 1
+R9
+R51
+R52
+!i113 0
+R12
+R13
+Ecu
+R1
+Z53 DPx4 work 7 mytypes 0 22 VTlFh;<NeVd2jkT=6`]>^1
+Z54 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z55 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R3
+R4
+R0
+Z56 8./ControlUnit/CU_wrapper/CU_HW.vhd
+Z57 F./ControlUnit/CU_wrapper/CU_HW.vhd
+l0
+L15
+Vk=3hNWLH9L[nPE=S;8N]42
+!s100 YnT17aol9]0Ic6oZi4PaN1
+R7
+32
+Z58 !s110 1634746874
+!i10b 1
+Z59 !s108 1634746874.000000
+Z60 !s90 -reportprogress|300|-work|work|./ControlUnit/CU_wrapper/CU_HW.vhd|
+Z61 !s107 ./ControlUnit/CU_wrapper/CU_HW.vhd|
+!i113 0
+R12
+R13
+Adlx_cu
+R53
+R54
+R55
+R3
+R4
+DEx4 work 2 cu 0 22 k=3hNWLH9L[nPE=S;8N]42
+l158
+L44
+V;E_SF6?=;RM80gOafkz`j0
+!s100 L4>K:fG7?kLWNh]P5KaB60
+R7
+32
+R58
+!i10b 1
+R59
+R60
+R61
+!i113 0
+R12
+R13
+Ecu_wrapper
+R1
+R53
+R3
+R4
+R0
+Z62 8./ControlUnit/CU_wrapper/CU_wrapper.vhd
+Z63 F./ControlUnit/CU_wrapper/CU_wrapper.vhd
+l0
+L5
+Vk<h69Q`dMWkE[5K1LjYR50
+!s100 BLP^MEH?zcM983fOY1^3J1
+R7
+32
+R58
+!i10b 1
+R59
+Z64 !s90 -reportprogress|300|-work|work|./ControlUnit/CU_wrapper/CU_wrapper.vhd|
+Z65 !s107 ./ControlUnit/CU_wrapper/CU_wrapper.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R53
+R3
+R4
+DEx4 work 10 cu_wrapper 0 22 k<h69Q`dMWkE[5K1LjYR50
+l107
+L47
+V=dfRmfMk:GD=6S7V?R@Ic2
+!s100 k_Im:BWOD113JKgM7nmTO0
+R7
+32
+R58
+!i10b 1
+R59
+R64
+R65
+!i113 0
+R12
+R13
+Edata_ram
+R1
+R2
+R3
+R4
+R0
+Z66 8./DataPath/Memory/data_ram.vhd
+Z67 F./DataPath/Memory/data_ram.vhd
+l0
+L6
+VRjRcb@F]k719D7R3da6UW1
+!s100 4gkP6aV1f4VQ<fcj@i2S71
+R7
+32
+R58
+!i10b 1
+R59
+Z68 !s90 -reportprogress|300|-work|work|./DataPath/Memory/data_ram.vhd|
+Z69 !s107 ./DataPath/Memory/data_ram.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 8 data_ram 0 22 RjRcb@F]k719D7R3da6UW1
+l18
+L15
+VAI`^h=;SNTX>29JBefNAJ1
+!s100 3XU=`V[Eg:?47<:Fok97a0
+R7
+32
+R58
+!i10b 1
+R59
+R68
+R69
+!i113 0
+R12
+R13
+Edatapath_wrapper
+R1
+R3
+R4
+R0
+Z70 8./DataPath/DataPath_wrapper.vhd
+Z71 F./DataPath/DataPath_wrapper.vhd
+l0
+L13
+VLY8k9EI[KN[eRcLm;9f<83
+!s100 kg_Af3=iI?n]<9SOInc@h3
+R7
+32
+R58
+!i10b 1
+R59
+Z72 !s90 -reportprogress|300|-work|work|./DataPath/DataPath_wrapper.vhd|
+Z73 !s107 ./DataPath/DataPath_wrapper.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 16 datapath_wrapper 0 22 LY8k9EI[KN[eRcLm;9f<83
+l228
+L77
+V1EcOFJQlMDXKkBRN>=4oU3
+!s100 0=Lg]8Y>SUbjUYPj@=bi`0
+R7
+32
+R58
+!i10b 1
+R59
+R72
+R73
+!i113 0
+R12
+R13
+Edecode_wrapper
+R1
+R2
+R42
+R3
+R4
+R0
+Z74 8./DataPath/Decode/Decode_wrapper.vhd
+Z75 F./DataPath/Decode/Decode_wrapper.vhd
+l0
+L15
+Vc[37D?[3998UD5a^Wnk7Z1
+!s100 D]O9Y`FM_RDS;RPNDk]aZ2
+R7
+32
+R8
+!i10b 1
+R9
+Z76 !s90 -reportprogress|300|-work|work|./DataPath/Decode/Decode_wrapper.vhd|
+Z77 !s107 ./DataPath/Decode/Decode_wrapper.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R42
+R3
+R4
+DEx4 work 14 decode_wrapper 0 22 c[37D?[3998UD5a^Wnk7Z1
+l130
+L45
+VdB[=Djhh>4la0L374DKCQ1
+!s100 03W<z6>?ngIlLBlbo8Xel3
+R7
+32
+R8
+!i10b 1
+R9
+R76
+R77
+!i113 0
+R12
+R13
+Edlx
+R1
+R2
+R53
+R3
+R4
+R0
+Z78 8./DLX.vhd
+Z79 F./DLX.vhd
+l0
+L7
+V`bBIj4So5?o@=hdzOg?BJ1
+!s100 j1[[kB6oXH@8U8QcDR=P>3
+R7
+32
+Z80 !s110 1634746875
+!i10b 1
+Z81 !s108 1634746875.000000
+Z82 !s90 -reportprogress|300|-work|work|./DLX.vhd|
+Z83 !s107 ./DLX.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R53
+R3
+R4
+DEx4 work 3 dlx 0 22 `bBIj4So5?o@=hdzOg?BJ1
+l258
+L14
+V2^X2Fn1cb1[cWKX5ZCh`32
+!s100 G106bk7UBZTMc2NbQED:P3
+R7
+32
+R80
+!i10b 1
+R81
+R82
+R83
+!i113 0
+R12
+R13
+Eexecute_stage_wrapper
+R1
+R3
+R4
+R0
+Z84 8./DataPath/Execute_wrapper/execute_stage_wrapper.vhd
+Z85 F./DataPath/Execute_wrapper/execute_stage_wrapper.vhd
+l0
+L13
+V_lj;?`ihMYXTPdj]:h;LQ2
+!s100 ?EzKf8T<m0Y1zj54g=6ie2
+R7
+32
+R22
+!i10b 1
+R23
+Z86 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/execute_stage_wrapper.vhd|
+Z87 !s107 ./DataPath/Execute_wrapper/execute_stage_wrapper.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 21 execute_stage_wrapper 0 22 _lj;?`ihMYXTPdj]:h;LQ2
+l73
+L44
+VdUPVNj>hQ5Y]VSU?GE8Sf2
+!s100 _E^8SN_CaZi4gW9l4?;Yh1
+R7
+32
+R22
+!i10b 1
+R23
+R86
+R87
+!i113 0
+R12
+R13
+Efa
+R1
+R3
+R4
+R0
+Z88 8./DataPath/Execute_wrapper/fa.vhd
+Z89 F./DataPath/Execute_wrapper/fa.vhd
+l0
+L12
+V3Me1BSg:_S4;dL5Om[S^91
+!s100 9ZIQgVieOKi@YJ>N9fch]1
+R7
+32
+Z90 !s110 1634746870
+!i10b 1
+Z91 !s108 1634746870.000000
+Z92 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/fa.vhd|
+Z93 !s107 ./DataPath/Execute_wrapper/fa.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 2 fa 0 22 3Me1BSg:_S4;dL5Om[S^91
+l36
+L17
+VKF9A4^<M<mzz<QUdnJO`P2
+!s100 5IRbzn7KGWRzMShPB3;Sc3
+R7
+32
+R90
+!i10b 1
+R91
+R92
+R93
+!i113 0
+R12
+R13
+Efetch_stage_wrapper
+R1
+R3
+R4
+R0
+Z94 8./DataPath/Fetch/fetch_stage_wrapper.vhd
+Z95 F./DataPath/Fetch/fetch_stage_wrapper.vhd
+l0
+L4
+VS?m68BC>^SEk?1@=oVLBf2
+!s100 FV[1SC62_A>5V6XY;GKC43
+R7
+32
+R16
+!i10b 1
+R17
+Z96 !s90 -reportprogress|300|-work|work|./DataPath/Fetch/fetch_stage_wrapper.vhd|
+Z97 !s107 ./DataPath/Fetch/fetch_stage_wrapper.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 19 fetch_stage_wrapper 0 22 S?m68BC>^SEk?1@=oVLBf2
+l38
+L14
+VQIC][ZmgHNZZFdXfI@U4V0
+!s100 E`4ZMLM^@KE^kQKNPinHz0
+R7
+32
+R16
+!i10b 1
+R17
+R96
+R97
+!i113 0
+R12
+R13
+Efull_adder
+R1
+R3
+R4
+R0
+Z98 8./DataPath/Execute_wrapper/full_adder.vhd
+Z99 F./DataPath/Execute_wrapper/full_adder.vhd
+l0
+L5
+V4nOcUXHQUD7P[zh8hL_mY3
+!s100 W@Xz64:XNi2[gO<F]?Q>z3
+R7
+32
+R90
+!i10b 1
+R91
+Z100 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/full_adder.vhd|
+Z101 !s107 ./DataPath/Execute_wrapper/full_adder.vhd|
+!i113 0
+R12
+R13
+Afull_adder_arc
+R3
+R4
+DEx4 work 10 full_adder 0 22 4nOcUXHQUD7P[zh8hL_mY3
+l11
+L10
+V?MG<FnHg@hl_e?@`9>X3=3
+!s100 H_<nWFgM><[l^<abXZQ361
+R7
+32
+R90
+!i10b 1
+R91
+R100
+R101
+!i113 0
+R12
+R13
+Eg_block
+R1
+R3
+R4
+R0
+Z102 8./DataPath/Execute_wrapper/g_block.vhd
+Z103 F./DataPath/Execute_wrapper/g_block.vhd
+l0
+L4
+VjPzf`?5:b[H>]Xn3BAd7D0
+!s100 e?34N73;[j]EGSlA>NemF1
+R7
+32
+R90
+!i10b 1
+R91
+Z104 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/g_block.vhd|
+Z105 !s107 ./DataPath/Execute_wrapper/g_block.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R3
+R4
+DEx4 work 7 g_block 0 22 jPzf`?5:b[H>]Xn3BAd7D0
+l10
+L9
+VdGNIK;Ia_efX?QIdT6Fo52
+!s100 8ln8Pe_VT4^b92[T0Yb8Y3
+R7
+32
+R90
+!i10b 1
+R91
+R104
+R105
+!i113 0
+R12
+R13
+Eg_block_carry
+R1
+R3
+R4
+R0
+Z106 8./DataPath/Execute_wrapper/g_block_carry.vhd
+Z107 F./DataPath/Execute_wrapper/g_block_carry.vhd
+l0
+L4
+VgMI]jPMQ[WVLlMAClCeE91
+!s100 3Hc216`hm`z6POY5ME4@o1
+R7
+32
+R90
+!i10b 1
+R91
+Z108 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/g_block_carry.vhd|
+Z109 !s107 ./DataPath/Execute_wrapper/g_block_carry.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R3
+R4
+DEx4 work 13 g_block_carry 0 22 gMI]jPMQ[WVLlMAClCeE91
+l10
+L9
+VQ[cP:G^_=E]AfYJzJ8F:10
+!s100 j6mlYAVCY1De5kRdUX3bJ3
+R7
+32
+R90
+!i10b 1
+R91
+R108
+R109
+!i113 0
+R12
+R13
+Ehalf_adder
+R1
+R3
+R4
+R0
+Z110 8./DataPath/Execute_wrapper/half_adder.vhd
+Z111 F./DataPath/Execute_wrapper/half_adder.vhd
+l0
+L12
+V?4g4O;U4c1EOTmLVBgj5d3
+!s100 7<e:Z@0A_JeLnhdFB]]>b2
+R7
+32
+R90
+!i10b 1
+R91
+Z112 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/half_adder.vhd|
+Z113 !s107 ./DataPath/Execute_wrapper/half_adder.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 10 half_adder 0 22 ?4g4O;U4c1EOTmLVBgj5d3
+l29
+L17
+VfG7Y`1aEQeJWMDQ9OaSAc0
+!s100 @5XSG4H<JTIVDMB3z18NL2
+R7
+32
+R90
+!i10b 1
+R91
+R112
+R113
+!i113 0
+R12
+R13
+Ehazard_detection_unit
+R1
+R2
+R3
+R4
+R0
+Z114 8./HazardUnit/hazard_detection_unit.vhd
+Z115 F./HazardUnit/hazard_detection_unit.vhd
+l0
+L5
+V=bGGS2oBDH1o3B4HleLd_1
+!s100 MT1SNMoa`lhCT[Qg1@o[Z2
+R7
+32
+R80
+!i10b 1
+R81
+Z116 !s90 -reportprogress|300|-work|work|./HazardUnit/hazard_detection_unit.vhd|
+Z117 !s107 ./HazardUnit/hazard_detection_unit.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 21 hazard_detection_unit 0 22 =bGGS2oBDH1o3B4HleLd_1
+l37
+L32
+VQQG6W[^m0bndMH[eg[DGD2
+!s100 lSon7T^mT[7`jbAeid74=0
+R7
+32
+R80
+!i10b 1
+R81
+R116
+R117
+!i113 0
+R12
+R13
+Einstruction_ram
+Z118 w1634746865
+R2
+Z119 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R3
+R4
+R0
+Z120 8./DataPath/Fetch/instruction_ram.vhd
+Z121 F./DataPath/Fetch/instruction_ram.vhd
+l0
+L8
+VinQgI8<iINEHD@_UASU0]0
+!s100 72PI75lGXRE4HHFicl_BR1
+R7
+32
+R16
+!i10b 1
+R17
+Z122 !s90 -reportprogress|300|-work|work|./DataPath/Fetch/instruction_ram.vhd|
+Z123 !s107 ./DataPath/Fetch/instruction_ram.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R119
+R3
+R4
+DEx4 work 15 instruction_ram 0 22 inQgI8<iINEHD@_UASU0]0
+l20
+L16
+V5FQ@QM[PTmG]=FN4?:CP82
+!s100 F9RlCWMAoB=d^N4;cD8Dh1
+R7
+32
+R16
+!i10b 1
+R17
+R122
+R123
+!i113 0
+R12
+R13
+Elogic_op_unit
+R1
+R3
+R4
+R0
+Z124 8./DataPath/Execute_wrapper/logic_op_unit.vhd
+Z125 F./DataPath/Execute_wrapper/logic_op_unit.vhd
+l0
+L4
+VFQCi3jXQDge>SNj6EMf^N2
+!s100 CIXhaK[Nm<ePk;5J269_d0
+R7
+32
+R22
+!i10b 1
+R23
+Z126 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/logic_op_unit.vhd|
+Z127 !s107 ./DataPath/Execute_wrapper/logic_op_unit.vhd|
+!i113 0
+R12
+R13
+Alogic_op_unit_arc
+R3
+R4
+DEx4 work 13 logic_op_unit 0 22 FQCi3jXQDge>SNj6EMf^N2
+l13
+L12
+V:BdMnSz4UoK=mo]dT^fN_1
+!s100 aBkG87Gn1z>IhO@^]ID]z2
+R7
+32
+R22
+!i10b 1
+R23
+R126
+R127
+!i113 0
+R12
+R13
+Ememory_unit
+R1
+R3
+R4
+R0
+Z128 8./DataPath/Memory/memory_unit_wrapper.vhd
+Z129 F./DataPath/Memory/memory_unit_wrapper.vhd
+l0
+L4
+Va6<6jFIiFQV87VD[;8AbY0
+!s100 UTU2z5AFA:1?7da<X1VAb1
+R7
+32
+R58
+!i10b 1
+R59
+Z130 !s90 -reportprogress|300|-work|work|./DataPath/Memory/memory_unit_wrapper.vhd|
+Z131 !s107 ./DataPath/Memory/memory_unit_wrapper.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 11 memory_unit 0 22 a6<6jFIiFQV87VD[;8AbY0
+l22
+L18
+VnSjnSKVB];hfd5UJa6AKW3
+!s100 F[^2zO^d>TZJfmf8<dOH_0
+R7
+32
+R58
+!i10b 1
+R59
+R130
+R131
+!i113 0
+R12
+R13
+Emul_wrapper
+R1
+R3
+R4
+R0
+Z132 8./DataPath/Execute_wrapper/mul_wrapper.vhd
+Z133 F./DataPath/Execute_wrapper/mul_wrapper.vhd
+l0
+L4
+Vf?_cX`]]QjXRln3jmGQ?A1
+!s100 1T=1b2JEMK6WE41zh]Ak[1
+R7
+32
+R22
+!i10b 1
+R23
+Z134 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/mul_wrapper.vhd|
+Z135 !s107 ./DataPath/Execute_wrapper/mul_wrapper.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R3
+R4
+DEx4 work 11 mul_wrapper 0 22 f?_cX`]]QjXRln3jmGQ?A1
+l27
+L14
+VzWR9lQ8@:CfHd5NcS4UX42
+!s100 dBmJ]EBdKRW?nHKH2R:GI3
+R7
+32
+R22
+!i10b 1
+R23
+R134
+R135
+!i113 0
+R12
+R13
+Emux21
+R1
+R3
+R4
+R0
+Z136 8./DataPath/Execute_wrapper/MUX21.vhd
+Z137 F./DataPath/Execute_wrapper/MUX21.vhd
+l0
+L4
+Vm?igXQjR=PcEnH?C>j2Ll0
+!s100 Ojgmjcz9Y5:?mI^]zN::k2
+R7
+32
+R90
+!i10b 1
+R91
+Z138 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/MUX21.vhd|
+Z139 !s107 ./DataPath/Execute_wrapper/MUX21.vhd|
+!i113 0
+R12
+R13
+Abeh
+R3
+R4
+DEx4 work 5 mux21 0 22 m?igXQjR=PcEnH?C>j2Ll0
+l12
+L11
+Ve97A7ETMY7FV<X48`a86^1
+!s100 OHd=Q=Zcz]WiBUnR>MZU52
+R7
+32
+R90
+!i10b 1
+R91
+R138
+R139
+!i113 0
+R12
+R13
+Emux31
+R1
+R3
+R4
+R0
+Z140 8./DataPath/Execute_wrapper/mux31.vhd
+Z141 F./DataPath/Execute_wrapper/mux31.vhd
+l0
+L12
+V;h?G_cB6e6=cZm<?WDMSG0
+!s100 l9>L_YcB@T@`=MKDBQ5B62
+R7
+32
+Z142 !s110 1634746871
+!i10b 1
+R91
+Z143 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/mux31.vhd|
+Z144 !s107 ./DataPath/Execute_wrapper/mux31.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 5 mux31 0 22 ;h?G_cB6e6=cZm<?WDMSG0
+l20
+L19
+VekC=53WBE`^j48=oMJTzS1
+!s100 B=]1d?SAQ_?]SBnnY4E<`2
+R7
+32
+R142
+!i10b 1
+R91
+R143
+R144
+!i113 0
+R12
+R13
+Emux41
+R1
+R3
+R4
+R0
+Z145 8./DataPath/Execute_wrapper/MUX41.vhd
+Z146 F./DataPath/Execute_wrapper/MUX41.vhd
+l0
+L4
+VKVUi9B=YRQnGonazEzYnX1
+!s100 cfH4o6gXo1@dHSh@jMWnJ2
+R7
+32
+R142
+!i10b 1
+Z147 !s108 1634746871.000000
+Z148 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/MUX41.vhd|
+Z149 !s107 ./DataPath/Execute_wrapper/MUX41.vhd|
+!i113 0
+R12
+R13
+Abeh
+R3
+R4
+DEx4 work 5 mux41 0 22 KVUi9B=YRQnGonazEzYnX1
+l12
+L11
+VfTJc27]FQlCj^BXHYgQfE1
+!s100 Bg6i<zkTW4`PlA_0Fgaj<3
+R7
+32
+R142
+!i10b 1
+R147
+R148
+R149
+!i113 0
+R12
+R13
+Emux81
+R1
+R3
+R4
+R0
+Z150 8./DataPath/Execute_wrapper/MUX81.vhd
+Z151 F./DataPath/Execute_wrapper/MUX81.vhd
+l0
+L4
+VV]>>Ag:H0c9YTk5ebPZig2
+!s100 _YGNLEQG:X_`DbN0>QAGo0
+R7
+32
+R142
+!i10b 1
+R147
+Z152 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/MUX81.vhd|
+Z153 !s107 ./DataPath/Execute_wrapper/MUX81.vhd|
+!i113 0
+R12
+R13
+Abeh
+R3
+R4
+DEx4 work 5 mux81 0 22 V]>>Ag:H0c9YTk5ebPZig2
+l12
+L11
+VJ0Fgz?SH`TMC46<RHeJ`Y2
+!s100 cZ3>JolHBdFVVEQG:UH7U2
+R7
+32
+R142
+!i10b 1
+R147
+R152
+R153
+!i113 0
+R12
+R13
+Pmytypes
+R3
+R4
+R1
+R0
+8./ControlUnit/CU_wrapper/myTypes.vhd
+F./ControlUnit/CU_wrapper/myTypes.vhd
+l0
+L4
+VVTlFh;<NeVd2jkT=6`]>^1
+!s100 fY`Oh=A`LWXF?GF6nQ4`T0
+R7
+32
+R58
+!i10b 1
+R59
+!s90 -reportprogress|300|-work|work|./ControlUnit/CU_wrapper/myTypes.vhd|
+!s107 ./ControlUnit/CU_wrapper/myTypes.vhd|
+!i113 0
+R12
+R13
+Eor2
+R1
+R3
+R4
+R0
+Z154 8./DataPath/Execute_wrapper/or2.vhd
+Z155 F./DataPath/Execute_wrapper/or2.vhd
+l0
+L12
+VhB=ZAmla:e7jo:hEDj@Af2
+!s100 UVYFnFLJSA]Y>CcBBld:30
+R7
+32
+R8
+!i10b 1
+R9
+Z156 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/or2.vhd|
+Z157 !s107 ./DataPath/Execute_wrapper/or2.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 3 or2 0 22 hB=ZAmla:e7jo:hEDj@Af2
+l18
+L17
+VTDG4Z]<0JdCGoD7<5U4kl0
+!s100 2A6_MRjE8??1zO<U:Kz;O1
+R7
+32
+R8
+!i10b 1
+R9
+R156
+R157
+!i113 0
+R12
+R13
+Eor_gate
+R1
+R3
+R4
+R0
+Z158 8./DataPath/Decode/or_gate.vhd
+Z159 F./DataPath/Decode/or_gate.vhd
+l0
+L12
+V4gfE5Kb7jhh@1OeCVaf>j1
+!s100 l?m9nWYV6M1AY83U1zcg90
+R7
+32
+R16
+!i10b 1
+R17
+Z160 !s90 -reportprogress|300|-work|work|./DataPath/Decode/or_gate.vhd|
+Z161 !s107 ./DataPath/Decode/or_gate.vhd|
+!i113 0
+R12
+R13
+Adf
+R3
+R4
+DEx4 work 7 or_gate 0 22 4gfE5Kb7jhh@1OeCVaf>j1
+l18
+L17
+VN8P?>D4HeGalKz>URH7A@1
+!s100 JNYfDGfQ?f=U?EiE:<:kC2
+R7
+32
+R16
+!i10b 1
+R17
+R160
+R161
+!i113 0
+R12
+R13
+Epg_block
+R1
+R3
+R4
+R0
+Z162 8./DataPath/Execute_wrapper/pg_block.vhd
+Z163 F./DataPath/Execute_wrapper/pg_block.vhd
+l0
+L4
+V70;R>7^1Ym2`]Rm:D5GFl1
+!s100 0bD<h2oZfio]ln0SiTCTd0
+R7
+32
+R90
+!i10b 1
+R91
+Z164 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/pg_block.vhd|
+Z165 !s107 ./DataPath/Execute_wrapper/pg_block.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R3
+R4
+DEx4 work 8 pg_block 0 22 70;R>7^1Ym2`]Rm:D5GFl1
+l10
+L9
+VKMHcTmiLzkgDZL;b?PMYL0
+!s100 cR@<dK:N]`ZHEl8d;gDO82
+R7
+32
+R90
+!i10b 1
+R91
+R164
+R165
+!i113 0
+R12
+R13
+Epg_network
+R1
+R3
+R4
+R0
+Z166 8./DataPath/Execute_wrapper/pg_net.vhd
+Z167 F./DataPath/Execute_wrapper/pg_net.vhd
+l0
+L4
+V=H7]4oGG2bJERb?7cO:dk1
+!s100 cDgL=ofImaWQ3GbBA?]S_2
+R7
+32
+R142
+!i10b 1
+R147
+Z168 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/pg_net.vhd|
+Z169 !s107 ./DataPath/Execute_wrapper/pg_net.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R3
+R4
+DEx4 work 10 pg_network 0 22 =H7]4oGG2bJERb?7cO:dk1
+l11
+L10
+VFLBcUCo@6eQ5g2Ldb?LWk1
+!s100 7VkjZ^hb>8Pd6oO4U8boC3
+R7
+32
+R142
+!i10b 1
+R147
+R168
+R169
+!i113 0
+R12
+R13
+Erca_signed
+R1
+R2
+R3
+R4
+R0
+Z170 8./DataPath/Execute_wrapper/rca_signed.vhd
+Z171 F./DataPath/Execute_wrapper/rca_signed.vhd
+l0
+L13
+VTf4[YUUKoc9e1@1o3Nan23
+!s100 fkEhGTla^>6>>HIX3DH4Y2
+R7
+32
+R142
+!i10b 1
+R147
+Z172 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/rca_signed.vhd|
+Z173 !s107 ./DataPath/Execute_wrapper/rca_signed.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R3
+R4
+DEx4 work 10 rca_signed 0 22 Tf4[YUUKoc9e1@1o3Nan23
+l34
+L20
+VcQe?WDXN=STQHYRFg5dWT1
+!s100 ^@4T`knY6:ZMNLR[G@NVn0
+R7
+32
+R142
+!i10b 1
+R147
+R172
+R173
+!i113 0
+R12
+R13
+Eregister_generic
+R1
+R3
+R4
+R0
+Z174 8./DataPath/Fetch/register_generic.vhd
+Z175 F./DataPath/Fetch/register_generic.vhd
+l0
+L4
+V2BU<g2eZHTIhV6aZ9<ThX1
+!s100 RF<Xm02hIDdm5eMGH;3nP3
+R7
+32
+R16
+!i10b 1
+Z176 !s108 1634746867.000000
+Z177 !s90 -reportprogress|300|-work|work|./DataPath/Fetch/register_generic.vhd|
+Z178 !s107 ./DataPath/Fetch/register_generic.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 16 register_generic 0 22 2BU<g2eZHTIhV6aZ9<ThX1
+l12
+L11
+VmT_>Fg>^8D`4]17Jo5?E<0
+!s100 d96KZZEXWJ8ea[?TRb0dC1
+R7
+32
+R16
+!i10b 1
+R176
+R177
+R178
+!i113 0
+R12
+R13
+Eripple_carry_adder
+R1
+R3
+R4
+R0
+Z179 8./DataPath/Execute_wrapper/rca.vhd
+Z180 F./DataPath/Execute_wrapper/rca.vhd
+l0
+L4
+VoamMoCk?lmO4XRMFck<mX2
+!s100 9T]MjGNbG?n^1E[@J`gU@3
+R7
+32
+R142
+!i10b 1
+R147
+Z181 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/rca.vhd|
+Z182 !s107 ./DataPath/Execute_wrapper/rca.vhd|
+!i113 0
+R12
+R13
+Arca_arc
+R3
+R4
+DEx4 work 18 ripple_carry_adder 0 22 oamMoCk?lmO4XRMFck<mX2
+l19
+L12
+VzaY47X`]>bPH`0Q^z53>b3
+!s100 2?ncfgOYA0H3miGe?VZH^3
+R7
+32
+R142
+!i10b 1
+R147
+R181
+R182
+!i113 0
+R12
+R13
+Eshift
+R1
+R2
+R3
+R4
+R0
+Z183 8./DataPath/Execute_wrapper/shift.vhd
+Z184 F./DataPath/Execute_wrapper/shift.vhd
+l0
+L15
+VLN7DANUFhBJ?4miE[76a<0
+!s100 oLmXZ9d<lN[9S@lR0N2_F0
+R7
+32
+R45
+!i10b 1
+R46
+Z185 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/shift.vhd|
+Z186 !s107 ./DataPath/Execute_wrapper/shift.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 5 shift 0 22 LN7DANUFhBJ?4miE[76a<0
+l28
+L22
+VokY@6`cTFiQn:MXKBJE=h0
+!s100 UUVYn2aj1?jF[Hl^olf_?2
+R7
+32
+R45
+!i10b 1
+R46
+R185
+R186
+!i113 0
+R12
+R13
+Eshifter
+R1
+R2
+R54
+R55
+R3
+R4
+R0
+Z187 8./DataPath/Execute_wrapper/shifter.vhd
+Z188 F./DataPath/Execute_wrapper/shifter.vhd
+l0
+L7
+VJMf;P1jUW67_U<H`oIkg?0
+!s100 Yz2F14FOS?efH;i1b51hm0
+R7
+32
+R45
+!i10b 1
+R46
+Z189 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/shifter.vhd|
+Z190 !s107 ./DataPath/Execute_wrapper/shifter.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R54
+R55
+R3
+R4
+DEx4 work 7 shifter 0 22 JMf;P1jUW67_U<H`oIkg?0
+l48
+L14
+V@P0`T5XLKGW>T85c414A91
+!s100 16T<<idWOESGmGo:aIY:N1
+R7
+32
+R45
+!i10b 1
+R46
+R189
+R190
+!i113 0
+R12
+R13
+Eshifter_wrapper
+R1
+R2
+R54
+R55
+R3
+R4
+R0
+Z191 8./DataPath/Execute_wrapper/shifter_wrapper.vhd
+Z192 F./DataPath/Execute_wrapper/shifter_wrapper.vhd
+l0
+L7
+VD=0>MENSIB5`Q5BU9g=jm1
+!s100 >YYA[3YR@WF==nEUoOFNQ0
+R7
+32
+R22
+!i10b 1
+R46
+Z193 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/shifter_wrapper.vhd|
+Z194 !s107 ./DataPath/Execute_wrapper/shifter_wrapper.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R54
+R55
+R3
+R4
+DEx4 work 15 shifter_wrapper 0 22 D=0>MENSIB5`Q5BU9g=jm1
+l26
+L15
+VLk0h;j7>77bV3WUgOjSm^3
+!s100 ]X:K3`V2h?20`bKjH32E<1
+R7
+32
+R22
+!i10b 1
+R46
+R193
+R194
+!i113 0
+R12
+R13
+Esign_ext
+R1
+R3
+R4
+R0
+Z195 8./DataPath/Decode/sign_ext.vhd
+Z196 F./DataPath/Decode/sign_ext.vhd
+l0
+L13
+V^9Z>f6JmXmoS]ULTeV0Ci2
+!s100 4]G`NEi6nHbncU88GVl]D1
+R7
+32
+R16
+!i10b 1
+R17
+Z197 !s90 -reportprogress|300|-work|work|./DataPath/Decode/sign_ext.vhd|
+Z198 !s107 ./DataPath/Decode/sign_ext.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 8 sign_ext 0 22 ^9Z>f6JmXmoS]ULTeV0Ci2
+l21
+L19
+VEdedFE<@34@c4bIR_7;lP1
+!s100 Nlkh8QnAAC?9k8Ojg5bN:2
+R7
+32
+R16
+!i10b 1
+R17
+R197
+R198
+!i113 0
+R12
+R13
+Esparse_tree_adder
+R1
+R3
+R4
+R0
+Z199 8./DataPath/Execute_wrapper/sparse_tree_adder.vhd
+Z200 F./DataPath/Execute_wrapper/sparse_tree_adder.vhd
+l0
+L5
+VDUif4@NgW>;J0EH`N8KhY1
+!s100 ZbUM`;jbgKeUzhFFONzTj0
+R7
+32
+R45
+!i10b 1
+R46
+Z201 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/sparse_tree_adder.vhd|
+Z202 !s107 ./DataPath/Execute_wrapper/sparse_tree_adder.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R3
+R4
+DEx4 work 17 sparse_tree_adder 0 22 DUif4@NgW>;J0EH`N8KhY1
+l30
+L13
+VbN@F[9P_G0k7e4TNFOG2F0
+!s100 lb]ZBlH2PE5R<eSfdfc<=3
+R7
+32
+R45
+!i10b 1
+R46
+R201
+R202
+!i113 0
+R12
+R13
+Esparse_tree_carry_generator
+R1
+R2
+R42
+R3
+R4
+R0
+Z203 8./DataPath/Execute_wrapper/carry_generator.vhd
+Z204 F./DataPath/Execute_wrapper/carry_generator.vhd
+l0
+L6
+V<G7]]oXm9G`7IP1Df>g?90
+!s100 R5mA5^o00`VWXC]HnBWh92
+R7
+32
+R45
+!i10b 1
+R147
+Z205 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/carry_generator.vhd|
+Z206 !s107 ./DataPath/Execute_wrapper/carry_generator.vhd|
+!i113 0
+R12
+R13
+Aspecification
+R2
+R42
+R3
+R4
+DEx4 work 27 sparse_tree_carry_generator 0 22 <G7]]oXm9G`7IP1Df>g?90
+l40
+L13
+V5@8]PWAg41V;QamJ`390a2
+!s100 h5R6RoWS79Y597Pcng4=j2
+R7
+32
+R45
+!i10b 1
+R147
+R205
+R206
+!i113 0
+R12
+R13
+Etb_dlx
+R1
+R53
+R2
+R3
+R4
+R0
+Z207 8./TB/TB_DLX.vhd
+Z208 F./TB/TB_DLX.vhd
+l0
+L6
+VIh1k=;FF@1aX?I_?DO`_g3
+!s100 ;TMBoA5BEO^@Md8QN>iX:3
+R7
+32
+R80
+!i10b 1
+R81
+Z209 !s90 -reportprogress|300|-work|work|./TB/TB_DLX.vhd|
+Z210 !s107 ./TB/TB_DLX.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R53
+R2
+R3
+R4
+DEx4 work 6 tb_dlx 0 22 Ih1k=;FF@1aX?I_?DO`_g3
+l26
+L9
+VlUflniEFY]=BSFIMAl=2_3
+!s100 kB:D>kiIb:F9QR^n[QIC10
+R7
+32
+R80
+!i10b 1
+R81
+R209
+R210
+!i113 0
+R12
+R13
+Evp
+R1
+R2
+R3
+R4
+R0
+Z211 8./DataPath/Execute_wrapper/vp.vhd
+Z212 F./DataPath/Execute_wrapper/vp.vhd
+l0
+L15
+V_a3oQ;UZ;Gg8PV`d6M`]K2
+!s100 OYK<G<AS1V<2606:m=^Nm2
+R7
+32
+R90
+!i10b 1
+R9
+Z213 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/vp.vhd|
+Z214 !s107 ./DataPath/Execute_wrapper/vp.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 2 vp 0 22 _a3oQ;UZ;Gg8PV`d6M`]K2
+l24
+L22
+V^a5=h<h9>90YXbU27ATPC0
+!s100 W8c@N^NbL7==efdDMjf;K3
+R7
+32
+R90
+!i10b 1
+R9
+R213
+R214
+!i113 0
+R12
+R13
+Ewindow_rf
+R1
+R2
+R42
+R3
+R4
+R0
+Z215 8./DataPath/Decode/window_rf.vhd
+Z216 F./DataPath/Decode/window_rf.vhd
+l0
+L17
+Vj8ladBiNd5XYWCjnaT1]U0
+!s100 k]9U:QniP<h=VN65zDz2l0
+R7
+32
+R16
+!i10b 1
+R17
+Z217 !s90 -reportprogress|300|-work|work|./DataPath/Decode/window_rf.vhd|
+Z218 !s107 ./DataPath/Decode/window_rf.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R42
+R3
+R4
+DEx4 work 9 window_rf 0 22 j8ladBiNd5XYWCjnaT1]U0
+l59
+L46
+VPY_F88;H?RjN=EK;^JJle1
+!s100 _<<moYF7<XAV_N;e9U6hj3
+R7
+32
+R16
+!i10b 1
+R17
+R217
+R218
+!i113 0
+R12
+R13
+Ewriteback_unit
+R1
+R3
+R4
+R0
+Z219 8./DataPath/Writeback/writeback_unit.vhd
+Z220 F./DataPath/Writeback/writeback_unit.vhd
+l0
+L4
+Va_S?DWNXAJQNFJB_BVPg60
+!s100 X;c;Je;?B=6JWHJGGo=Co0
+R7
+32
+R58
+!i10b 1
+R59
+Z221 !s90 -reportprogress|300|-work|work|./DataPath/Writeback/writeback_unit.vhd|
+Z222 !s107 ./DataPath/Writeback/writeback_unit.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 14 writeback_unit 0 22 a_S?DWNXAJQNFJB_BVPg60
+l22
+L13
+VOka[ABSA?LWcQm[Z8zZ7k3
+!s100 bNTe9]MDm2XE?DhNU@lZ[1
+R7
+32
+R58
+!i10b 1
+R59
+R221
+R222
+!i113 0
+R12
+R13
+Exor2
+R1
+R3
+R4
+R0
+Z223 8./DataPath/Execute_wrapper/xor2.vhd
+Z224 F./DataPath/Execute_wrapper/xor2.vhd
+l0
+L12
+V67Pg>BfZ?H;[CdeeYSK^Y3
+!s100 Y_7dE1Tj1HL:a<1]0g^h40
+R7
+32
+R8
+!i10b 1
+R9
+Z225 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/xor2.vhd|
+Z226 !s107 ./DataPath/Execute_wrapper/xor2.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 4 xor2 0 22 67Pg>BfZ?H;[CdeeYSK^Y3
+l18
+L17
+V3g58R`clAVzVPUVXa87:S0
+!s100 @0NNOBQ<4D@f^n@96MA8]2
+R7
+32
+R8
+!i10b 1
+R9
+R225
+R226
+!i113 0
+R12
+R13
+Ezero_comparator
+R1
+R2
+R3
+R4
+R0
+Z227 8./DataPath/Execute_wrapper/zero_comparator.vhd
+Z228 F./DataPath/Execute_wrapper/zero_comparator.vhd
+l0
+L14
+VC]nA;c7nlL9<[m14;BS;I0
+!s100 RdEJ=9HVi345k^T=71[HQ2
+R7
+32
+R45
+!i10b 1
+R46
+Z229 !s90 -reportprogress|300|-work|work|./DataPath/Execute_wrapper/zero_comparator.vhd|
+Z230 !s107 ./DataPath/Execute_wrapper/zero_comparator.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 15 zero_comparator 0 22 C]nA;c7nlL9<[m14;BS;I0
+l25
+L23
+VK3l69::=c]=9FYmP_MUFS1
+!s100 fi8FWc6NShAShaF;R>7<30
+R7
+32
+R45
+!i10b 1
+R46
+R229
+R230
+!i113 0
+R12
+R13

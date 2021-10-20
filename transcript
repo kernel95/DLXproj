@@ -1,0 +1,3249 @@
+# //  Questa Sim-64
+# //  Version 10.7c linux_x86_64 Aug 17 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+ls
+# ControlUnit
+# ctrl words dlx.xlsx
+# DataPath
+# DLX.vhd
+# HazardUnit
+# README.md
+# Simulation
+# Synthesis
+# TB
+# tests files for iRAM
+# transcript
+source Simulation/sim.tcl
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:12:37 on Oct 20,2021
+# vcom -reportprogress 300 -work work./DataPath/Fetch/register_generic.vhd 
+# Usage: vcom [options] files
+# Options:
+#   -help              Print this message
+#   -version           Print the version of the compiler
+#   -32                Run in 32-bit mode
+#   -64                Run in 64-bit mode
+#   -work <path>       Specify library WORK
+#   -fatal <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as fatal
+#   -error <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as errors
+#   -warning <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as warnings
+#   -warning error     Report all warnings as errors
+#   -note <msgNumber>[,<msgNumber>...]
+#                      Report the listed message as notes
+#   -suppress <msgNumber/msgGroup>[,<msgNumber/msgGroup>...]
+#                      Suppress the listed messages using number or group.
+#                      Valid <msgGroup> are All, GroupNote, GroupWarning, GroupFLI, GroupPLI, 
+#                      GroupSDF, GroupVCD, GroupVital, GroupWLF, GroupTCHK, GroupPA, GroupLRM
+#   -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to default count
+#   -msglimit [error|warning]
+#                      Limit the total number of errors/warnings to default count
+#   -msglimitcount <limit_value> -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to user defined count
+#   -msglimitcount <limit_value> -msglimit [error|warning]
+#                      Limit the total number of errors/warnings to user defined count
+#   -msgsingleline     Display the messages in a single line.
+#   -svfilesuffix=<extension>[,<extension>...]
+#                      filename extensions for SystemVerilog code
+#   -vamsfilesuffix=<extension>[,<extension>...]
+#                      filename extensions for Verilog-AMS code
+#   -87                Enable support for VHDL 1076-1987
+#   -93                Enable support for VHDL 1076-1993
+#   -2002              Enable support for VHDL 1076-2002
+#   -2008              Enable support for VHDL 1076-2008
+#                      Refer to the technote docs/technotes/vhdl2008.note
+#                      for a list of the currently supported 2008 features.
+#   -allowProtectedBeforeBody
+#                      Allow a variable of protected type to be created prior
+#                      to declaring the body
+#   -ams99             Enable support for VHDL 1076.1-1999
+#   -ams07             Enable support for VHDL 1076.1-2007
+#   -addpragmaprefix <prefix>
+#                      Enable recognition of synthesis and coverage pragmas with
+#                      a user specified prefix.
+#   -check_synthesis   Check for compliance to some synthesis rules
+#   --------  Access Control and Debug Options  --------
+#       These options help maximize simulation performance while retaining access
+#       to objects of interest. The effect of this option is limited only to
+#       those design units being compiled in the current vcom session.
+#   +acc[=<spec>]
+#                      <spec> consists of the following letter code:
+#                         v (variables, constants, and aliases
+#   -assertdebug       Allow to debug SVA/PSL objects, with vsim -assertdebug
+#   -fsmdebug          Allow finite state machine recognition and debugging
+#   -floatgenerics     Don't lock down generic values during optimization.
+#                      This enables use of the vsim -g/G options on the affected
+#                      generics.
+#   --------
+#   -createlib[=compress]
+#                      Create libraries that do not exist.
+#                      The =compress modifier creates compressed libraries.
+#   -nocreatelib       Do not create libraries that do not exist.
+#   -coverclkoptbuiltins, -nocoverclkoptbuiltins
+#                      Enable or disable clkOpt optimization builtins for code coverage.
+#   -bindAtCompile     Perform default binding when compiling the design
+#   -bindAtLoad        Perform default binding when the design is loaded (the default)
+#   -amsstd            Add VHDL-AMS declarations to package STANDARD
+#   -noamsstd          Do not add VHDL-AMS declarations to package STANDARD
+#   -ignoreStandardRealVector Ignore the VHDL-2008 declaration of REAL_VECTOR in package STANDARD
+#   -nocoversub        Ignore VHDL subprograms for code coverage
+#   -coversub          Include VHDL subprograms for code coverage
+#   -coverrespecthandl  Inform code coverage optimizations to look for H and L signal values
+#   -nocoverrespecthandl  Inform code coverage optimizations to ignore H and L signal values
+#   -separateConfigLibrary  Allows VHDL configuration decls in different library from corresponding entity
+#   +cover[=<spec>]
+#                      <spec> is used to enable code coverage metrics for certain
+#                      kinds of constructs.
+#                      <spec> consists of one or more of the following letter codes:
+#                         s (statement)
+#                         b (branch)
+#                         c (condition)
+#                         e (expression)
+#                         f (finite state machine)
+#                         t (toggle)
+#                         x (extended toggle)
+#                      If no <spec> characters are given, sbceft is the default.
+#   -coverenhanced     Enables functionality which may change the appearance or content of coverage
+#                      metrics. A detailed list of these changes can be found by searching in the
+#                      release notes for 'coverenhanced'. This option only takes meaningful effect in
+#                      letter releases (e.g. 10.2b). It has no effect in initial major releases (e.g. 10.2).
+#   -coveropt <i>      Specify a digit for code coverage optimization level: 1 through 4.
+#   -coverexcludedefault Automatically exclude case default clauses.
+#   -coverfec          Enable Focused Expression Coverage analysis for conditions and expressions.
+#   -nocoverfec        Disable Focused Expression Coverage analysis for conditions and expressions.
+#   -coverrec          Enable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -nocoverrec        Disable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -coverudp          Enable UDP Coverage analysis for conditions and expressions.
+#   -nocoverudp        Disable UDP Coverage analysis for conditions and expressions.
+#   -nocovershort      Disable short circuiting of expressions/condition when coverage is enabled.
+#   -coverexpandrdpfx  Bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexpandrdpfx Don't bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexcludedefault Don't automatically exclude case default clauses.
+#   -constimmedassert  Show constant immediate assertions in GUI/UCDB/reports etc.
+#   -togglecountlimit n Quit collecting toggle info after count n is reached.
+#   -togglewidthlimit n Don't collect toggle data on reg's or arrays wider than n.
+#   -extendedtogglemode [1|2|3]
+#                      Change the level of support for extended toggles.
+#                      The levels of support are:
+#                      1 - 0L->1H & 1H->0L & any one 'Z' transition (to/from 'Z')
+#                      2 - 0L->1H & 1H->0L & one transition to 'Z' & one transition from 'Z'
+#                      3 - 0L->1H & 1H->0L & all 'Z' transitions
+#   -toggleportsonly   Enable toggle statistics collection only for ports.
+#   -maxudprows n      Max number of rows allowed in UDP tables for code coverage.
+#   -maxfecrows n      Max number of input patterns allowed in FEC table for code coverage.
+#   -fecudpeffort n    Limit the size of expressions and conditions considered for expr/cond coverage.
+#                      Levels supported are:
+#                      1 - (low) Only small expressions and conditions considered for coverage.
+#                      2 - (medium) Bigger expressions and conditions considered for coverage.
+#                      3 - (high) Very large expressions and conditions considered for coverage.
+#   -coverreportcancelled Report coverage items that have been optimized away.
+#   -coverdeglitch <period> Report only the last execution of non-clocked processes/continuous assignments
+#                      within time greater than <period>, where <period> is 0 or
+#                      a time string with units
+#   -autoorder         [Experimental feature] Compiler automatically reorders compilation of designs according to dependences.
+#   -noautoorderrefresh Omit the final compilation step of -autoorder.
+#                      Execute the final compilation step later with -refresh_marked.
+#   -autoorderquiet    Do not issue a compilation report in the initial compilation step
+#                      when performing -autoorder.
+#   -autoorderrefreshquiet Do not issue a compilation report after the final compilation step
+#                      when performing -autoorder.
+#   -debugVA           Print VITAL cell optimization information
+#   -defercheck        Defer all compile-time range checking on constant index and
+#                      slice expressions until run time
+#   -explicit          Resolve resolution conflicts in favor of explicit functions
+#   -deferSubpgmCheck  Defer compile-time range checking on constant index and
+#                      slice expressions in subprograms until run time
+#   -f <filename>      Specify a file containing more command line arguments
+#   -F <filename>      Specify a file containing more command line arguments. Prefixes relative
+#                      file names within the arguments file with the absolute path of arguments file,
+#                      if lookup with relative path fails.
+#   -outf <filename>   Specify a file to save the final list of options after recursively expanding
+#                      all -f, -file and -F files.
+#   -force_refresh     Force a refresh of the library image from .dat file(s)
+#                      even if there are dependency errors
+#   -optionset <optionset_name>
+#                      Calls an option set in modelsim.ini.
+#   -nofsmresettrans   Disable recognition of implicit asynchronous reset transitions for FSMs
+#   -fsmresettrans     Enable recognition of implicit asynchronous reset transitions for FSMs
+#   -nofsmsingle       Disable recognition FSMs having single bit current state variable
+#   -fsmsingle         Enable recognition FSMs having single bit current state variable
+#   -fsmimplicittrans  Enable recognition of implicit transitions in FSMs
+#   -nofsmimplicittrans Disable recognition of implicit transitions in FSMs
+#   -fsmmultitrans     Enable recognition of Multi-state transitions in FSMs
+#   -fsmverbose [b|t|w]
+#                      Provides information about FSMs recognized, including state reachability analysis.
+#                      There are three detail levels that can be set with this option.
+#                         b (displays only basic information)
+#                         t (displays a transition table in addition to the basic information)
+#                         w (displays any warning messages in addition to the basic information)
+#                      If no character is specified, btw is the default.
+#   -gen_xml <entity> <output>
+#                      Output (into a file) the interface definition of the
+#                      specified design unit in XML format
+#   -gen_xmlstruct <entity> <output>
+#                      Similar to -gen_xml, but also output the structural definition
+#                      of the specified design unit in XML format
+#   -ignoredefaultbinding
+#                      Do not generate a default binding during compilation
+#   -ignorevitalerrors Ignore VITAL compliance errors
+#   -ignorepragmaprefix <prefix>
+#                      Ignore synthesis and coverage pragmas with specified prefix
+#   -initoutcompositeparam
+#                      Initialize array and record mode OUT parameters of subprograms
+#   -noinitoutcompositeparam
+#                      Do not initialize array and record mode OUT parameters of subprograms
+#   -just eapbcx       Compile only selected design unit kinds
+#                      (e=entity, a=arch, p=package, b=body, c=config, x=context)
+#   -l <filename>      Write compilation log to <filename>
+#   -line <lineNum>    Specify a starting line number
+#   -lint              Perform lint-style checks
+#   -modelsimini <modelsim.ini>
+#                      Specify path to the modelsim.ini file
+#   -no1164            Disable optimization for the std_logic_1164 package (same as "-noaccel std_logic_1164")
+#   -noaccel <pname>   Disable optimization for the specified package
+#   -nocasestaticerror Suppress case statement non-static choice warning
+#   -nofprangecheck    Disables range check for floating point only
+#   -noFunctionInline  Turns off subprogram inlining
+#   -nonstddriverinit  Match pre-5.7c behavior for driver initialization
+#   -lower             Save all identifiers as lower case names
+#   -preserve          Keep case of identifiers, does not make VHDL case sensitive
+#   -oldconfigvis      Use pre-10.0 non LRM-compilant visibility for use clauses in configurations
+#   -lrmconfigvis      Use LRM-compliant visibility for use clause in configurations
+#   -reorderDeclElab   Enable declaration reordering during elaboration to resolve function calls that are used before defined
+#   -nocheck           Disable run-time range and index checks
+#   -nodebug[=ports][=pli][=ports+pli]
+#                      Do not put symbolic debugging information into the library
+#   -nodbgsym
+#                      Do not generate symbols debugging database
+#   -smartdbgsym
+#                      Generate symbols debugging database for only some special cases
+#   -noDeferSubpgmCheck
+#                      Perform compile-time range checking on constant index and
+#                      slice expressions in subprograms at compile-time
+#   -noindexcheck      Disable run-time index checks
+#   -nologo            Disable startup banner
+#   -[w]prof=<filename> Enables CPU (-prof) or WALL (-wprof) time based profiling
+#                       and saves the profile data to the given filename.
+#   -proftick=<integer> Set the time interval between the profile data collection.
+#                       Default value is 10.
+#   -noothersstaticerror Suppress array aggregate non-static OTHERS choice warning
+#   -nopsl             Disable embedded PSL language parsing
+#   -norangecheck      Disable run-time range checks
+#   -novital           Disable all VITAL optimizations
+#   -novitalcheck      Disable VITAL Level 1 compliance checking and optimizations
+#   -novopt            Do not run the "vopt" compiler before simulation
+#   -nowarn <number>   Disable specified category of warning messages; verror 1907 to see them
+#   -noconstimmedassert  Do not show constant immediate assertions in GUI/UCDB/reports etc.
+#   -O0                Disable optimizations
+#   -O1                Enable some optimizations
+#   -O4                Enable most optimizations (default)
+#   -O5                Enable additional compiler optimizations
+#   -pedanticerrors    Enforce strict language checks
+#   -performdefaultbinding
+#                      Enable default binding when it has been disabled with the
+#                      RequireConfigForAllDefaultBinding modelsim.ini variable
+#   -permissive        Relax some language error checks to warnings.
+#   +protect[=<file>]  *DEPRECATED* Enable protection/encryption-related compiler directives
+#   -pslext            Enable PSL LTL/Universal operators
+#   -pslfile <file>    Compile and bind PSL vunits specified by <file>
+#   -quiet             Disable 'Loading' messages
+#   -rangecheck        Enable run-time range checks
+#   -refresh           Refresh the library image from .dat file(s)
+#   -refresh_marked    Refresh only design units marked following compilation with
+#                      -autoorder along with -noautoorderrefresh.
+#   -s                 Do not load package std.standard
+#   -skipsynthoffregion Ignore all constructs within synthesis_off or translate_off pragma regions.
+#   -skip eapbcx       Compile all but selected design unit kinds
+#                      (e=entity, a=arch, p=package, b=body, c=config, x=context)
+#   -source            Print the source line with error messages
+#   -stats[=[+-]<args>] Enables compiler statistics
+#                      <args> are all,none,time,cmd,msg,perf,verbose,list,kb
+#   -vitalmemorycheck  Enable VITAL Level 1 Memory model compliance checking
+#   -mixedsvvh [b | l | r] [i] [pc]
+#                      Facilitates using a VHDL package at the SV-VHDL mixed-language boundary.
+#                         b  - treat scalars/vectors in the package as bit
+#                         l  - treat scalars/vectors in the package as logic
+#                         r  - treat scalars/vectors in the package as reg
+#                         i  - ignore range specified with VHDL integer types
+#                         pc - preserve case of all identifiers
+#   -vopt              Run the "vopt" compiler before simulation
+#   -vmake             Collects complete list of command line args for use by vmake.
+#   -showsubprograms   Show VHDL subprogram scopes in GUI windows (e.g. Structure) and CLI commands (e.g. show).
+#   -noshowsubprograms Don't show VHDL subprogram scopes in GUI windows (e.g. Structure) and CLI commands (e.g. show).(Default on)
+# /software/mentor/questa10.7c/questasim/linux_x86_64/vcom failed.
+vcom -reportprogress 300 -work work /home/ms21.27/DLXproj/DataPath/Fetch/adder_genericu.vhd
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:13:00 on Oct 20,2021
+# vcom -reportprogress 300 -work work /home/ms21.27/DLXproj/DataPath/Fetch/adder_genericu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_genericu
+# -- Compiling architecture Behavioral of adder_genericu
+# End time: 18:13:00 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+source Simulation/sim.tcl
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:13:41 on Oct 20,2021
+# vcom -reportprogress 300 -work work./DataPath/Fetch/register_generic.vhd 
+# Usage: vcom [options] files
+# Options:
+#   -help              Print this message
+#   -version           Print the version of the compiler
+#   -32                Run in 32-bit mode
+#   -64                Run in 64-bit mode
+#   -work <path>       Specify library WORK
+#   -fatal <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as fatal
+#   -error <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as errors
+#   -warning <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as warnings
+#   -warning error     Report all warnings as errors
+#   -note <msgNumber>[,<msgNumber>...]
+#                      Report the listed message as notes
+#   -suppress <msgNumber/msgGroup>[,<msgNumber/msgGroup>...]
+#                      Suppress the listed messages using number or group.
+#                      Valid <msgGroup> are All, GroupNote, GroupWarning, GroupFLI, GroupPLI, 
+#                      GroupSDF, GroupVCD, GroupVital, GroupWLF, GroupTCHK, GroupPA, GroupLRM
+#   -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to default count
+#   -msglimit [error|warning]
+#                      Limit the total number of errors/warnings to default count
+#   -msglimitcount <limit_value> -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to user defined count
+#   -msglimitcount <limit_value> -msglimit [error|warning]
+#                      Limit the total number of errors/warnings to user defined count
+#   -msgsingleline     Display the messages in a single line.
+#   -svfilesuffix=<extension>[,<extension>...]
+#                      filename extensions for SystemVerilog code
+#   -vamsfilesuffix=<extension>[,<extension>...]
+#                      filename extensions for Verilog-AMS code
+#   -87                Enable support for VHDL 1076-1987
+#   -93                Enable support for VHDL 1076-1993
+#   -2002              Enable support for VHDL 1076-2002
+#   -2008              Enable support for VHDL 1076-2008
+#                      Refer to the technote docs/technotes/vhdl2008.note
+#                      for a list of the currently supported 2008 features.
+#   -allowProtectedBeforeBody
+#                      Allow a variable of protected type to be created prior
+#                      to declaring the body
+#   -ams99             Enable support for VHDL 1076.1-1999
+#   -ams07             Enable support for VHDL 1076.1-2007
+#   -addpragmaprefix <prefix>
+#                      Enable recognition of synthesis and coverage pragmas with
+#                      a user specified prefix.
+#   -check_synthesis   Check for compliance to some synthesis rules
+#   --------  Access Control and Debug Options  --------
+#       These options help maximize simulation performance while retaining access
+#       to objects of interest. The effect of this option is limited only to
+#       those design units being compiled in the current vcom session.
+#   +acc[=<spec>]
+#                      <spec> consists of the following letter code:
+#                         v (variables, constants, and aliases
+#   -assertdebug       Allow to debug SVA/PSL objects, with vsim -assertdebug
+#   -fsmdebug          Allow finite state machine recognition and debugging
+#   -floatgenerics     Don't lock down generic values during optimization.
+#                      This enables use of the vsim -g/G options on the affected
+#                      generics.
+#   --------
+#   -createlib[=compress]
+#                      Create libraries that do not exist.
+#                      The =compress modifier creates compressed libraries.
+#   -nocreatelib       Do not create libraries that do not exist.
+#   -coverclkoptbuiltins, -nocoverclkoptbuiltins
+#                      Enable or disable clkOpt optimization builtins for code coverage.
+#   -bindAtCompile     Perform default binding when compiling the design
+#   -bindAtLoad        Perform default binding when the design is loaded (the default)
+#   -amsstd            Add VHDL-AMS declarations to package STANDARD
+#   -noamsstd          Do not add VHDL-AMS declarations to package STANDARD
+#   -ignoreStandardRealVector Ignore the VHDL-2008 declaration of REAL_VECTOR in package STANDARD
+#   -nocoversub        Ignore VHDL subprograms for code coverage
+#   -coversub          Include VHDL subprograms for code coverage
+#   -coverrespecthandl  Inform code coverage optimizations to look for H and L signal values
+#   -nocoverrespecthandl  Inform code coverage optimizations to ignore H and L signal values
+#   -separateConfigLibrary  Allows VHDL configuration decls in different library from corresponding entity
+#   +cover[=<spec>]
+#                      <spec> is used to enable code coverage metrics for certain
+#                      kinds of constructs.
+#                      <spec> consists of one or more of the following letter codes:
+#                         s (statement)
+#                         b (branch)
+#                         c (condition)
+#                         e (expression)
+#                         f (finite state machine)
+#                         t (toggle)
+#                         x (extended toggle)
+#                      If no <spec> characters are given, sbceft is the default.
+#   -coverenhanced     Enables functionality which may change the appearance or content of coverage
+#                      metrics. A detailed list of these changes can be found by searching in the
+#                      release notes for 'coverenhanced'. This option only takes meaningful effect in
+#                      letter releases (e.g. 10.2b). It has no effect in initial major releases (e.g. 10.2).
+#   -coveropt <i>      Specify a digit for code coverage optimization level: 1 through 4.
+#   -coverexcludedefault Automatically exclude case default clauses.
+#   -coverfec          Enable Focused Expression Coverage analysis for conditions and expressions.
+#   -nocoverfec        Disable Focused Expression Coverage analysis for conditions and expressions.
+#   -coverrec          Enable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -nocoverrec        Disable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -coverudp          Enable UDP Coverage analysis for conditions and expressions.
+#   -nocoverudp        Disable UDP Coverage analysis for conditions and expressions.
+#   -nocovershort      Disable short circuiting of expressions/condition when coverage is enabled.
+#   -coverexpandrdpfx  Bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexpandrdpfx Don't bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexcludedefault Don't automatically exclude case default clauses.
+#   -constimmedassert  Show constant immediate assertions in GUI/UCDB/reports etc.
+#   -togglecountlimit n Quit collecting toggle info after count n is reached.
+#   -togglewidthlimit n Don't collect toggle data on reg's or arrays wider than n.
+#   -extendedtogglemode [1|2|3]
+#                      Change the level of support for extended toggles.
+#                      The levels of support are:
+#                      1 - 0L->1H & 1H->0L & any one 'Z' transition (to/from 'Z')
+#                      2 - 0L->1H & 1H->0L & one transition to 'Z' & one transition from 'Z'
+#                      3 - 0L->1H & 1H->0L & all 'Z' transitions
+#   -toggleportsonly   Enable toggle statistics collection only for ports.
+#   -maxudprows n      Max number of rows allowed in UDP tables for code coverage.
+#   -maxfecrows n      Max number of input patterns allowed in FEC table for code coverage.
+#   -fecudpeffort n    Limit the size of expressions and conditions considered for expr/cond coverage.
+#                      Levels supported are:
+#                      1 - (low) Only small expressions and conditions considered for coverage.
+#                      2 - (medium) Bigger expressions and conditions considered for coverage.
+#                      3 - (high) Very large expressions and conditions considered for coverage.
+#   -coverreportcancelled Report coverage items that have been optimized away.
+#   -coverdeglitch <period> Report only the last execution of non-clocked processes/continuous assignments
+#                      within time greater than <period>, where <period> is 0 or
+#                      a time string with units
+#   -autoorder         [Experimental feature] Compiler automatically reorders compilation of designs according to dependences.
+#   -noautoorderrefresh Omit the final compilation step of -autoorder.
+#                      Execute the final compilation step later with -refresh_marked.
+#   -autoorderquiet    Do not issue a compilation report in the initial compilation step
+#                      when performing -autoorder.
+#   -autoorderrefreshquiet Do not issue a compilation report after the final compilation step
+#                      when performing -autoorder.
+#   -debugVA           Print VITAL cell optimization information
+#   -defercheck        Defer all compile-time range checking on constant index and
+#                      slice expressions until run time
+#   -explicit          Resolve resolution conflicts in favor of explicit functions
+#   -deferSubpgmCheck  Defer compile-time range checking on constant index and
+#                      slice expressions in subprograms until run time
+#   -f <filename>      Specify a file containing more command line arguments
+#   -F <filename>      Specify a file containing more command line arguments. Prefixes relative
+#                      file names within the arguments file with the absolute path of arguments file,
+#                      if lookup with relative path fails.
+#   -outf <filename>   Specify a file to save the final list of options after recursively expanding
+#                      all -f, -file and -F files.
+#   -force_refresh     Force a refresh of the library image from .dat file(s)
+#                      even if there are dependency errors
+#   -optionset <optionset_name>
+#                      Calls an option set in modelsim.ini.
+#   -nofsmresettrans   Disable recognition of implicit asynchronous reset transitions for FSMs
+#   -fsmresettrans     Enable recognition of implicit asynchronous reset transitions for FSMs
+#   -nofsmsingle       Disable recognition FSMs having single bit current state variable
+#   -fsmsingle         Enable recognition FSMs having single bit current state variable
+#   -fsmimplicittrans  Enable recognition of implicit transitions in FSMs
+#   -nofsmimplicittrans Disable recognition of implicit transitions in FSMs
+#   -fsmmultitrans     Enable recognition of Multi-state transitions in FSMs
+#   -fsmverbose [b|t|w]
+#                      Provides information about FSMs recognized, including state reachability analysis.
+#                      There are three detail levels that can be set with this option.
+#                         b (displays only basic information)
+#                         t (displays a transition table in addition to the basic information)
+#                         w (displays any warning messages in addition to the basic information)
+#                      If no character is specified, btw is the default.
+#   -gen_xml <entity> <output>
+#                      Output (into a file) the interface definition of the
+#                      specified design unit in XML format
+#   -gen_xmlstruct <entity> <output>
+#                      Similar to -gen_xml, but also output the structural definition
+#                      of the specified design unit in XML format
+#   -ignoredefaultbinding
+#                      Do not generate a default binding during compilation
+#   -ignorevitalerrors Ignore VITAL compliance errors
+#   -ignorepragmaprefix <prefix>
+#                      Ignore synthesis and coverage pragmas with specified prefix
+#   -initoutcompositeparam
+#                      Initialize array and record mode OUT parameters of subprograms
+#   -noinitoutcompositeparam
+#                      Do not initialize array and record mode OUT parameters of subprograms
+#   -just eapbcx       Compile only selected design unit kinds
+#                      (e=entity, a=arch, p=package, b=body, c=config, x=context)
+#   -l <filename>      Write compilation log to <filename>
+#   -line <lineNum>    Specify a starting line number
+#   -lint              Perform lint-style checks
+#   -modelsimini <modelsim.ini>
+#                      Specify path to the modelsim.ini file
+#   -no1164            Disable optimization for the std_logic_1164 package (same as "-noaccel std_logic_1164")
+#   -noaccel <pname>   Disable optimization for the specified package
+#   -nocasestaticerror Suppress case statement non-static choice warning
+#   -nofprangecheck    Disables range check for floating point only
+#   -noFunctionInline  Turns off subprogram inlining
+#   -nonstddriverinit  Match pre-5.7c behavior for driver initialization
+#   -lower             Save all identifiers as lower case names
+#   -preserve          Keep case of identifiers, does not make VHDL case sensitive
+#   -oldconfigvis      Use pre-10.0 non LRM-compilant visibility for use clauses in configurations
+#   -lrmconfigvis      Use LRM-compliant visibility for use clause in configurations
+#   -reorderDeclElab   Enable declaration reordering during elaboration to resolve function calls that are used before defined
+#   -nocheck           Disable run-time range and index checks
+#   -nodebug[=ports][=pli][=ports+pli]
+#                      Do not put symbolic debugging information into the library
+#   -nodbgsym
+#                      Do not generate symbols debugging database
+#   -smartdbgsym
+#                      Generate symbols debugging database for only some special cases
+#   -noDeferSubpgmCheck
+#                      Perform compile-time range checking on constant index and
+#                      slice expressions in subprograms at compile-time
+#   -noindexcheck      Disable run-time index checks
+#   -nologo            Disable startup banner
+#   -[w]prof=<filename> Enables CPU (-prof) or WALL (-wprof) time based profiling
+#                       and saves the profile data to the given filename.
+#   -proftick=<integer> Set the time interval between the profile data collection.
+#                       Default value is 10.
+#   -noothersstaticerror Suppress array aggregate non-static OTHERS choice warning
+#   -nopsl             Disable embedded PSL language parsing
+#   -norangecheck      Disable run-time range checks
+#   -novital           Disable all VITAL optimizations
+#   -novitalcheck      Disable VITAL Level 1 compliance checking and optimizations
+#   -novopt            Do not run the "vopt" compiler before simulation
+#   -nowarn <number>   Disable specified category of warning messages; verror 1907 to see them
+#   -noconstimmedassert  Do not show constant immediate assertions in GUI/UCDB/reports etc.
+#   -O0                Disable optimizations
+#   -O1                Enable some optimizations
+#   -O4                Enable most optimizations (default)
+#   -O5                Enable additional compiler optimizations
+#   -pedanticerrors    Enforce strict language checks
+#   -performdefaultbinding
+#                      Enable default binding when it has been disabled with the
+#                      RequireConfigForAllDefaultBinding modelsim.ini variable
+#   -permissive        Relax some language error checks to warnings.
+#   +protect[=<file>]  *DEPRECATED* Enable protection/encryption-related compiler directives
+#   -pslext            Enable PSL LTL/Universal operators
+#   -pslfile <file>    Compile and bind PSL vunits specified by <file>
+#   -quiet             Disable 'Loading' messages
+#   -rangecheck        Enable run-time range checks
+#   -refresh           Refresh the library image from .dat file(s)
+#   -refresh_marked    Refresh only design units marked following compilation with
+#                      -autoorder along with -noautoorderrefresh.
+#   -s                 Do not load package std.standard
+#   -skipsynthoffregion Ignore all constructs within synthesis_off or translate_off pragma regions.
+#   -skip eapbcx       Compile all but selected design unit kinds
+#                      (e=entity, a=arch, p=package, b=body, c=config, x=context)
+#   -source            Print the source line with error messages
+#   -stats[=[+-]<args>] Enables compiler statistics
+#                      <args> are all,none,time,cmd,msg,perf,verbose,list,kb
+#   -vitalmemorycheck  Enable VITAL Level 1 Memory model compliance checking
+#   -mixedsvvh [b | l | r] [i] [pc]
+#                      Facilitates using a VHDL package at the SV-VHDL mixed-language boundary.
+#                         b  - treat scalars/vectors in the package as bit
+#                         l  - treat scalars/vectors in the package as logic
+#                         r  - treat scalars/vectors in the package as reg
+#                         i  - ignore range specified with VHDL integer types
+#                         pc - preserve case of all identifiers
+#   -vopt              Run the "vopt" compiler before simulation
+#   -vmake             Collects complete list of command line args for use by vmake.
+#   -showsubprograms   Show VHDL subprogram scopes in GUI windows (e.g. Structure) and CLI commands (e.g. show).
+#   -noshowsubprograms Don't show VHDL subprogram scopes in GUI windows (e.g. Structure) and CLI commands (e.g. show).(Default on)
+# /software/mentor/questa10.7c/questasim/linux_x86_64/vcom failed.
+vcom -reportprogress 300 -work work /home/ms21.27/DLXproj/DataPath/Fetch/adder_genericu.vhd
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:13:57 on Oct 20,2021
+# vcom -reportprogress 300 -work work /home/ms21.27/DLXproj/DataPath/Fetch/adder_genericu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_genericu
+# -- Compiling architecture Behavioral of adder_genericu
+# End time: 18:13:57 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+git clone https://github.com/kernel95/DLXproj
+# Cloning into 'DLXproj'...
+q
+vcom -reportprogress 300 -work work./DataPath/Fetch/register_generic.vhd
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:15:28 on Oct 20,2021
+# vcom -reportprogress 300 -work work./DataPath/Fetch/register_generic.vhd 
+# Usage: vcom [options] files
+# Options:
+#   -help              Print this message
+#   -version           Print the version of the compiler
+#   -32                Run in 32-bit mode
+#   -64                Run in 64-bit mode
+#   -work <path>       Specify library WORK
+#   -fatal <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as fatal
+#   -error <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as errors
+#   -warning <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as warnings
+#   -warning error     Report all warnings as errors
+#   -note <msgNumber>[,<msgNumber>...]
+#                      Report the listed message as notes
+#   -suppress <msgNumber/msgGroup>[,<msgNumber/msgGroup>...]
+#                      Suppress the listed messages using number or group.
+#                      Valid <msgGroup> are All, GroupNote, GroupWarning, GroupFLI, GroupPLI, 
+#                      GroupSDF, GroupVCD, GroupVital, GroupWLF, GroupTCHK, GroupPA, GroupLRM
+#   -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to default count
+#   -msglimit [error|warning]
+#                      Limit the total number of errors/warnings to default count
+#   -msglimitcount <limit_value> -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to user defined count
+#   -msglimitcount <limit_value> -msglimit [error|warning]
+#                      Limit the total number of errors/warnings to user defined count
+#   -msgsingleline     Display the messages in a single line.
+#   -svfilesuffix=<extension>[,<extension>...]
+#                      filename extensions for SystemVerilog code
+#   -vamsfilesuffix=<extension>[,<extension>...]
+#                      filename extensions for Verilog-AMS code
+#   -87                Enable support for VHDL 1076-1987
+#   -93                Enable support for VHDL 1076-1993
+#   -2002              Enable support for VHDL 1076-2002
+#   -2008              Enable support for VHDL 1076-2008
+#                      Refer to the technote docs/technotes/vhdl2008.note
+#                      for a list of the currently supported 2008 features.
+#   -allowProtectedBeforeBody
+#                      Allow a variable of protected type to be created prior
+#                      to declaring the body
+#   -ams99             Enable support for VHDL 1076.1-1999
+#   -ams07             Enable support for VHDL 1076.1-2007
+#   -addpragmaprefix <prefix>
+#                      Enable recognition of synthesis and coverage pragmas with
+#                      a user specified prefix.
+#   -check_synthesis   Check for compliance to some synthesis rules
+#   --------  Access Control and Debug Options  --------
+#       These options help maximize simulation performance while retaining access
+#       to objects of interest. The effect of this option is limited only to
+#       those design units being compiled in the current vcom session.
+#   +acc[=<spec>]
+#                      <spec> consists of the following letter code:
+#                         v (variables, constants, and aliases
+#   -assertdebug       Allow to debug SVA/PSL objects, with vsim -assertdebug
+#   -fsmdebug          Allow finite state machine recognition and debugging
+#   -floatgenerics     Don't lock down generic values during optimization.
+#                      This enables use of the vsim -g/G options on the affected
+#                      generics.
+#   --------
+#   -createlib[=compress]
+#                      Create libraries that do not exist.
+#                      The =compress modifier creates compressed libraries.
+#   -nocreatelib       Do not create libraries that do not exist.
+#   -coverclkoptbuiltins, -nocoverclkoptbuiltins
+#                      Enable or disable clkOpt optimization builtins for code coverage.
+#   -bindAtCompile     Perform default binding when compiling the design
+#   -bindAtLoad        Perform default binding when the design is loaded (the default)
+#   -amsstd            Add VHDL-AMS declarations to package STANDARD
+#   -noamsstd          Do not add VHDL-AMS declarations to package STANDARD
+#   -ignoreStandardRealVector Ignore the VHDL-2008 declaration of REAL_VECTOR in package STANDARD
+#   -nocoversub        Ignore VHDL subprograms for code coverage
+#   -coversub          Include VHDL subprograms for code coverage
+#   -coverrespecthandl  Inform code coverage optimizations to look for H and L signal values
+#   -nocoverrespecthandl  Inform code coverage optimizations to ignore H and L signal values
+#   -separateConfigLibrary  Allows VHDL configuration decls in different library from corresponding entity
+#   +cover[=<spec>]
+#                      <spec> is used to enable code coverage metrics for certain
+#                      kinds of constructs.
+#                      <spec> consists of one or more of the following letter codes:
+#                         s (statement)
+#                         b (branch)
+#                         c (condition)
+#                         e (expression)
+#                         f (finite state machine)
+#                         t (toggle)
+#                         x (extended toggle)
+#                      If no <spec> characters are given, sbceft is the default.
+#   -coverenhanced     Enables functionality which may change the appearance or content of coverage
+#                      metrics. A detailed list of these changes can be found by searching in the
+#                      release notes for 'coverenhanced'. This option only takes meaningful effect in
+#                      letter releases (e.g. 10.2b). It has no effect in initial major releases (e.g. 10.2).
+#   -coveropt <i>      Specify a digit for code coverage optimization level: 1 through 4.
+#   -coverexcludedefault Automatically exclude case default clauses.
+#   -coverfec          Enable Focused Expression Coverage analysis for conditions and expressions.
+#   -nocoverfec        Disable Focused Expression Coverage analysis for conditions and expressions.
+#   -coverrec          Enable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -nocoverrec        Disable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -coverudp          Enable UDP Coverage analysis for conditions and expressions.
+#   -nocoverudp        Disable UDP Coverage analysis for conditions and expressions.
+#   -nocovershort      Disable short circuiting of expressions/condition when coverage is enabled.
+#   -coverexpandrdpfx  Bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexpandrdpfx Don't bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexcludedefault Don't automatically exclude case default clauses.
+#   -constimmedassert  Show constant immediate assertions in GUI/UCDB/reports etc.
+#   -togglecountlimit n Quit collecting toggle info after count n is reached.
+#   -togglewidthlimit n Don't collect toggle data on reg's or arrays wider than n.
+#   -extendedtogglemode [1|2|3]
+#                      Change the level of support for extended toggles.
+#                      The levels of support are:
+#                      1 - 0L->1H & 1H->0L & any one 'Z' transition (to/from 'Z')
+#                      2 - 0L->1H & 1H->0L & one transition to 'Z' & one transition from 'Z'
+#                      3 - 0L->1H & 1H->0L & all 'Z' transitions
+#   -toggleportsonly   Enable toggle statistics collection only for ports.
+#   -maxudprows n      Max number of rows allowed in UDP tables for code coverage.
+#   -maxfecrows n      Max number of input patterns allowed in FEC table for code coverage.
+#   -fecudpeffort n    Limit the size of expressions and conditions considered for expr/cond coverage.
+#                      Levels supported are:
+#                      1 - (low) Only small expressions and conditions considered for coverage.
+#                      2 - (medium) Bigger expressions and conditions considered for coverage.
+#                      3 - (high) Very large expressions and conditions considered for coverage.
+#   -coverreportcancelled Report coverage items that have been optimized away.
+#   -coverdeglitch <period> Report only the last execution of non-clocked processes/continuous assignments
+#                      within time greater than <period>, where <period> is 0 or
+#                      a time string with units
+#   -autoorder         [Experimental feature] Compiler automatically reorders compilation of designs according to dependences.
+#   -noautoorderrefresh Omit the final compilation step of -autoorder.
+#                      Execute the final compilation step later with -refresh_marked.
+#   -autoorderquiet    Do not issue a compilation report in the initial compilation step
+#                      when performing -autoorder.
+#   -autoorderrefreshquiet Do not issue a compilation report after the final compilation step
+#                      when performing -autoorder.
+#   -debugVA           Print VITAL cell optimization information
+#   -defercheck        Defer all compile-time range checking on constant index and
+#                      slice expressions until run time
+#   -explicit          Resolve resolution conflicts in favor of explicit functions
+#   -deferSubpgmCheck  Defer compile-time range checking on constant index and
+#                      slice expressions in subprograms until run time
+#   -f <filename>      Specify a file containing more command line arguments
+#   -F <filename>      Specify a file containing more command line arguments. Prefixes relative
+#                      file names within the arguments file with the absolute path of arguments file,
+#                      if lookup with relative path fails.
+#   -outf <filename>   Specify a file to save the final list of options after recursively expanding
+#                      all -f, -file and -F files.
+#   -force_refresh     Force a refresh of the library image from .dat file(s)
+#                      even if there are dependency errors
+#   -optionset <optionset_name>
+#                      Calls an option set in modelsim.ini.
+#   -nofsmresettrans   Disable recognition of implicit asynchronous reset transitions for FSMs
+#   -fsmresettrans     Enable recognition of implicit asynchronous reset transitions for FSMs
+#   -nofsmsingle       Disable recognition FSMs having single bit current state variable
+#   -fsmsingle         Enable recognition FSMs having single bit current state variable
+#   -fsmimplicittrans  Enable recognition of implicit transitions in FSMs
+#   -nofsmimplicittrans Disable recognition of implicit transitions in FSMs
+#   -fsmmultitrans     Enable recognition of Multi-state transitions in FSMs
+#   -fsmverbose [b|t|w]
+#                      Provides information about FSMs recognized, including state reachability analysis.
+#                      There are three detail levels that can be set with this option.
+#                         b (displays only basic information)
+#                         t (displays a transition table in addition to the basic information)
+#                         w (displays any warning messages in addition to the basic information)
+#                      If no character is specified, btw is the default.
+#   -gen_xml <entity> <output>
+#                      Output (into a file) the interface definition of the
+#                      specified design unit in XML format
+#   -gen_xmlstruct <entity> <output>
+#                      Similar to -gen_xml, but also output the structural definition
+#                      of the specified design unit in XML format
+#   -ignoredefaultbinding
+#                      Do not generate a default binding during compilation
+#   -ignorevitalerrors Ignore VITAL compliance errors
+#   -ignorepragmaprefix <prefix>
+#                      Ignore synthesis and coverage pragmas with specified prefix
+#   -initoutcompositeparam
+#                      Initialize array and record mode OUT parameters of subprograms
+#   -noinitoutcompositeparam
+#                      Do not initialize array and record mode OUT parameters of subprograms
+#   -just eapbcx       Compile only selected design unit kinds
+#                      (e=entity, a=arch, p=package, b=body, c=config, x=context)
+#   -l <filename>      Write compilation log to <filename>
+#   -line <lineNum>    Specify a starting line number
+#   -lint              Perform lint-style checks
+#   -modelsimini <modelsim.ini>
+#                      Specify path to the modelsim.ini file
+#   -no1164            Disable optimization for the std_logic_1164 package (same as "-noaccel std_logic_1164")
+#   -noaccel <pname>   Disable optimization for the specified package
+#   -nocasestaticerror Suppress case statement non-static choice warning
+#   -nofprangecheck    Disables range check for floating point only
+#   -noFunctionInline  Turns off subprogram inlining
+#   -nonstddriverinit  Match pre-5.7c behavior for driver initialization
+#   -lower             Save all identifiers as lower case names
+#   -preserve          Keep case of identifiers, does not make VHDL case sensitive
+#   -oldconfigvis      Use pre-10.0 non LRM-compilant visibility for use clauses in configurations
+#   -lrmconfigvis      Use LRM-compliant visibility for use clause in configurations
+#   -reorderDeclElab   Enable declaration reordering during elaboration to resolve function calls that are used before defined
+#   -nocheck           Disable run-time range and index checks
+#   -nodebug[=ports][=pli][=ports+pli]
+#                      Do not put symbolic debugging information into the library
+#   -nodbgsym
+#                      Do not generate symbols debugging database
+#   -smartdbgsym
+#                      Generate symbols debugging database for only some special cases
+#   -noDeferSubpgmCheck
+#                      Perform compile-time range checking on constant index and
+#                      slice expressions in subprograms at compile-time
+#   -noindexcheck      Disable run-time index checks
+#   -nologo            Disable startup banner
+#   -[w]prof=<filename> Enables CPU (-prof) or WALL (-wprof) time based profiling
+#                       and saves the profile data to the given filename.
+#   -proftick=<integer> Set the time interval between the profile data collection.
+#                       Default value is 10.
+#   -noothersstaticerror Suppress array aggregate non-static OTHERS choice warning
+#   -nopsl             Disable embedded PSL language parsing
+#   -norangecheck      Disable run-time range checks
+#   -novital           Disable all VITAL optimizations
+#   -novitalcheck      Disable VITAL Level 1 compliance checking and optimizations
+#   -novopt            Do not run the "vopt" compiler before simulation
+#   -nowarn <number>   Disable specified category of warning messages; verror 1907 to see them
+#   -noconstimmedassert  Do not show constant immediate assertions in GUI/UCDB/reports etc.
+#   -O0                Disable optimizations
+#   -O1                Enable some optimizations
+#   -O4                Enable most optimizations (default)
+#   -O5                Enable additional compiler optimizations
+#   -pedanticerrors    Enforce strict language checks
+#   -performdefaultbinding
+#                      Enable default binding when it has been disabled with the
+#                      RequireConfigForAllDefaultBinding modelsim.ini variable
+#   -permissive        Relax some language error checks to warnings.
+#   +protect[=<file>]  *DEPRECATED* Enable protection/encryption-related compiler directives
+#   -pslext            Enable PSL LTL/Universal operators
+#   -pslfile <file>    Compile and bind PSL vunits specified by <file>
+#   -quiet             Disable 'Loading' messages
+#   -rangecheck        Enable run-time range checks
+#   -refresh           Refresh the library image from .dat file(s)
+#   -refresh_marked    Refresh only design units marked following compilation with
+#                      -autoorder along with -noautoorderrefresh.
+#   -s                 Do not load package std.standard
+#   -skipsynthoffregion Ignore all constructs within synthesis_off or translate_off pragma regions.
+#   -skip eapbcx       Compile all but selected design unit kinds
+#                      (e=entity, a=arch, p=package, b=body, c=config, x=context)
+#   -source            Print the source line with error messages
+#   -stats[=[+-]<args>] Enables compiler statistics
+#                      <args> are all,none,time,cmd,msg,perf,verbose,list,kb
+#   -vitalmemorycheck  Enable VITAL Level 1 Memory model compliance checking
+#   -mixedsvvh [b | l | r] [i] [pc]
+#                      Facilitates using a VHDL package at the SV-VHDL mixed-language boundary.
+#                         b  - treat scalars/vectors in the package as bit
+#                         l  - treat scalars/vectors in the package as logic
+#                         r  - treat scalars/vectors in the package as reg
+#                         i  - ignore range specified with VHDL integer types
+#                         pc - preserve case of all identifiers
+#   -vopt              Run the "vopt" compiler before simulation
+#   -vmake             Collects complete list of command line args for use by vmake.
+#   -showsubprograms   Show VHDL subprogram scopes in GUI windows (e.g. Structure) and CLI commands (e.g. show).
+#   -noshowsubprograms Don't show VHDL subprogram scopes in GUI windows (e.g. Structure) and CLI commands (e.g. show).(Default on)
+# /software/mentor/questa10.7c/questasim/linux_x86_64/vcom failed.
+source Simulation/sim.tcl
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/register_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity register_generic
+# -- Compiling architecture Behavioral of register_generic
+# End time: 18:16:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/adder_genericu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_genericu
+# -- Compiling architecture Behavioral of adder_genericu
+# End time: 18:16:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/instruction_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Compiling entity instruction_ram
+# -- Compiling architecture Behavioral of instruction_ram
+# End time: 18:16:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/fetch_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetch_stage_wrapper
+# -- Compiling architecture structural of fetch_stage_wrapper
+# End time: 18:16:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/or_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OR_GATE
+# -- Compiling architecture DF of OR_GATE
+# End time: 18:16:09 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/window_rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity window_rf
+# -- Compiling architecture Behavioral of window_rf
+# End time: 18:16:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/sign_ext.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sign_ext
+# -- Compiling architecture Behavioral of sign_ext
+# End time: 18:16:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/adder_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_generic
+# -- Compiling architecture Behavioral of adder_generic
+# End time: 18:16:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/comparator_addr.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity comparator_addr
+# -- Compiling architecture Behavioral of comparator_addr
+# End time: 18:16:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/Decode_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Decode_wrapper
+# -- Compiling architecture Behavioral of Decode_wrapper
+# End time: 18:16:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/xor2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xor2
+# -- Compiling architecture Behavioral of xor2
+# End time: 18:16:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/or2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity or2
+# -- Compiling architecture Behavioral of or2
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/and2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity and2
+# -- Compiling architecture Behavioral of and2
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/vp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity vp
+# -- Compiling architecture behavioral of vp
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/half_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity half_adder
+# -- Compiling architecture Structural of half_adder
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/fa.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fa
+# -- Compiling architecture Structural of fa
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/full_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity full_adder
+# -- Compiling architecture full_adder_arc of full_adder
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block
+# -- Compiling architecture specification of g_block
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_block
+# -- Compiling architecture specification of pg_block
+# End time: 18:16:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block_carry.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block_carry
+# -- Compiling architecture specification of g_block_carry
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX21.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX21
+# -- Compiling architecture beh of MUX21
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mux31.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux31
+# -- Compiling architecture Behavioral of mux31
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX41.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX41
+# -- Compiling architecture beh of MUX41
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX81.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX81
+# -- Compiling architecture beh of MUX81
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_net.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_network
+# -- Compiling architecture specification of pg_network
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ripple_carry_adder
+# -- Compiling architecture rca_arc of ripple_carry_adder
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca_signed.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rca_signed
+# -- Compiling architecture Structural of rca_signed
+# End time: 18:16:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sparse_tree_carry_generator
+# -- Compiling architecture specification of sparse_tree_carry_generator
+# End time: 18:16:12 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_select_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity carry_select_adder
+# -- Compiling architecture specification of carry_select_adder
+# End time: 18:16:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/sparse_tree_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sparse_tree_adder
+# -- Compiling architecture specification of sparse_tree_adder
+# End time: 18:16:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/zero_comparator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity zero_comparator
+# -- Compiling architecture Behavioral of zero_comparator
+# End time: 18:16:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter
+# -- Compiling architecture structural of shifter
+# End time: 18:16:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shift.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift
+# -- Compiling architecture behavioral of shift
+# End time: 18:16:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter_wrapper
+# -- Compiling architecture behavioral of shifter_wrapper
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/logic_op_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity logic_op_unit
+# -- Compiling architecture logic_op_unit_arc of Logic_op_unit
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/adder_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder_wrapper
+# -- Compiling architecture Behavioral of adder_wrapper
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU_decoder
+# -- Compiling architecture ALU_decoder_beh of ALU_decoder
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/boothmul.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity boothmul
+# -- Compiling architecture structural of boothmul
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mul_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mul_wrapper
+# -- Compiling architecture specification of mul_wrapper
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU
+# -- Compiling architecture Specification of ALU
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/execute_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity execute_stage_wrapper
+# -- Compiling architecture Behavioral of execute_stage_wrapper
+# End time: 18:16:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/data_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity data_ram
+# -- Compiling architecture Behavioral of data_ram
+# End time: 18:16:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/memory_unit_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity memory_unit
+# -- Compiling architecture Structural of memory_unit
+# End time: 18:16:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Writeback/writeback_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity writeback_unit
+# -- Compiling architecture Structural of writeback_unit
+# End time: 18:16:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/DataPath_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity DataPath_wrapper
+# -- Compiling architecture Behavioral of DataPath_wrapper
+# End time: 18:16:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/myTypes.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package myTypes
+# End time: 18:16:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_HW.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package myTypes
+# -- Compiling entity cu
+# -- Compiling architecture dlx_cu of cu
+# End time: 18:16:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Compiling entity CU_wrapper
+# -- Compiling architecture Behavioral of CU_wrapper
+# End time: 18:16:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./HazardUnit/hazard_detection_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity hazard_detection_unit
+# -- Compiling architecture behavioral of hazard_detection_unit
+# End time: 18:16:15 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:16:15 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DLX
+# -- Compiling architecture Behavioral of DLX
+# End time: 18:16:15 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work ./TB/TB_DLX.vhd
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:17:00 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./TB/TB_DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package myTypes
+# -- Compiling entity TB_DLX
+# -- Compiling architecture behavioral of TB_DLX
+# End time: 18:17:01 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+
+#Simulation
+vsim -gui work.tb_dlx(behavioral) -t ps
+# vsim -gui work.tb_dlx(behavioral) -t ps 
+# Start time: 18:17:01 on Oct 20,2021
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.mytypes
+# Loading work.tb_dlx(behavioral)#1
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.dlx(behavioral)#1
+# Loading ieee.math_real(body)
+# Loading work.datapath_wrapper(behavioral)#1
+# Loading work.adder_genericu(behavioral)#1
+# Loading work.alu(specification)#1
+# Loading work.sparse_tree_adder(specification)#1
+# Loading work.g_block(specification)#1
+# Loading work.pg_block(specification)#1
+# Loading work.ripple_carry_adder(rca_arc)#1
+# Loading work.boothmul(structural)#1
+# Loading work.rca_signed(structural)#1
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/CarryOut has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/overflow has no driver.
+# This port will contribute value (U) to the signal network.
+add wave *
+run 1000 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/dram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/iram
+# ** Warning: (vsim-7) Failed to open VHDL file "C:\vivado_designs\dlx_datapath_test\iram.txt" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Instance: /tb_dlx/DUT/iram
+# ** Fatal: (vsim-7) Failed to open VHDL file "C:\vivado_designs\dlx_datapath_test\iram.txt" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Process: /tb_dlx/DUT/iram/fill_mem_p File: ./DataPath/Fetch/instruction_ram.vhd
+# Fatal error in Process fill_mem_p at ./DataPath/Fetch/instruction_ram.vhd line 36
+# 
+# HDL call sequence:
+# Stopped at ./DataPath/Fetch/instruction_ram.vhd 36 Process fill_mem_p
+# 
+source Simulation/sim.tcl
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:06 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/register_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity register_generic
+# -- Compiling architecture Behavioral of register_generic
+# End time: 18:18:06 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:06 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/adder_genericu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_genericu
+# -- Compiling architecture Behavioral of adder_genericu
+# End time: 18:18:06 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:06 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/instruction_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Compiling entity instruction_ram
+# -- Compiling architecture Behavioral of instruction_ram
+# End time: 18:18:06 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:06 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/fetch_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetch_stage_wrapper
+# -- Compiling architecture structural of fetch_stage_wrapper
+# End time: 18:18:06 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:06 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/or_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OR_GATE
+# -- Compiling architecture DF of OR_GATE
+# End time: 18:18:06 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:06 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/window_rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity window_rf
+# -- Compiling architecture Behavioral of window_rf
+# End time: 18:18:07 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/sign_ext.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sign_ext
+# -- Compiling architecture Behavioral of sign_ext
+# End time: 18:18:07 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/adder_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_generic
+# -- Compiling architecture Behavioral of adder_generic
+# End time: 18:18:07 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/comparator_addr.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity comparator_addr
+# -- Compiling architecture Behavioral of comparator_addr
+# End time: 18:18:07 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/Decode_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Decode_wrapper
+# -- Compiling architecture Behavioral of Decode_wrapper
+# End time: 18:18:07 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/xor2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xor2
+# -- Compiling architecture Behavioral of xor2
+# End time: 18:18:07 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/or2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity or2
+# -- Compiling architecture Behavioral of or2
+# End time: 18:18:07 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/and2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity and2
+# -- Compiling architecture Behavioral of and2
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/vp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity vp
+# -- Compiling architecture behavioral of vp
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/half_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity half_adder
+# -- Compiling architecture Structural of half_adder
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/fa.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fa
+# -- Compiling architecture Structural of fa
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/full_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity full_adder
+# -- Compiling architecture full_adder_arc of full_adder
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block
+# -- Compiling architecture specification of g_block
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_block
+# -- Compiling architecture specification of pg_block
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block_carry.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block_carry
+# -- Compiling architecture specification of g_block_carry
+# End time: 18:18:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX21.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX21
+# -- Compiling architecture beh of MUX21
+# End time: 18:18:09 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mux31.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux31
+# -- Compiling architecture Behavioral of mux31
+# End time: 18:18:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX41.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX41
+# -- Compiling architecture beh of MUX41
+# End time: 18:18:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX81.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX81
+# -- Compiling architecture beh of MUX81
+# End time: 18:18:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_net.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_network
+# -- Compiling architecture specification of pg_network
+# End time: 18:18:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ripple_carry_adder
+# -- Compiling architecture rca_arc of ripple_carry_adder
+# End time: 18:18:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca_signed.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rca_signed
+# -- Compiling architecture Structural of rca_signed
+# End time: 18:18:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sparse_tree_carry_generator
+# -- Compiling architecture specification of sparse_tree_carry_generator
+# End time: 18:18:10 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_select_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity carry_select_adder
+# -- Compiling architecture specification of carry_select_adder
+# End time: 18:18:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/sparse_tree_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sparse_tree_adder
+# -- Compiling architecture specification of sparse_tree_adder
+# End time: 18:18:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/zero_comparator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity zero_comparator
+# -- Compiling architecture Behavioral of zero_comparator
+# End time: 18:18:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter
+# -- Compiling architecture structural of shifter
+# End time: 18:18:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shift.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift
+# -- Compiling architecture behavioral of shift
+# End time: 18:18:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter_wrapper
+# -- Compiling architecture behavioral of shifter_wrapper
+# End time: 18:18:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/logic_op_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity logic_op_unit
+# -- Compiling architecture logic_op_unit_arc of Logic_op_unit
+# End time: 18:18:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/adder_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder_wrapper
+# -- Compiling architecture Behavioral of adder_wrapper
+# End time: 18:18:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU_decoder
+# -- Compiling architecture ALU_decoder_beh of ALU_decoder
+# End time: 18:18:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/boothmul.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity boothmul
+# -- Compiling architecture structural of boothmul
+# End time: 18:18:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mul_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mul_wrapper
+# -- Compiling architecture specification of mul_wrapper
+# End time: 18:18:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU
+# -- Compiling architecture Specification of ALU
+# End time: 18:18:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/execute_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity execute_stage_wrapper
+# -- Compiling architecture Behavioral of execute_stage_wrapper
+# End time: 18:18:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/data_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity data_ram
+# -- Compiling architecture Behavioral of data_ram
+# End time: 18:18:12 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/memory_unit_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity memory_unit
+# -- Compiling architecture Structural of memory_unit
+# End time: 18:18:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Writeback/writeback_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity writeback_unit
+# -- Compiling architecture Structural of writeback_unit
+# End time: 18:18:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/DataPath_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity DataPath_wrapper
+# -- Compiling architecture Behavioral of DataPath_wrapper
+# End time: 18:18:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/myTypes.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package myTypes
+# End time: 18:18:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_HW.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package myTypes
+# -- Compiling entity cu
+# -- Compiling architecture dlx_cu of cu
+# End time: 18:18:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Compiling entity CU_wrapper
+# -- Compiling architecture Behavioral of CU_wrapper
+# End time: 18:18:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./HazardUnit/hazard_detection_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity hazard_detection_unit
+# -- Compiling architecture behavioral of hazard_detection_unit
+# End time: 18:18:13 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DLX
+# -- Compiling architecture Behavioral of DLX
+# End time: 18:18:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:18:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./TB/TB_DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package myTypes
+# -- Compiling entity TB_DLX
+# -- Compiling architecture behavioral of TB_DLX
+# End time: 18:18:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:18:14 on Oct 20,2021, Elapsed time: 0:01:13
+# Errors: 2, Warnings: 12
+# vsim -gui work.tb_dlx(behavioral) -t ps 
+# Start time: 18:18:14 on Oct 20,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.mytypes
+# Loading work.tb_dlx(behavioral)#1
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.dlx(behavioral)#1
+# Loading ieee.math_real(body)
+# Loading work.datapath_wrapper(behavioral)#1
+# Loading work.adder_genericu(behavioral)#1
+# Loading work.alu(specification)#1
+# Loading work.sparse_tree_adder(specification)#1
+# Loading work.g_block(specification)#1
+# Loading work.pg_block(specification)#1
+# Loading work.ripple_carry_adder(rca_arc)#1
+# Loading work.boothmul(structural)#1
+# Loading work.rca_signed(structural)#1
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/CarryOut has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/overflow has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/dram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/iram
+# ** Warning: (vsim-7) Failed to open VHDL file "../../iram.txt" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Instance: /tb_dlx/DUT/iram
+# ** Fatal: (vsim-7) Failed to open VHDL file "../../iram.txt" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Process: /tb_dlx/DUT/iram/fill_mem_p File: ./DataPath/Fetch/instruction_ram.vhd
+# Fatal error in Process fill_mem_p at ./DataPath/Fetch/instruction_ram.vhd line 36
+# 
+# HDL call sequence:
+# Stopped at ./DataPath/Fetch/instruction_ram.vhd 36 Process fill_mem_p
+# 
+source Simulation/sim.tcl
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:42 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/register_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity register_generic
+# -- Compiling architecture Behavioral of register_generic
+# End time: 18:19:42 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:42 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/adder_genericu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_genericu
+# -- Compiling architecture Behavioral of adder_genericu
+# End time: 18:19:42 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:42 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/instruction_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Compiling entity instruction_ram
+# -- Compiling architecture Behavioral of instruction_ram
+# End time: 18:19:42 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:42 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/fetch_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetch_stage_wrapper
+# -- Compiling architecture structural of fetch_stage_wrapper
+# End time: 18:19:42 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:42 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/or_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OR_GATE
+# -- Compiling architecture DF of OR_GATE
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:43 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/window_rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity window_rf
+# -- Compiling architecture Behavioral of window_rf
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:43 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/sign_ext.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sign_ext
+# -- Compiling architecture Behavioral of sign_ext
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:43 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/adder_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_generic
+# -- Compiling architecture Behavioral of adder_generic
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:43 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/comparator_addr.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity comparator_addr
+# -- Compiling architecture Behavioral of comparator_addr
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:43 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/Decode_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Decode_wrapper
+# -- Compiling architecture Behavioral of Decode_wrapper
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:43 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/xor2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xor2
+# -- Compiling architecture Behavioral of xor2
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:43 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/or2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity or2
+# -- Compiling architecture Behavioral of or2
+# End time: 18:19:43 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/and2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity and2
+# -- Compiling architecture Behavioral of and2
+# End time: 18:19:44 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/vp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity vp
+# -- Compiling architecture behavioral of vp
+# End time: 18:19:44 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/half_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity half_adder
+# -- Compiling architecture Structural of half_adder
+# End time: 18:19:44 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/fa.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fa
+# -- Compiling architecture Structural of fa
+# End time: 18:19:44 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/full_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity full_adder
+# -- Compiling architecture full_adder_arc of full_adder
+# End time: 18:19:44 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block
+# -- Compiling architecture specification of g_block
+# End time: 18:19:44 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_block
+# -- Compiling architecture specification of pg_block
+# End time: 18:19:44 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:44 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block_carry.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block_carry
+# -- Compiling architecture specification of g_block_carry
+# End time: 18:19:45 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:45 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX21.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX21
+# -- Compiling architecture beh of MUX21
+# End time: 18:19:45 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:45 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mux31.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux31
+# -- Compiling architecture Behavioral of mux31
+# End time: 18:19:45 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:45 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX41.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX41
+# -- Compiling architecture beh of MUX41
+# End time: 18:19:45 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:45 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX81.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX81
+# -- Compiling architecture beh of MUX81
+# End time: 18:19:45 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:45 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_net.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_network
+# -- Compiling architecture specification of pg_network
+# End time: 18:19:45 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:45 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ripple_carry_adder
+# -- Compiling architecture rca_arc of ripple_carry_adder
+# End time: 18:19:45 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:45 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca_signed.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rca_signed
+# -- Compiling architecture Structural of rca_signed
+# End time: 18:19:46 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:46 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sparse_tree_carry_generator
+# -- Compiling architecture specification of sparse_tree_carry_generator
+# End time: 18:19:46 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:46 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_select_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity carry_select_adder
+# -- Compiling architecture specification of carry_select_adder
+# End time: 18:19:46 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:46 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/sparse_tree_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sparse_tree_adder
+# -- Compiling architecture specification of sparse_tree_adder
+# End time: 18:19:46 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:46 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/zero_comparator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity zero_comparator
+# -- Compiling architecture Behavioral of zero_comparator
+# End time: 18:19:46 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:46 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter
+# -- Compiling architecture structural of shifter
+# End time: 18:19:46 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:46 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shift.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift
+# -- Compiling architecture behavioral of shift
+# End time: 18:19:46 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:46 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter_wrapper
+# -- Compiling architecture behavioral of shifter_wrapper
+# End time: 18:19:47 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:47 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/logic_op_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity logic_op_unit
+# -- Compiling architecture logic_op_unit_arc of Logic_op_unit
+# End time: 18:19:47 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:47 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/adder_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder_wrapper
+# -- Compiling architecture Behavioral of adder_wrapper
+# End time: 18:19:47 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:47 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU_decoder
+# -- Compiling architecture ALU_decoder_beh of ALU_decoder
+# End time: 18:19:47 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:47 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/boothmul.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity boothmul
+# -- Compiling architecture structural of boothmul
+# End time: 18:19:47 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:47 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mul_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mul_wrapper
+# -- Compiling architecture specification of mul_wrapper
+# End time: 18:19:47 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:47 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU
+# -- Compiling architecture Specification of ALU
+# End time: 18:19:47 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:47 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/execute_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity execute_stage_wrapper
+# -- Compiling architecture Behavioral of execute_stage_wrapper
+# End time: 18:19:48 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:48 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/data_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity data_ram
+# -- Compiling architecture Behavioral of data_ram
+# End time: 18:19:48 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:48 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/memory_unit_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity memory_unit
+# -- Compiling architecture Structural of memory_unit
+# End time: 18:19:48 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:48 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Writeback/writeback_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity writeback_unit
+# -- Compiling architecture Structural of writeback_unit
+# End time: 18:19:48 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:48 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/DataPath_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity DataPath_wrapper
+# -- Compiling architecture Behavioral of DataPath_wrapper
+# End time: 18:19:48 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:48 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/myTypes.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package myTypes
+# End time: 18:19:48 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:48 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_HW.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package myTypes
+# -- Compiling entity cu
+# -- Compiling architecture dlx_cu of cu
+# End time: 18:19:48 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:49 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Compiling entity CU_wrapper
+# -- Compiling architecture Behavioral of CU_wrapper
+# End time: 18:19:49 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:49 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./HazardUnit/hazard_detection_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity hazard_detection_unit
+# -- Compiling architecture behavioral of hazard_detection_unit
+# End time: 18:19:49 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:49 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DLX
+# -- Compiling architecture Behavioral of DLX
+# End time: 18:19:49 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:19:49 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./TB/TB_DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package myTypes
+# -- Compiling entity TB_DLX
+# -- Compiling architecture behavioral of TB_DLX
+# End time: 18:19:49 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:19:50 on Oct 20,2021, Elapsed time: 0:01:36
+# Errors: 2, Warnings: 12
+# vsim -gui work.tb_dlx(behavioral) -t ps 
+# Start time: 18:19:50 on Oct 20,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.mytypes
+# Loading work.tb_dlx(behavioral)#1
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.dlx(behavioral)#1
+# Loading ieee.math_real(body)
+# Loading work.datapath_wrapper(behavioral)#1
+# Loading work.adder_genericu(behavioral)#1
+# Loading work.alu(specification)#1
+# Loading work.sparse_tree_adder(specification)#1
+# Loading work.g_block(specification)#1
+# Loading work.pg_block(specification)#1
+# Loading work.ripple_carry_adder(rca_arc)#1
+# Loading work.boothmul(structural)#1
+# Loading work.rca_signed(structural)#1
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/CarryOut has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/overflow has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/dram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/iram
+# ** Warning: (vsim-7) Failed to open VHDL file "../../Simulation/iram.txt" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Instance: /tb_dlx/DUT/iram
+# ** Fatal: (vsim-7) Failed to open VHDL file "../../Simulation/iram.txt" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Process: /tb_dlx/DUT/iram/fill_mem_p File: ./DataPath/Fetch/instruction_ram.vhd
+# Fatal error in Process fill_mem_p at ./DataPath/Fetch/instruction_ram.vhd line 36
+# 
+# HDL call sequence:
+# Stopped at ./DataPath/Fetch/instruction_ram.vhd 36 Process fill_mem_p
+# 
+source Simulation/sim.tcl
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:07 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/register_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity register_generic
+# -- Compiling architecture Behavioral of register_generic
+# End time: 18:21:08 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/adder_genericu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_genericu
+# -- Compiling architecture Behavioral of adder_genericu
+# End time: 18:21:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/instruction_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Compiling entity instruction_ram
+# -- Compiling architecture Behavioral of instruction_ram
+# End time: 18:21:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Fetch/fetch_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetch_stage_wrapper
+# -- Compiling architecture structural of fetch_stage_wrapper
+# End time: 18:21:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/or_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OR_GATE
+# -- Compiling architecture DF of OR_GATE
+# End time: 18:21:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/window_rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity window_rf
+# -- Compiling architecture Behavioral of window_rf
+# End time: 18:21:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:08 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/sign_ext.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sign_ext
+# -- Compiling architecture Behavioral of sign_ext
+# End time: 18:21:08 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/adder_generic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity adder_generic
+# -- Compiling architecture Behavioral of adder_generic
+# End time: 18:21:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/comparator_addr.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity comparator_addr
+# -- Compiling architecture Behavioral of comparator_addr
+# End time: 18:21:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Decode/Decode_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Decode_wrapper
+# -- Compiling architecture Behavioral of Decode_wrapper
+# End time: 18:21:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/xor2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xor2
+# -- Compiling architecture Behavioral of xor2
+# End time: 18:21:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/or2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity or2
+# -- Compiling architecture Behavioral of or2
+# End time: 18:21:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/and2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity and2
+# -- Compiling architecture Behavioral of and2
+# End time: 18:21:09 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:09 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/vp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity vp
+# -- Compiling architecture behavioral of vp
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/half_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity half_adder
+# -- Compiling architecture Structural of half_adder
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/fa.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fa
+# -- Compiling architecture Structural of fa
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/full_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity full_adder
+# -- Compiling architecture full_adder_arc of full_adder
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block
+# -- Compiling architecture specification of g_block
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_block
+# -- Compiling architecture specification of pg_block
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/g_block_carry.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity g_block_carry
+# -- Compiling architecture specification of g_block_carry
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX21.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX21
+# -- Compiling architecture beh of MUX21
+# End time: 18:21:10 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:10 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mux31.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux31
+# -- Compiling architecture Behavioral of mux31
+# End time: 18:21:11 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX41.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX41
+# -- Compiling architecture beh of MUX41
+# End time: 18:21:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/MUX81.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX81
+# -- Compiling architecture beh of MUX81
+# End time: 18:21:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/pg_net.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pg_network
+# -- Compiling architecture specification of pg_network
+# End time: 18:21:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ripple_carry_adder
+# -- Compiling architecture rca_arc of ripple_carry_adder
+# End time: 18:21:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/rca_signed.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rca_signed
+# -- Compiling architecture Structural of rca_signed
+# End time: 18:21:11 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:11 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sparse_tree_carry_generator
+# -- Compiling architecture specification of sparse_tree_carry_generator
+# End time: 18:21:12 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/carry_select_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package MATH_REAL
+# -- Loading package NUMERIC_STD
+# -- Compiling entity carry_select_adder
+# -- Compiling architecture specification of carry_select_adder
+# End time: 18:21:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/sparse_tree_adder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sparse_tree_adder
+# -- Compiling architecture specification of sparse_tree_adder
+# End time: 18:21:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/zero_comparator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity zero_comparator
+# -- Compiling architecture Behavioral of zero_comparator
+# End time: 18:21:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter
+# -- Compiling architecture structural of shifter
+# End time: 18:21:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shift.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift
+# -- Compiling architecture behavioral of shift
+# End time: 18:21:12 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:12 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/shifter_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shifter_wrapper
+# -- Compiling architecture behavioral of shifter_wrapper
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/logic_op_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity logic_op_unit
+# -- Compiling architecture logic_op_unit_arc of Logic_op_unit
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/adder_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder_wrapper
+# -- Compiling architecture Behavioral of adder_wrapper
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU_decoder
+# -- Compiling architecture ALU_decoder_beh of ALU_decoder
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/boothmul.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity boothmul
+# -- Compiling architecture structural of boothmul
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/mul_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mul_wrapper
+# -- Compiling architecture specification of mul_wrapper
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/ALU.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ALU
+# -- Compiling architecture Specification of ALU
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:13 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Execute_wrapper/execute_stage_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity execute_stage_wrapper
+# -- Compiling architecture Behavioral of execute_stage_wrapper
+# End time: 18:21:13 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/data_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity data_ram
+# -- Compiling architecture Behavioral of data_ram
+# End time: 18:21:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Memory/memory_unit_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity memory_unit
+# -- Compiling architecture Structural of memory_unit
+# End time: 18:21:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/Writeback/writeback_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity writeback_unit
+# -- Compiling architecture Structural of writeback_unit
+# End time: 18:21:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DataPath/DataPath_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity DataPath_wrapper
+# -- Compiling architecture Behavioral of DataPath_wrapper
+# End time: 18:21:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/myTypes.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package myTypes
+# End time: 18:21:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_HW.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package myTypes
+# -- Compiling entity cu
+# -- Compiling architecture dlx_cu of cu
+# End time: 18:21:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:14 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./ControlUnit/CU_wrapper/CU_wrapper.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Compiling entity CU_wrapper
+# -- Compiling architecture Behavioral of CU_wrapper
+# End time: 18:21:14 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:15 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./HazardUnit/hazard_detection_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity hazard_detection_unit
+# -- Compiling architecture behavioral of hazard_detection_unit
+# End time: 18:21:15 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:15 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package myTypes
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DLX
+# -- Compiling architecture Behavioral of DLX
+# End time: 18:21:15 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# Start time: 18:21:15 on Oct 20,2021
+# vcom -reportprogress 300 -work work ./TB/TB_DLX.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package myTypes
+# -- Compiling entity TB_DLX
+# -- Compiling architecture behavioral of TB_DLX
+# End time: 18:21:15 on Oct 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:21:16 on Oct 20,2021, Elapsed time: 0:01:26
+# Errors: 2, Warnings: 12
+# vsim -gui work.tb_dlx(behavioral) -t ps 
+# Start time: 18:21:16 on Oct 20,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.mytypes
+# Loading work.tb_dlx(behavioral)#1
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.dlx(behavioral)#1
+# Loading ieee.math_real(body)
+# Loading work.datapath_wrapper(behavioral)#1
+# Loading work.adder_genericu(behavioral)#1
+# Loading work.alu(specification)#1
+# Loading work.sparse_tree_adder(specification)#1
+# Loading work.g_block(specification)#1
+# Loading work.pg_block(specification)#1
+# Loading work.ripple_carry_adder(rca_arc)#1
+# Loading work.boothmul(structural)#1
+# Loading work.rca_signed(structural)#1
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/CarryOut has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_dlx/DUT/DataPath/execute_stage/ALUcomp/overflow has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/DataPath/decode_stage/RF
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/Control_unit/Control
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/dram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_dlx/DUT/iram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_dlx/DUT/iram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_dlx/DUT/dram
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /tb_dlx/DUT/DataPath/decode_stage/Comparator
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 15 ns  Iteration: 4  Instance: /tb_dlx/DUT/DataPath/decode_stage/Comparator
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 45 ns  Iteration: 4  Instance: /tb_dlx/DUT/DataPath/decode_stage/Comparator
+# End time: 18:21:40 on Oct 20,2021, Elapsed time: 0:00:24
+# Errors: 0, Warnings: 16
